@@ -342,6 +342,10 @@
   text-align: center !important;
 }
 
+.template-product .block-swatch__item .block-swatch__item-text {
+  font-weight: normal !important;
+}
+
 .template-product .block-swatch__item:hover {
   background: #f8fafc !important;
   border-color: var(--accent-color) !important;
