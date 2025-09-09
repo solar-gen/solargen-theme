@@ -348,11 +348,15 @@
 }
 
 .template-product .block-swatch__item.is-selected,
-.template-product .block-swatch__item[aria-checked="true"],
-.template-product input[type="radio"]:checked + .block-swatch__item {
+.template-product .block-swatch__item[aria-checked="true"] {
   background: var(--accent-color) !important;
   color: #ffffff !important;
   border-color: var(--accent-color) !important;
+  font-weight: 600 !important;
+}
+
+.template-product .block-swatch__item.is-selected .block-swatch__item-text,
+.template-product .block-swatch__item[aria-checked="true"] .block-swatch__item-text {
   font-weight: 600 !important;
 }
 
@@ -372,18 +376,13 @@
 }
 
 /* Verstecke die ausgewählte Variante über den Blöcken */
-.template-product .product-form__option-name .product-form__selected-value,
-.template-product .variant-selector .selected-value,
-.template-product .product-option .selected-value,
-.template-product .product-form__option .selected-value {
+.template-product .product-form__option-name .product-form__selected-value {
   display: none !important;
 }
 
-/* Größere Schrift für Varianten-Labels */
-.template-product .product-form__option-name,
-.template-product .variant-selector .option-name,
-.template-product .product-option .option-name,
-.template-product .product-form__option .option-name {
-  font-size: 16px !important;
-  font-weight: 600 !important;
+/* Varianten-Labels wie Standard-Theme-Schrift */
+.template-product .product-form__option-name {
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  color: inherit !important;
 }
