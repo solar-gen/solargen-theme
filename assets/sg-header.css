@@ -353,6 +353,7 @@
   background: var(--accent-color) !important;
   color: #ffffff !important;
   border-color: var(--accent-color) !important;
+  font-weight: 600 !important;
 }
 
 .template-product .block-swatch__item.is-disabled,
@@ -376,4 +377,13 @@
 .template-product .product-option .selected-value,
 .template-product .product-form__option .selected-value {
   display: none !important;
+}
+
+/* Größere Schrift für Varianten-Labels */
+.template-product .product-form__option-name,
+.template-product .variant-selector .option-name,
+.template-product .product-option .option-name,
+.template-product .product-form__option .option-name {
+  font-size: 16px !important;
+  font-weight: 600 !important;
 }
