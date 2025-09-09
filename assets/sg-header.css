@@ -326,11 +326,11 @@
 /* ===== BLOCK-VARIANTEN STYLING ===== */
 .template-product .block-swatch__item {
   background: #ffffff !important;
-  border: 1px solid var(--color-accent) !important;
-  color: #000000 !important;
-  border-radius: 0px !important;
+  border: 1px solid var(--accent-color) !important;
+  color: #111111 !important;
+  border-radius: 6px !important;
   padding: 12px 16px !important;
-  font-weight: normal !important;
+  font-weight: 600 !important;
   font-size: 16px !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
@@ -344,15 +344,15 @@
 
 .template-product .block-swatch__item:hover {
   background: #f8fafc !important;
-  border-color: var(--color-accent) !important;
+  border-color: var(--accent-color) !important;
 }
 
 .template-product .block-swatch__item.is-selected,
 .template-product .block-swatch__item[aria-checked="true"],
 .template-product input[type="radio"]:checked + .block-swatch__item {
-  background: var(--color-accent) !important;
+  background: var(--accent-color) !important;
   color: #ffffff !important;
-  border-color: var(--color-accent) !important;
+  border-color: var(--accent-color) !important;
 }
 
 .template-product .block-swatch__item.is-disabled,
