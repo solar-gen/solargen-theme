@@ -326,7 +326,7 @@
 /* ===== BLOCK-VARIANTEN STYLING ===== */
 .template-product .block-swatch__item {
   background: #ffffff !important;
-  border: 1px solid #dddddd !important;
+  border: 2px solid #dddddd !important;
   color: #111111 !important;
   border-radius: 4px !important;
   padding: 8px 16px !important;
