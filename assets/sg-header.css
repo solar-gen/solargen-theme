@@ -326,11 +326,11 @@
 /* ===== BLOCK-VARIANTEN STYLING ===== */
 .template-product .block-swatch__item {
   background: #ffffff !important;
-  border: 2px solid var(--sg-accent) !important;
+  border: 1px solid var(--color-accent) !important;
   color: #111111 !important;
   border-radius: 6px !important;
   padding: 12px 16px !important;
-  font-weight: 600 !important;
+  font-weight: normal !important;
   font-size: 16px !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
@@ -344,15 +344,15 @@
 
 .template-product .block-swatch__item:hover {
   background: #f8fafc !important;
-  border-color: var(--sg-accent-hover) !important;
+  border-color: var(--color-accent) !important;
 }
 
 .template-product .block-swatch__item.is-selected,
 .template-product .block-swatch__item[aria-checked="true"],
 .template-product input[type="radio"]:checked + .block-swatch__item {
-  background: var(--sg-accent) !important;
+  background: var(--color-accent) !important;
   color: #ffffff !important;
-  border-color: var(--sg-accent) !important;
+  border-color: var(--color-accent) !important;
 }
 
 .template-product .block-swatch__item.is-disabled,
