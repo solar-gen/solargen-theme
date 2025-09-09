@@ -1,0 +1,91 @@
+{% comment %}
+  Produktseite – Vertrauens- & Experten‑Support Section
+  Theme: Warehouse (Shopify OS 2.0 kompatibel)
+{% endcomment %}
+
+<section class="sg-trust-section color-{{ section.settings.color_scheme }}">
+  <div class="page-width container">
+    <div class="sg-trust__inner">
+      <header class="sg-trust__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="sg-trust__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="sg-trust__subtitle">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </header>
+
+      <div class="sg-trust__list">
+        {%- for block in section.blocks -%}
+          <div class="sg-trust__item" {{ block.shopify_attributes }}>
+            <div class="sg-trust__icon" aria-hidden="true">★</div>
+            <div class="sg-trust__content">
+              {%- if block.settings.title != blank -%}
+                <h3 class="sg-trust__item-title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <p class="sg-trust__item-text">{{ block.settings.text }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="sg-trust__actions">
+        <a class="sg-btn sg-btn--primary" href="tel:{{ section.settings.phone }}">
+          {{ section.settings.call_label }}
+        </a>
+        <a class="sg-btn sg-btn--ghost" href="{{ section.settings.contact_url }}">
+          {{ section.settings.contact_label }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sg-trust-section { padding: 24px 0; }
+  .sg-trust__list { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); }
+  .sg-trust__item { display: flex; gap: 8px; align-items: flex-start; border: 1px solid rgba(0,0,0,.08); padding: 12px; border-radius: 8px; }
+  .sg-btn { padding: 10px 14px; border-radius: 999px; text-decoration: none; border: 1px solid currentColor; }
+  .sg-btn--primary { background: var(--color-accent, #0e1c4f); color: #fff; border-color: transparent; }
+</style>
+
+{% schema %}
+{
+  "name": "Trust & Experten",
+  "tag": "section",
+  "class": "section",
+  "templates": ["product"],
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Warum bei SolarGen kaufen?" },
+    { "type": "textarea", "id": "subheading", "label": "Unterzeile", "default": "Bei uns beraten echte Solar-Fachexperten und helfen dir bei offenen Fragen." },
+    { "type": "checkbox", "id": "show_call", "label": "CTA: Telefon anzeigen", "default": true },
+    { "type": "text", "id": "call_label", "label": "CTA: Telefon – Text", "default": "Jetzt anrufen" },
+    { "type": "text", "id": "phone", "label": "Telefonnummer (tel:)", "default": "+4963325004530" },
+    { "type": "text", "id": "contact_label", "label": "CTA: Kontakt – Text", "default": "Kontakt aufnehmen" },
+    { "type": "text", "id": "contact_url", "label": "Kontakt-URL", "default": "https://www.solar-gen.de/pages/contact" }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "Argument",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titel", "default": "Support durch Solar-Fachberater" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Unsere Experten begleiten dich vor und nach dem Kauf – lösungsorientiert und schnell erreichbar." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust & Experten",
+      "category": "Produktseite",
+      "blocks": [
+        { "type": "reason" },
+        { "type": "reason" }
+      ]
+    }
+  ]
+}
+{% endschema %}

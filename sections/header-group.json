@@ -1,0 +1,59 @@
+{
+    "type": "header",
+    "name": "Header group",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "background": "#005BD3",
+          "text_color": "#ffffff",
+          "text": "🔥 Sommer-Schlussverkauf – Bis zu 20 % Rabatt auf ausgewählte Produkte!",
+          "text_position": "center",
+          "link": "",
+          "show_newsletter": false,
+          "newsletter_button": "Subscribe & Save",
+          "newsletter_title": "Newsletter",
+          "newsletter_content": "<p>Subscribe to get notified about product launches, special offers and news<\/p>"
+        }
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "mega_menu_EcBFPE": {
+            "type": "mega_menu",
+            "settings": {
+              "menu_item": "Balkonkraftwerk",
+              "image_1_heading": "Your image",
+              "image_1_text": "Tell your story",
+              "image_1_link": "",
+              "image_2_heading": "Your image",
+              "image_2_text": "Tell your story",
+              "image_2_link": ""
+            }
+          }
+        },
+        "block_order": ["mega_menu_EcBFPE"],
+        "settings": {
+          "enable_sticky_header": true,
+          "logo": "shopify:\/\/shop_images\/Green_Black_Modern_Letter_S_Logo_Design_d840a5f0-a4bb-43d0-a692-2a7072f57366.png",
+          "logo_max_width": 170,
+          "mobile_logo_max_width": 130,
+          "show_locale_selector": false,
+          "show_country_selector": false,
+          "navigation_menu": "main-menu",
+          "navigation_mobile_menu": "",
+          "desktop_navigation_layout": "inline",
+          "desktop_navigation_open_trigger": "hover",
+          "show_navigation_social_media": true,
+          "navigation_phone_number": "Ruf uns gerne an: 06332 5004530",
+          "navigation_email": "info@solar-gen.de",
+          "show_condensed_search": true,
+          "show_search_filter": true,
+          "search_menu": "",
+          "show_search_menu_title": true
+        }
+      }
+    },
+    "order": ["announcement-bar", "header"]
+  }
+  

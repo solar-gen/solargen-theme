@@ -1,0 +1,324 @@
+:root{
+  /* Passe die Markenfarben gern an */
+  --sg-accent: #1E40AF;          /* Blau für Icons/Links */
+  --sg-accent-hover: #15357F;
+  --sg-text: #0F172A;
+  --sg-muted: #6B7280;
+  --sg-border: #E5E7EB;
+  --sg-infobar-bg: #FFFFFF;      /* weiß wie im Design */
+}
+
+/* ===== ANNOUNCEMENT-BAR (Schwarz, minimalistisch) ===== */
+.announcement-bar {
+  background: #1F2937 !important; /* Dunkelgrau/Schwarz */
+  color: #FFFFFF !important;
+  font-weight: 600;
+}
+
+/* Text-Override falls gewünscht */
+.announcement-bar .announcement-bar__message {
+  visibility: hidden;
+  position: relative;
+}
+
+.announcement-bar .announcement-bar__message::before {
+  content: "🔥 Sommer-Schlussverkauf – Bis zu 20 % Rabatt auf ausgewählte Produkte!";
+  visibility: visible;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.announcement-bar a {
+  color: #FFFFFF !important;
+  text-decoration: underline;
+}
+
+.announcement-bar a:hover {
+  color: #F3F4F6 !important;
+}
+
+/* ===== INFOZEILE (volle Breite Hintergrund, Content zentriert) ===== */
+.sg-infobar{
+  width: 100%;
+  background: var(--sg-infobar-bg);      /* Hintergrund über volle Breite */
+  border-bottom: 1px solid var(--sg-border);
+}
+
+.sg-infobar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;              /* .container steuert die Breite, wie beim Header */
+  font-size: 14px;
+  color: var(--sg-text);
+}
+
+/* Linke Seite */
+.sg-infobar__left{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.sg-ic{
+  color: var(--sg-accent);
+  display: inline-flex;
+  align-items: center;
+  margin-right: 4px;
+}
+.sg-infobar__item{ white-space: nowrap; }
+.sg-infobar__sep{ opacity: .45; }
+
+/* Rechte Seite */
+.sg-infobar__right{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-end;
+}
+.sg-link{
+  color: var(--sg-accent);
+  text-decoration: none;
+  font-weight: 500;              /* NICHT fett */
+}
+.sg-link:hover{ color: var(--sg-accent-hover); text-decoration: underline; }
+.sg-link--primary{ font-weight: 800; }  /* nur „Angebot anfordern" fett */
+
+/* Mobile */
+@media (max-width: 1024px){
+  .sg-infobar__inner{ flex-direction: column; align-items: flex-start; gap: 6px; }
+  .sg-infobar__right{ justify-content: flex-start; gap: 12px; }
+}
+
+/* ===== HEADER KONTAKT-BEREICH (statt Account) ===== */
+.header__action-item--contact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header__contact-desktop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  text-align: left;
+  min-width: 180px;
+}
+
+.header__contact-phone {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--sg-text);
+}
+
+.header__contact-phone svg {
+  color: var(--sg-accent);
+  flex-shrink: 0;
+}
+
+.header__contact-number {
+  color: var(--sg-text);
+  font-weight: 700;
+  font-size: 16px;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+
+.header__contact-arrow-link {
+  color: var(--sg-text);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 1px;
+  transition: color 0.2s ease;
+}
+
+.header__contact-arrow-link:hover {
+  color: var(--sg-accent);
+  text-decoration: none;
+}
+
+/* Mobile Telefon-Icon */
+.header__contact-icon svg {
+  color: var(--sg-accent);
+}
+
+.header__contact-icon:hover svg {
+  color: var(--sg-accent-hover);
+}
+
+/* ===== TELEFON-KONTAKT LINKS NEBEN LOGIN ===== */
+.header__action-item--phone {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+
+.header__phone-link {
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.header__phone-link:hover {
+  text-decoration: none;
+}
+
+.header__phone-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header__phone-number {
+  color: var(--sg-text);
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.header__phone-content svg {
+  color: var(--sg-accent);
+  flex-shrink: 0;
+}
+
+.header__phone-link-text {
+  color: var(--sg-text);
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 22px;
+}
+
+.header__phone-link:hover .header__phone-number {
+  color: var(--sg-accent);
+}
+
+.header__phone-link:hover .header__phone-content svg {
+  color: var(--sg-accent-hover);
+}
+
+.header__phone-link:hover .header__phone-link-text {
+  color: var(--sg-accent);
+}
+
+/* ===== LOGIN-SYMBOL LINKS NEBEN WARENKORB ===== */
+.header__action-item--login {
+  margin-right: 0px;
+}
+
+.header__login-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  transition: all 0.2s ease;
+  color: var(--sg-text);
+  background: none;
+  border: none;
+}
+
+.header__login-icon:hover {
+  background: none;
+  color: var(--sg-accent);
+  text-decoration: none;
+}
+
+.header__login-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* ===== ENTFERNE VERTIKALE TRENNLINIEN ===== */
+.header__action-item::before,
+.header__action-item::after {
+  display: none !important;
+}
+
+.header__action-item {
+  position: relative;
+}
+
+.header__action-item:not(:last-child)::after {
+  content: none !important;
+}
+
+/* ===== KOMPAKTE ABSTÄNDE IN HEADER ACTION LIST ===== */
+.header__action-list {
+  gap: 35px !important;
+  margin-left: 35px !important;
+}
+
+.header__action-list .header__action-item {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+
+
+
+/* NAV-BAR: volle Breite in Shop-Blau, hebt die Menüpunkte stark hervor */
+/* Passe die Selektoren an dein Theme an – hier generisch .site-nav/.mega-menu gedacht */
+.site-header .site-nav,
+.site-header .main-menu,
+.site-header .header__inline-menu{
+  background:var(--sg-blue);
+  border-top:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.site-header .site-nav .list-menu__item,
+.site-header .header__inline-menu a{
+  color:#fff !important;
+  font-weight:600;
+}
+.site-header .header__inline-menu a:hover{ color:#fff; background:var(--sg-blue-hover); }
+/* Dropdowns / Mega: weißer Hintergrund mit blauer Akzentlinie */
+.site-header .mega-menu, .site-header .site-nav__dropdown{
+  border-top:3px solid var(--sg-blue); box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+/* Suche: dezente Kontur, runder Button in Blau */
+.site-header .search__input, .site-header .search input[type="search"]{
+  border:1px solid var(--sg-border); background:#fff; color:var(--sg-text);
+}
+.site-header .search__button{
+  background:var(--sg-blue); color:#fff; border:0;
+}
+.site-header .search__button:hover{ background:var(--sg-blue-hover); }
+
+/* ===== PRODUKTSEITEN PREIS-STYLING ===== */
+.template-product .product__info-container .price__label {
+  display: none !important;
+}
+
+.template-product .product__info-container .price {
+  color: #111 !important;
+  font-weight: normal !important;
+}
+
+.template-product .product__info-container .price__regular,
+.template-product .product__info-container .price-item--regular,
+.template-product .product__info-container .price__current {
+  font-size: clamp(28px, 3vw, 40px) !important;
+  font-weight: normal !important;
+  color: #111 !important;
+}
+
+.template-product .product__info-container .price__compare,
+.template-product .product__info-container .price-item--compare,
+.template-product .product__info-container del {
+  font-size: 0.65em !important;
+  color: #666 !important;
+  text-decoration: line-through !important;
+  margin-left: 12px !important;
+  display: inline !important;
+}

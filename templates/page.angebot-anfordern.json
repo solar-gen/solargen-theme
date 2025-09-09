@@ -1,0 +1,14 @@
+{
+  "name": "Angebot anfordern",
+  "sections": {
+    "main": {
+      "type": "sg-offer",
+      "settings": {
+        "headline": "Unverbindliches Angebot anfordern",
+        "subline": "Sag uns kurz, was du planst – wir melden uns zügig mit einer passenden Empfehlung.",
+        "show_consent": true
+      }
+    }
+  },
+  "order": ["main"]
+}

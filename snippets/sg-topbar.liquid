@@ -1,0 +1,26 @@
+{%- comment -%} SolarGen – Topbar, volle Breite mit klassischem Look {%- endcomment -%}
+{% capture ico_phone %}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.1 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.86.3 1.7.55 2.5a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.8.25 1.64.43 2.5.55A2 2 0 0 1 22 16.92z"/></svg>{% endcapture %}
+{% capture ico_clock %}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/></svg>{% endcapture %}
+{% capture ico_percent %}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="7.5" cy="7.5" r="2.5"></circle><circle cx="16.5" cy="16.5" r="2.5"></circle></svg>{% endcapture %}
+{% capture ico_truck %}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h5l2 3v5h-4"/><circle cx="5.5" cy="19.5" r="2.5"/><circle cx="18.5" cy="19.5" r="2.5"/></svg>{% endcapture %}
+
+<div class="sg-topbar">
+  <div class="sg-topbar__inner page-width">
+    <div class="sg-topbar__left" aria-label="Servicehinweise">
+      <span class="sg-topbar__item">{{ ico_phone }} <strong>06332&nbsp;5004530</strong></span>
+      <span class="sg-topbar__dot">•</span>
+      <span class="sg-topbar__item">{{ ico_clock }} Mo–Fr 9–16&nbsp;Uhr</span>
+      <span class="sg-topbar__dot">•</span>
+      <span class="sg-topbar__item">{{ ico_percent }} <strong>2&nbsp;% Skonto</strong> bei Vorkasse</span>
+      <span class="sg-topbar__dot">•</span>
+      <span class="sg-topbar__item">{{ ico_truck }} Versand oder Abholung</span>
+    </div>
+    <nav class="sg-topbar__right" aria-label="Toplinks">
+      <a class="sg-topbar__link sg-topbar__link--primary" href="/pages/angebot-anfordern"><strong>Angebot anfordern</strong></a>
+      <a class="sg-topbar__link" href="/pages/ueber-uns">Über uns</a>
+      <a class="sg-topbar__link" href="/blogs/news">Magazin</a>
+      <a class="sg-topbar__link" href="/pages/kontakt">Kontakt</a>
+      <a class="sg-topbar__link" href="/pages/geschaeftskunden">Geschäftskunden</a>
+    </nav>
+  </div>
+</div>

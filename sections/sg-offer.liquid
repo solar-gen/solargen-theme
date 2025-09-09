@@ -1,0 +1,128 @@
+{% comment %}
+ SolarGen – Angebotsformular (nutzt Shopify's built-in "contact" form)
+ - Versandt an die Shop-Kontaktadresse
+ - Extra Felder werden im Mail-Body mitgesendet
+{% endcomment %}
+
+<section class="sg-offer">
+  <div class="sg-offer__wrap page-width">
+    <header class="sg-offer__head">
+      <h1 class="sg-offer__title">{{ section.settings.headline | escape }}</h1>
+      {% if section.settings.subline %}<p class="sg-offer__sub">{{ section.settings.subline }}</p>{% endif %}
+    </header>
+
+    {% form 'contact', id: 'OfferForm', class: 'sg-offer__form' %}
+      {% if form.posted_successfully? %}
+        <div class="sg-offer__alert is-success" role="status">
+          ✅ Danke! Wir haben deine Anfrage erhalten und melden uns zeitnah.
+        </div>
+      {% elsif form.errors %}
+        <div class="sg-offer__alert is-error" role="alert">
+          Bitte prüfen: {{ form.errors | default_errors }}
+        </div>
+      {% endif %}
+
+      <input type="hidden" name="form_type" value="contact">
+      <input type="hidden" name="contact[tags]" value="angebot, lead">
+      <input type="hidden" name="contact[subject]" value="Angebotsanfrage über Website">
+      <!-- Honeypot -->
+      <input type="text" name="contact[company_website]" tabindex="-1" autocomplete="off" class="sg-offer__hp" aria-hidden="true">
+
+      <div class="sg-grid">
+        <!-- Kontaktdaten -->
+        <div class="sg-field">
+          <label class="sg-label" for="of-name">Vor- und Nachname *</label>
+          <input class="sg-input" id="of-name" type="text" name="contact[name]" required>
+        </div>
+        <div class="sg-field">
+          <label class="sg-label" for="of-email">E-Mail *</label>
+          <input class="sg-input" id="of-email" type="email" name="contact[email]" required>
+        </div>
+        <div class="sg-field">
+          <label class="sg-label" for="of-phone">Telefon</label>
+          <input class="sg-input" id="of-phone" type="tel" name="contact[phone]">
+        </div>
+        <div class="sg-field">
+          <label class="sg-label" for="of-firma">Firma (optional)</label>
+          <input class="sg-input" id="of-firma" type="text" name="contact[company]">
+        </div>
+
+        <!-- Projekt -->
+        <div class="sg-field sg-field--full">
+          <label class="sg-label">Interesse an</label>
+          <div class="sg-pills" role="group" aria-label="Interesse an">
+            {% assign options = "Balkonkraftwerk,Solarmodule,Wechselrichter,Speicher,Komplettsets,Unterkonstruktion,Beratung" | split: "," %}
+            {% for o in options %}
+              <label class="sg-pill">
+                <input type="checkbox" name="contact[interesse][]" value="{{ o | escape }}">
+                <span>{{ o }}</span>
+              </label>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="sg-field">
+          <label class="sg-label" for="of-standort">PLZ / Ort</label>
+          <input class="sg-input" id="of-standort" type="text" name="contact[standort]" placeholder="z. B. 66359 Bous">
+        </div>
+        <div class="sg-field">
+          <label class="sg-label" for="of-dach">Dachtyp</label>
+          <select class="sg-input" id="of-dach" name="contact[dachtyp]">
+            <option value="">Bitte wählen</option>
+            <option>Satteldach</option><option>Flachdach</option><option>Fassade/Balkon</option><option>Garage/Carport</option>
+          </select>
+        </div>
+        <div class="sg-field">
+          <label class="sg-label" for="of-leistung">Gewünschte Leistung</label>
+          <select class="sg-input" id="of-leistung" name="contact[leistung]">
+            <option value="">Bitte wählen</option>
+            <option>bis 0,8 kWp (Balkon)</option>
+            <option>1–5 kWp</option>
+            <option>5–10 kWp</option>
+            <option>10+ kWp</option>
+          </select>
+        </div>
+        <div class="sg-field">
+          <label class="sg-label" for="of-budget">Budgetrahmen</label>
+          <select class="sg-input" id="of-budget" name="contact[budget]">
+            <option value="">Keine Angabe</option>
+            <option>bis 1.000 €</option>
+            <option>1.000–3.000 €</option>
+            <option>3.000–7.000 €</option>
+            <option>über 7.000 €</option>
+          </select>
+        </div>
+
+        <div class="sg-field sg-field--full">
+          <label class="sg-label" for="of-msg">Deine Nachricht</label>
+          <textarea class="sg-input" id="of-msg" name="contact[body]" rows="6" placeholder="Beschreibe kurz dein Vorhaben (Bestand, Ausrichtung, Besonderheiten)"></textarea>
+        </div>
+
+        {% if section.settings.show_consent %}
+        <div class="sg-field sg-field--full">
+          <label class="sg-check">
+            <input type="checkbox" name="contact[consent]" required>
+            <span>Ich bin mit der Verarbeitung meiner Angaben gemäß der <a href="/policies/privacy-policy" target="_blank" rel="noopener">Datenschutzerklärung</a> einverstanden.</span>
+          </label>
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="sg-actions">
+        <button class="sg-btn" type="submit">Anfrage senden</button>
+        <p class="sg-foot">Oder ruf uns an: <strong>06332 5004530</strong> (Mo–Fr 9–16&nbsp;Uhr)</p>
+      </div>
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Angebotsformular",
+  "settings": [
+    { "type": "text", "id": "headline", "label": "Überschrift", "default": "Unverbindliches Angebot anfordern" },
+    { "type": "textarea", "id": "subline", "label": "Unterzeile", "default": "Sag uns kurz, was du planst – wir melden uns zügig mit einer passenden Empfehlung." },
+    { "type": "checkbox", "id": "show_consent", "label": "DSGVO-Einwilligung anzeigen", "default": true }
+  ]
+}
+{% endschema %}

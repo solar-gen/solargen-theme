@@ -1,0 +1,245 @@
+:root {
+  --pill-radius: 2px;
+  --pill-gap: 4px;
+  --pill-font-size: 15px;
+  --pill-font-weight: 600;
+  --pill-padding-y: 6px;
+  --pill-padding-x: 8px;
+  --pill-min-h: 36px;
+  --pill-min-w: 36px;
+  --pill-active-bg: #005BD3;
+  --pill-active-hover-bg: #004C9A;
+  --pill-active-color: #FFFFFF;
+  --pill-idle-bg: #F3F5F6;
+  --pill-idle-hover-bg: #E5E7EB;
+  --pill-idle-color: #111111;
+  --pill-idle-border: #D6D7D9;
+  --pill-disabled-opacity: .5;
+}
+
+.variant-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pill-gap);
+}
+
+.variant-legend {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.variant-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--pill-min-size);
+  min-height: var(--pill-min-size);
+  padding: var(--pill-pad-y) var(--pill-pad-x);
+  border-radius: var(--pill-radius);
+  border: 1px solid var(--pill-idle-border);
+  background: var(--pill-idle-bg);
+  color: var(--pill-idle-color);
+  font-size: var(--pill-font-size);
+  font-weight: var(--pill-font-weight);
+  line-height: 1.2;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+.variant-pill:hover,
+.variant-pill:focus-visible {
+  background: var(--pill-idle-hover-bg);
+}
+.variant-pill.is-selected,
+.variant-pill[aria-checked="true"] {
+  background: var(--pill-active-bg);
+  color: var(--pill-active-color);
+  border-color: transparent;
+}
+.variant-pill.is-selected:hover,
+.variant-pill[aria-checked="true"]:hover,
+.variant-pill.is-selected:focus-visible,
+.variant-pill[aria-checked="true"]:focus-visible {
+  background: var(--pill-active-hover-bg);
+}
+.variant-pill.is-disabled,
+.variant-pill[aria-disabled="true"] {
+  opacity: var(--pill-disabled-opacity);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .variant-pill { transition: none; }
+}
+
+/* Scoped brand styles for product variant pills (only within .product-form) */
+:root {
+  /* Ensure brand tokens exist; keep existing ones as fallback */
+  --pill-padding-y: var(--pill-pad-y, 12px);
+  --pill-padding-x: var(--pill-pad-x, 16px);
+  --pill-minwh: var(--pill-min-size, 44px);
+  --pill-active-text: var(--pill-active-color, #FFFFFF);
+  --pill-hover-active-bg: var(--pill-active-hover-bg, #004C9A);
+  --pill-hover-idle-bg: var(--pill-idle-hover-bg, #E5E7EB);
+}
+
+/* Make variant-pills more compact on product pages */
+.product-form {
+  --pill-font-size: 14px;
+  --pill-pad-y: 6px;
+  --pill-pad-x: 10px;
+  --pill-min-size: 32px;
+  /* Also override variant-tiles variables if used */
+  --tile-font-size: 14px;
+  --tile-pad-y: 6px;
+  --tile-pad-x: 10px;
+  --tile-radius: 6px;
+}
+
+.product-form .variant-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--pill-minwh);
+  min-height: var(--pill-minwh);
+  padding: var(--pill-padding-y) var(--pill-padding-x);
+  border-radius: var(--pill-radius);
+  border: 1px solid var(--pill-idle-border);
+  background: var(--pill-idle-bg);
+  color: var(--pill-idle-text);
+  font-size: var(--pill-font-size);
+  font-weight: var(--pill-font-weight);
+  line-height: 1.2;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+/* Force compact sizing when variant-tiles.css is present (loads after) */
+.product-form .variant-tiles__item.variant-pill {
+  padding: var(--pill-padding-y) var(--pill-padding-x) !important;
+  min-width: var(--pill-minwh) !important;
+  min-height: var(--pill-minwh) !important;
+  height: auto !important;
+  border-radius: var(--pill-radius) !important;
+  font-size: var(--pill-font-size) !important;
+}
+
+/* Fallback: shrink variant-tiles items even if they don't have .variant-pill */
+.product-form .variant-tiles__item {
+  padding: var(--tile-pad-y) var(--tile-pad-x) !important;
+  font-size: var(--tile-font-size) !important;
+  border-radius: var(--tile-radius) !important;
+}
+
+/* Force compact size for all pill variants (anchors and labels) */
+.product-form a.variant-pill,
+.product-form label.variant-pill {
+  padding: var(--pill-padding-y) var(--pill-padding-x) !important;
+  min-width: var(--pill-minwh) !important;
+  min-height: var(--pill-minwh) !important;
+}
+
+/* Remove extra inner padding wrappers if present */
+.product-form .variant-pill .block-swatch__item-text,
+.product-form .variant-pill .variant-swatch__item-text,
+.product-form .variant-pill .color-swatch__item-text {
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: inherit !important;
+  line-height: 1.2 !important;
+}
+
+.product-form .variant-pill:hover,
+.product-form .variant-pill:focus-visible {
+  background: var(--pill-hover-idle-bg);
+}
+
+.product-form .variant-pill.is-selected,
+.product-form .variant-pill[aria-checked="true"] {
+  background: var(--pill-active-bg);
+  color: var(--pill-active-text);
+  border-color: var(--pill-active-border);
+}
+
+.product-form .variant-pill.is-selected:hover,
+.product-form .variant-pill[aria-checked="true"]:hover,
+.product-form .variant-pill.is-selected:focus-visible,
+.product-form .variant-pill[aria-checked="true"]:focus-visible {
+  background: var(--pill-hover-active-bg);
+}
+
+.product-form .variant-pill.is-disabled,
+.product-form .variant-pill[aria-disabled="true"] {
+  opacity: var(--pill-disabled-opacity);
+  cursor: not-allowed;
+}
+
+.product-form .variant-pill:focus-visible {
+  outline: 2px solid var(--pill-active-bg);
+  outline-offset: 2px;
+}
+
+/* Layout for quantity + buy button row */
+.quantity-buy-row{display:flex;gap:12px;align-items:center;margin-top:16px;width:100%;}
+.quantity-buy-row .product-form__quantity{flex:0 0 auto; min-width: 150px;}
+.quantity-buy-row .product-form__buttons{flex:1; display:flex; min-width:0; width:100%;}
+.quantity-buy-row .product-form__buttons > *{flex:1 1 auto; width:100%; min-width:0; display:flex;}
+.quantity-buy-row .product-form__buttons buy-button{display:flex; width:100%; flex:1 1 auto;}
+.quantity-buy-row .product-form__buttons form{flex:1 1 auto; display:flex; width:100%;}
+.product-form .quantity-buy-row .buy-button > *{width:100%; flex:1 1 auto;}
+.product-form .quantity-buy-row .buy-button button{width:100% !important; flex:1 1 auto; display:block;}
+.quantity-buy-row .product-form__buttons .product-form__add-button{width:100% !important; display:block; min-height: var(--pill-minwh);} 
+.product-form .quantity-buy-row .quantity-selector{min-height: var(--pill-minwh);} 
+@media(max-width:749px){
+  /* Keep quantity and button side-by-side on mobile as requested */
+  .quantity-buy-row{flex-direction:row;align-items:center;gap:14px;}
+  .quantity-buy-row .product-form__quantity{min-width: 140px;}
+  .quantity-buy-row .product-form__buttons{flex:1;}
+  .quantity-buy-row .product-form__buttons .product-form__add-button{width:100%;}
+}
+
+/* Hide legacy price block when top price is displayed */
+.product-form .price-legacy--hidden{display:none !important;}
+
+/* Hide legacy quantity block when using quantity-buy-row */
+.product-form .quantity-legacy--hidden{display:none !important;}
+
+/* Unified radius for all UI elements */
+.product-form .quantity-selector,
+.product-form .quantity-selector__button,
+.product-form .quantity-selector__value,
+.product-form .product-form__add-button,
+.product-form .product-form__buy-button,
+.product-form .button,
+.product-form .btn,
+.product-form .badge,
+.product-form .inventory,
+.product-form .price {
+  border-radius: var(--pill-radius);
+}
+
+/* Kompakterer Lagerbestand-Balken - weniger Padding */
+.lieferzeit-hinweis {
+  padding: 2px 8px !important;
+  border-radius: var(--pill-radius) !important;
+}
+
+/* Lagerbestand + SKU in einer Zeile */
+.lieferzeit-sku-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 6px 0 12px;
+}
+
+.product-meta__sku--inline {
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+}
+
+@media (max-width: 749px) {
+  .lieferzeit-sku-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}

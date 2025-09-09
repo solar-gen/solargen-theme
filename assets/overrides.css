@@ -1,0 +1,34 @@
+/* TEMP: erzwinge kompakte Variant-Kacheln */
+.product-form .variant-tiles__list.ui-group{ gap:4px !important; }
+
+.product-form .block-swatch__item.variant-tiles__item.ui-pill.variant-pill,
+.product-form .color-swatch__item.variant-tiles__item.ui-pill.variant-pill,
+.product-form .variant-swatch__item.variant-tiles__item.ui-pill.variant-pill{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-width:36px !important;
+  min-height:36px !important;
+  padding:6px 8px !important;
+  border-radius:2px !important;
+  font-size:15px !important;
+  line-height:1.2 !important;
+  font-weight:600 !important;
+  text-align:center !important;
+}
+.product-form .variant-tiles__item > *{ padding:0 !important; }
+
+/* Extra aggressive override for block-swatch items */
+.product-form .block-swatch__item{
+  min-width:36px !important;
+  min-height:36px !important;
+  padding:6px 8px !important;
+  border-radius:2px !important;
+  font-size:15px !important;
+  line-height:1.2 !important;
+  font-weight:600 !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+}

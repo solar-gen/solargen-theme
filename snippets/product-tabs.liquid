@@ -1,0 +1,272 @@
+{%- comment -%}
+Produkt-Tabs (nur Link-basierte Downloads)
+- Beschreibung: product.description
+- Downloads:    product.metafields.custom.download_links (Liste von URLs)
+- Versand:      product.metafields.custom.shipping_group (oder custom.versandgruppe)
+                Fallback: product.metafields.custom.shipping_override -> shop.shipping_policy
+- Abholung:     product.metafields.custom.pickup_bous (Boolean)
+{%- endcomment -%}
+
+{% capture sg_icon_doc %}
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+{% endcapture %}
+{% capture sg_icon_download %}
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+{% endcapture %}
+{% capture sg_icon_truck %}
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h5l2 3v5h-4"/><circle cx="5.5" cy="19.5" r="2.5"/><circle cx="18.5" cy="19.5" r="2.5"/></svg>
+{% endcapture %}
+
+{%- assign download_links_mf = product.metafields.custom.download_links -%}
+{%- assign shipping_group_ref = product.metafields.custom.shipping_group | default: product.metafields.custom.versandgruppe -%}
+{%- assign shipping_override  = product.metafields.custom.shipping_override -%}
+{%- assign pickup_active      = product.metafields.custom.pickup_bous -%}
+
+{%- comment -%} Badge-Zahl aus Linkliste {%- endcomment -%}
+{%- assign downloads_count = 0 -%}
+{%- if download_links_mf and download_links_mf.value and download_links_mf.value.size -%}
+  {%- assign downloads_count = download_links_mf.value.size -%}
+{%- endif -%}
+
+<div class="sg-tabs" data-tabs>
+  <div class="sg-tabs__nav" role="tablist" aria-label="Produktinfos">
+    <button class="sg-tabs__btn is-active" data-tab="desc" role="tab" aria-selected="true">
+      <span class="sg-tabs__ico" aria-hidden="true">{{ sg_icon_doc }}</span> Beschreibung
+    </button>
+
+    <button class="sg-tabs__btn" data-tab="dl" role="tab" aria-selected="false">
+      <span class="sg-tabs__ico" aria-hidden="true">{{ sg_icon_download }}</span> Downloads
+      {%- if downloads_count > 0 -%}<span class="sg-tabs__badge">{{ downloads_count }}</span>{%- endif -%}
+    </button>
+
+    <button class="sg-tabs__btn" data-tab="ship" role="tab" aria-selected="false">
+      <span class="sg-tabs__ico" aria-hidden="true">{{ sg_icon_truck }}</span> Versand
+    </button>
+
+    <span class="sg-tabs__indicator" aria-hidden="true"></span>
+  </div>
+
+  <div class="sg-tabs__panes">
+    <!-- Beschreibung -->
+    <div class="sg-tabs__pane is-active" data-pane="desc" role="tabpanel">
+      <div class="rte">
+        {{ product.description | remove: 'data-section-type="product"' }}
+      </div>
+    </div>
+
+    <!-- Downloads (nur Links) -->
+    <div class="sg-tabs__pane" data-pane="dl" role="tabpanel">
+      {%- assign link_list = download_links_mf.value -%}
+
+      {%- if link_list and link_list.size > 0 -%}
+        <ul class="sg-dl">
+          {%- for href in link_list -%}
+            {%- assign label = href | split: '/' | last | split: '?' | first | split: '#' | first -%}
+            <li class="sg-dl__item">
+              <span class="sg-dl__icon">📄</span>
+<a
+  class="sg-dl__link"
+  href="{{ href }}"
+  target="_blank"
+  rel="noopener"
+  onclick="event.preventDefault(); event.stopPropagation(); window.open(this.href, '_blank', 'noopener'); return false;"
+>
+  {{ label }}
+</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        <p>Für dieses Produkt sind derzeit keine Downloads hinterlegt.</p>
+      {%- endif -%}
+    </div>
+
+    <!-- Versand -->
+<div class="sg-tabs__pane" data-pane="ship" role="tabpanel">
+  {%- assign sg_text = blank -%}
+
+  {%- comment -%} shipping_option normalisieren (Einzelwert vs. Liste) {%- endcomment -%}
+  {%- assign opt_raw = product.metafields.custom.shipping_option.value -%}
+  {%- assign opt = '' -%}
+  {%- if opt_raw != blank -%}
+    {%- if opt_raw[0] -%}{%- assign opt = opt_raw[0] -%}{%- else -%}{%- assign opt = opt_raw -%}{%- endif -%}
+  {%- endif -%}
+
+  {%- comment -%} Versandgruppe wählen: Produkt > alter Key > GLOBAL (versandgruppe/standard) {%- endcomment -%}
+  {%- assign sg = nil -%}
+  {%- if product.metafields.custom.shipping_group and product.metafields.custom.shipping_group.value -%}
+    {%- assign sg = product.metafields.custom.shipping_group.value -%}
+  {%- elsif product.metafields.custom.versandgruppe and product.metafields.custom.versandgruppe.value -%}
+    {%- assign sg = product.metafields.custom.versandgruppe.value -%}
+  {%- else -%}
+    {%- assign sg = shop.metaobjects['versandgruppe']['standard'] -%}
+  {%- endif -%}
+
+  {%- if sg -%}
+    {%- if opt == blank -%}{%- assign opt = 'paket_bis_2_kg' -%}{%- endif -%}
+    {%- assign chosen = sg[opt] -%}
+
+    {%- if chosen != blank -%}
+      <div class="rte">{{ chosen }}</div>
+    {%- else -%}
+      {%- assign sg_text = sg.paket_bis_2_kg
+          | default: sg.paket_bis_10_kg
+          | default: sg.paket_bis_31_5_kg
+          | default: sg.nur_dpd_versand
+          | default: sg.speicher_spedition
+          | default: sg.wechselrichter_spedition
+          | default: sg.solarmodule
+          | default: sg.balkonkraftwerk_2_module
+          | default: sg.balkonkraftwerk_4_module
+          | default: sg.balkonkraftwerk_8_module -%}
+      <div class="rte">{{ sg_text }}</div>
+    {%- endif -%}
+
+  {%- elsif shipping_override != blank -%}
+    <div class="rte">{{ shipping_override }}</div>
+  {%- elsif shop.shipping_policy != blank -%}
+    <div class="rte">{{ shop.shipping_policy }}</div>
+  {%- else -%}
+    <p>Wir versenden sicher verpackt. Standard-Lieferzeit: 3–7 Werktage. Speditionsware nach Avisierung.</p>
+  {%- endif -%}
+
+{%- comment -%} AUTO: Abholung aus Shopify "Lokale Abholung" ermitteln {%- endcomment -%}
+{%- assign v = product.selected_or_first_available_variant -%}
+{%- assign pickup_auto = false -%}
+
+{%- if v and v.store_availabilities -%}
+  {%- assign avs = v.store_availabilities | where: 'pick_up_enabled', true -%}
+  {%- for a in avs -%}
+    {%- if a.available -%}
+      {%- assign pickup_auto = true -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- comment -%}
+  Wenn du NUR die Abholung am Standort "Bous" zeigen willst,
+  ersetze die IF-Bedingung oben durch:
+    {%- if a.available and (a.location.name contains 'Bous' or a.location.address.city == 'Bous') -%}
+{%- endcomment -%}
+
+{%- if pickup_auto or pickup_active == true or pickup_active.value == true or pickup_active == 'true' -%}
+  <div class="sg-pickup">
+    <h4 class="sg-pickup__title">Abholung in Bous möglich</h4>
+    <p>Wenn Sie die Option <strong>Abholung</strong> wählen, können Sie Ihre Bestellung direkt bei uns abholen:</p>
+    <address class="sg-pickup__addr">
+      <strong>Solar-Gen Abholstelle Bous</strong><br>
+      Saarbrücker Str. 104a<br>
+      66359 Bous
+    </address>
+    <p>Wir kontaktieren Sie nach der Bestellung zur Terminvereinbarung.</p>
+  </div>
+{%- endif -%}
+
+</div>
+
+
+
+</div>
+
+  </div>
+</div>
+
+<script>
+document.addEventListener('click', function(e){
+  const btn = e.target.closest('.sg-tabs__btn');
+  if(!btn) return;
+
+  const wrap = btn.closest('[data-tabs]');
+  const nav  = wrap.querySelector('.sg-tabs__nav');
+  const target = btn.getAttribute('data-tab');
+
+  wrap.querySelectorAll('.sg-tabs__btn').forEach(b=>{
+    const active = (b === btn);
+    b.classList.toggle('is-active', active);
+    b.setAttribute('aria-selected', active ? 'true' : 'false');
+  });
+
+  wrap.querySelectorAll('.sg-tabs__pane').forEach(p=>{
+    p.classList.toggle('is-active', p.getAttribute('data-pane') === target);
+  });
+
+  const ind = nav.querySelector('.sg-tabs__indicator');
+  const rect = btn.getBoundingClientRect();
+  const nrect = nav.getBoundingClientRect();
+  ind.style.width = rect.width + 'px';
+  ind.style.transform = 'translateX(' + (rect.left - nrect.left) + 'px)';
+}, {passive:true});
+
+window.addEventListener('load', ()=>{
+  document.querySelectorAll('.sg-tabs__nav').forEach(nav=>{
+    const active = nav.querySelector('.sg-tabs__btn.is-active');
+    const ind = nav.querySelector('.sg-tabs__indicator');
+    if (active && ind){
+      const r = active.getBoundingClientRect();
+      const nr = nav.getBoundingClientRect();
+      ind.style.width = r.width + 'px';
+      ind.style.transform = 'translateX(' + (r.left - nr.left) + 'px)';
+    }
+  });
+});
+</script>
+
+<style>
+/* Tabs – kein Rahmen um den gesamten Abschnitt */
+.sg-tabs{ margin-top:8px; }
+.sg-tabs__nav{ display:flex; gap:8px; position:relative; background:transparent; border:none; }
+
+/* Tab-Buttons im Stil der Varianten-Buttons (eckig) */
+.sg-tabs__btn{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:10px 14px;
+  border-radius:0px;
+  background:#F3F5F6; color:#111111; border:1px solid #D6D7D9;
+  font-weight:600; font-size:14px; line-height:1;
+  cursor:pointer; transition:background .15s, color .15s, border-color .15s, box-shadow .15s;
+}
+.sg-tabs__btn:hover{ background:#E5E7EB; }
+.sg-tabs__btn.is-active{
+  background:#005BD3; color:#FFFFFF; border-color:transparent;
+}
+.sg-tabs__btn.is-active:hover{ background:#004C9A; }
+.sg-tabs__ico{ display:inline-flex; opacity:.9; }
+.sg-tabs__badge{margin-left:.5rem;background:#fff;color:#005BD3;border-radius:999px;padding:0 .45rem;font-size:.78rem;font-weight:700}
+
+/* Unterstreich-Indikator optional dezent (oder ausblenden, wenn nicht gewünscht) */
+.sg-tabs__indicator{ position:absolute; bottom:-2px; height:2px; background:#005BD3; border-radius:0; transition:transform .25s,width .25s; }
+
+/* Pane-Layout unverändert */
+.sg-tabs__panes{ margin-top:14px; }
+.sg-tabs__pane{ display:none; }
+.sg-tabs__pane.is-active{ display:block; }
+
+/* Downloadliste – minimal klassisch */
+.sg-dl{ list-style:none; margin:0; padding:0; }
+.sg-dl__item{ display:flex; gap:.5rem; align-items:center; padding:.4rem 0; }
+.sg-dl__icon{ font-size:1rem; }
+
+/* Abholung – weiterhin mit grauem Rahmen (so lassen!) */
+.sg-pickup{
+  margin-top:1rem; padding:1rem;
+  border-radius:0px; background:#f8fafc; border:1px solid #e9eef6;
+}
+.sg-pickup__title{ margin:0 0 .25rem 0; text-transform:none !important; letter-spacing:normal !important; }
+.sg-pickup__addr{ margin:.5rem 0; }
+
+/* Extra spezifisch für Desktop */
+@media (min-width: 750px){
+  .sg-tabs .sg-pickup .sg-pickup__title,
+  .sg-pickup .sg-pickup__title,
+  h4.sg-pickup__title{ 
+    text-transform:none !important; 
+    letter-spacing:normal !important; 
+  }
+}
+
+@media (max-width: 749px){
+  .sg-tabs__nav{ flex-wrap:wrap; }
+  .sg-tabs__btn{ flex:1 1 auto; justify-content:center; }
+}
+</style>
