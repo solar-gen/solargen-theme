@@ -1,0 +1,140 @@
+{%- comment -%}
+  StockShippingPanel - Verfügbarkeit & Versand Panel
+  Props (alle optional):
+  - status: "in_stock" | "low_stock" | "preorder" | "out_of_stock"
+  - low_stock_count: number
+  - delivery_text: string
+  - free_shipping: boolean
+  - shipping_details_url: string
+  - pickup_location: string
+  - pickup_ready_hours: number
+  - contact_cheaper_url: string
+{%- endcomment -%}
+
+{%- liquid
+  assign status = status | default: 'in_stock'
+  assign low_stock_count = low_stock_count | default: 0
+  assign delivery_text = delivery_text | default: 'Lieferzeit: 3–7 Werktage'
+  assign free_shipping = free_shipping | default: false
+  assign shipping_details_url = shipping_details_url | default: '/pages/versandkosten'
+  assign pickup_location = pickup_location
+  assign pickup_ready_hours = pickup_ready_hours | default: 0
+  assign contact_cheaper_url = contact_cheaper_url | default: '/pages/kontakt'
+-%}
+
+<div class="stock-shipping-panel">
+  <!-- Header -->
+  <div class="stock-shipping-panel__header">
+    <div class="stock-shipping-panel__header-content">
+      <svg class="stock-shipping-panel__header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Schutzschild">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="M9 12l2 2 4-4"/>
+      </svg>
+      <h3 class="stock-shipping-panel__header-title">Verfügbarkeit & Versand</h3>
+    </div>
+  </div>
+
+  <div class="stock-shipping-panel__content">
+    <!-- Status-Zeile -->
+    <div class="stock-shipping-panel__status">
+      <div class="stock-shipping-panel__status-dot stock-shipping-panel__status-dot--{{ status }}">
+        {%- case status -%}
+          {%- when 'in_stock' -%}
+            <svg class="stock-shipping-panel__status-icon" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Verfügbar">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          {%- when 'low_stock' -%}
+            <svg class="stock-shipping-panel__status-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Wenig verfügbar">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12,6 12,12 16,14"/>
+            </svg>
+          {%- when 'preorder' -%}
+            <svg class="stock-shipping-panel__status-icon" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Vorbestellung">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          {%- when 'out_of_stock' -%}
+            <svg class="stock-shipping-panel__status-icon" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Nicht verfügbar">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+        {%- endcase -%}
+      </div>
+      <span class="stock-shipping-panel__status-text stock-shipping-panel__status-text--{{ status }}">
+        {%- case status -%}
+          {%- when 'in_stock' -%}
+            Auf Lager
+          {%- when 'low_stock' -%}
+            Nur noch {{ low_stock_count }} auf Lager
+          {%- when 'preorder' -%}
+            Vorbestellbar
+          {%- when 'out_of_stock' -%}
+            Aktuell nicht verfügbar
+        {%- endcase -%}
+      </span>
+    </div>
+
+    <!-- Versand & Abholung Grid -->
+    <div class="stock-shipping-panel__grid">
+      <!-- Versand-Spalte -->
+      <div class="stock-shipping-panel__column">
+        <div class="stock-shipping-panel__shipping-main">
+          {%- if free_shipping -%}
+            <span class="stock-shipping-panel__shipping-free">Versandkostenfrei</span>
+          {%- else -%}
+            <div class="stock-shipping-panel__shipping-costs">
+              <span>zzgl. Versandkosten</span>
+              <a href="{{ shipping_details_url }}" class="stock-shipping-panel__shipping-link">Details</a>
+            </div>
+          {%- endif -%}
+        </div>
+        <div class="stock-shipping-panel__delivery-text">{{ delivery_text }}</div>
+        <div class="stock-shipping-panel__shipping-info">Versand mit DHL/DPD – Sendungsverfolgung</div>
+      </div>
+
+      <!-- Abholung-Spalte -->
+      {%- if pickup_location -%}
+        <div class="stock-shipping-panel__column">
+          <div class="stock-shipping-panel__pickup-main">Abholung möglich</div>
+          <div class="stock-shipping-panel__pickup-location">{{ pickup_location }}</div>
+          {%- if pickup_ready_hours <= 24 -%}
+            <div class="stock-shipping-panel__pickup-ready">bereit in 24 h</div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Kontakt-Info -->
+    <div class="stock-shipping-panel__contact">
+      <svg class="stock-shipping-panel__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Kontakt">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <a href="{{ contact_cheaper_url }}" class="stock-shipping-panel__contact-link">
+        Diesen Artikel günstiger gefunden? Kontaktieren Sie uns!
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="stock-shipping-panel__footer">
+      <div class="stock-shipping-panel__footer-item">
+        <svg class="stock-shipping-panel__footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Rückgabe">
+          <path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H5a2 2 0 0 0-2-2z"/>
+          <path d="M8 5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2H8V5z"/>
+        </svg>
+        <span>30 Tage Rückgabe</span>
+      </div>
+      <div class="stock-shipping-panel__footer-item">
+        <svg class="stock-shipping-panel__footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Käuferschutz">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span>Käuferschutz</span>
+      </div>
+      <div class="stock-shipping-panel__footer-item">
+        <svg class="stock-shipping-panel__footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Sichere Zahlung">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        <span>Sichere Zahlung</span>
+      </div>
+    </div>
+  </div>
+</div>

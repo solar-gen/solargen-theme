@@ -69,6 +69,35 @@
           <div class="product-block-list__item product-block-list__item--info">
             {%- render 'product-info', product: product, product_form_id: product_form_id, update_url: true -%}
             
+            {%- comment -%} Stock Shipping Panel {%- endcomment -%}
+            {%- liquid
+              assign stock_status = 'in_stock'
+              if product.available == false
+                assign stock_status = 'out_of_stock'
+              elsif product.selected_or_first_available_variant.inventory_quantity <= 5 and product.selected_or_first_available_variant.inventory_quantity > 0
+                assign stock_status = 'low_stock'
+              endif
+              
+              assign low_stock_count = product.selected_or_first_available_variant.inventory_quantity
+              assign free_shipping = false
+              if product.metafields.custom.free_shipping == true
+                assign free_shipping = true
+              endif
+              
+              assign pickup_location = product.metafields.custom.pickup_location
+              assign pickup_ready_hours = product.metafields.custom.pickup_ready_hours
+            -%}
+            
+            {%- render 'stock-shipping-panel',
+              status: stock_status,
+              low_stock_count: low_stock_count,
+              delivery_text: 'Lieferzeit: 3–7 Werktage',
+              free_shipping: free_shipping,
+              shipping_details_url: '/pages/versandkosten',
+              pickup_location: pickup_location,
+              pickup_ready_hours: pickup_ready_hours,
+              contact_cheaper_url: '/pages/kontakt'
+            -%}
           </div>
 
           {%- for block in section.blocks -%}
