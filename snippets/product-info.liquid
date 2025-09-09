@@ -15,6 +15,7 @@
     {{ product.vendor | link_to_vendor }}
   </p>
 {% endif %}
+        {%- assign has_store_pickup_block = false -%}
         {%- for block in section.blocks -%}
           {%- capture block_content -%}
             {%- case block.type -%}
@@ -43,10 +44,8 @@
                 {%- endif -%}
 
               {%- when 'store_pickup' -%}
-                {%- comment -%}The availability container will be added automatically if there is store pickup available{%- endcomment -%}
-                <div class="product-meta__store-availability-container">
-                  {%- render 'store-availability', product_variant: product.selected_or_first_available_variant -%}
-                </div>
+                {%- comment -%}We render store availability later at bottom to match new panel design{%- endcomment -%}
+                {%- assign has_store_pickup_block = true -%}
 
               {%- when 'featured_description' -%}
                 {%- comment -%}This is only shown on the featured product section{%- endcomment -%}
@@ -65,6 +64,66 @@
             {{- block_content -}}
           </div>
         {%- endfor -%}
+
+        {%- comment -%} Stock Shipping Panel inside sticky card {%- endcomment -%}
+        {%- liquid
+          assign stock_status = 'in_stock'
+          if product.available == false
+            assign stock_status = 'out_of_stock'
+          elsif product.selected_or_first_available_variant.inventory_quantity <= 5 and product.selected_or_first_available_variant.inventory_quantity > 0
+            assign stock_status = 'low_stock'
+          endif
+
+          assign low_stock_count = product.selected_or_first_available_variant.inventory_quantity
+          assign free_shipping = false
+          if product.metafields.custom.free_shipping
+            assign free_shipping = true
+          endif
+          assign pickup_location = product.metafields.custom.pickup_location
+          assign pickup_ready_hours = product.metafields.custom.pickup_ready_hours
+        -%}
+
+        {%- render 'stock-shipping-panel',
+          status: stock_status,
+          low_stock_count: low_stock_count,
+          delivery_text: 'Lieferzeit: 3–7 Werktage',
+          free_shipping: free_shipping,
+          shipping_details_url: '/pages/versandkosten',
+          pickup_location: pickup_location,
+          pickup_ready_hours: pickup_ready_hours,
+          contact_cheaper_url: '/pages/kontakt'
+        -%}
+
+        {%- if has_store_pickup_block -%}
+          <div class="stock-shipping-panel" style="margin-top:16px;">
+            <div class="stock-shipping-panel__content" style="padding:16px 20px;">
+              <div class="stock-shipping-panel__grid" style="margin-bottom:0;">
+                <div class="stock-shipping-panel__column" style="gap:6px;">
+                  <div class="stock-shipping-panel__pickup-main">Abholung</div>
+                  <div class="stock-shipping-panel__pickup-location" style="font-size:14px; color:#6B7280;">
+                    {%- assign pick_up_availabilities = selected_variant.store_availabilities | where: 'pick_up_enabled', true -%}
+                    {%- if pick_up_availabilities.size > 0 -%}
+                      {%- assign closest_location = pick_up_availabilities.first -%}
+                      {%- if closest_location.available -%}
+                        <span class="text-green-600" style="color:#16A34A; font-weight:600;">Abholung bei {{ closest_location.location.name }} verfügbar</span>
+                        {%- if closest_location.pick_up_time != blank -%}
+                          <div class="stock-shipping-panel__pickup-ready">{{ closest_location.pick_up_time }}</div>
+                        {%- endif -%}
+                        <div class="text-xs" style="font-size:12px; color:#1D4ED8;">
+                          <button type="button" class="link" data-action="open-modal" aria-controls="StoreAvailabilityModal-{{ selected_variant.id }}">Shop-Informationen anzeigen</button>
+                        </div>
+                      {%- else -%}
+                        <span style="color:#DC2626; font-weight:600;">Aktuell nicht verfügbar</span>
+                      {%- endif -%}
+                    {%- else -%}
+                      <span style="color:#6B7280;">Keine Abholung verfügbar</span>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
 
         {%- assign product_meta_block = section.blocks | where: 'type', 'product_meta' | first -%}
 

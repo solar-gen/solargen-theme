@@ -6,7 +6,13 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin: 16px 0;
+  /* Fix layering/overlap when scrolling adjacent sticky elements */
+  position: static;
+  z-index: auto;
+  isolation: auto;
 }
+
+/* no stacking context changes to avoid layout side effects */
 
 /* Header */
 .stock-shipping-panel__header {
