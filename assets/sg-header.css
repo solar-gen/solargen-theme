@@ -330,7 +330,7 @@
   color: #111111 !important;
   border-radius: 6px !important;
   padding: 12px 16px !important;
-  font-weight: 600 !important;
+  font-weight: normal !important;
   font-size: 16px !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
@@ -367,5 +367,13 @@
 
 /* Verstecke die echten Radio-Inputs */
 .template-product .block-swatch input[type="radio"] {
+  display: none !important;
+}
+
+/* Verstecke die ausgewählte Variante über den Blöcken */
+.template-product .product-form__option-name .product-form__selected-value,
+.template-product .variant-selector .selected-value,
+.template-product .product-option .selected-value,
+.template-product .product-form__option .selected-value {
   display: none !important;
 }
