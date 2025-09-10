@@ -345,6 +345,45 @@
   text-decoration: none !important;
 }
 
+/* AGGRESSIVE REGEL: Erste Variante in jeder Gruppe ist IMMER blau */
+.template-product .variant-group .block-swatch__item:first-child,
+.template-product .variant-group a.block-swatch__item:first-child,
+.template-product .variant-group label.block-swatch__item:first-child,
+.template-product .variant-swatch-list .block-swatch__item:first-child,
+.template-product .variant-swatch-list a.block-swatch__item:first-child,
+.template-product .variant-swatch-list label.block-swatch__item:first-child,
+.template-product .block-swatch:first-child .block-swatch__item,
+.template-product .block-swatch:first-child a.block-swatch__item,
+.template-product .block-swatch:first-child label.block-swatch__item {
+  background: var(--accent-color) !important;
+  color: #FFFFFF !important;
+  border-color: transparent !important;
+}
+
+/* NOCH AGGRESSIVER: Alle ersten Block-Swatch Items */
+.template-product .block-swatch:first-child .block-swatch__item,
+.template-product .block-swatch:first-child a.block-swatch__item,
+.template-product .block-swatch:first-child label.block-swatch__item {
+  background: var(--accent-color) !important;
+  color: #FFFFFF !important;
+  border-color: transparent !important;
+}
+
+/* MAXIMALE AGGRESSIVITÄT: Erste Variante in jeder Gruppe */
+.template-product .product-form__option:first-child .block-swatch:first-child .block-swatch__item,
+.template-product .product-form__option:first-child .block-swatch:first-child a.block-swatch__item,
+.template-product .product-form__option:first-child .block-swatch:first-child label.block-swatch__item,
+.template-product .product-form__option:nth-child(2) .block-swatch:first-child .block-swatch__item,
+.template-product .product-form__option:nth-child(2) .block-swatch:first-child a.block-swatch__item,
+.template-product .product-form__option:nth-child(2) .block-swatch:first-child label.block-swatch__item,
+.template-product .product-form__option:nth-child(3) .block-swatch:first-child .block-swatch__item,
+.template-product .product-form__option:nth-child(3) .block-swatch:first-child a.block-swatch__item,
+.template-product .product-form__option:nth-child(3) .block-swatch:first-child label.block-swatch__item {
+  background: var(--accent-color) !important;
+  color: #FFFFFF !important;
+  border-color: transparent !important;
+}
+
 .template-product .product-form .block-swatch__item .block-swatch__item-text,
 .template-product .product-form a.block-swatch__item .block-swatch__item-text,
 .template-product .product-form label.block-swatch__item .block-swatch__item-text {
@@ -361,6 +400,9 @@
 }
 
 /* Erste verfügbare Variante standardmäßig als ausgewählt markieren */
+.template-product .product-form .block-swatch__item:first-child,
+.template-product .product-form a.block-swatch__item:first-child,
+.template-product .product-form label.block-swatch__item:first-child,
 .template-product .product-form .block-swatch__item:first-child:not(.is-disabled),
 .template-product .product-form a.block-swatch__item:first-child:not(.is-disabled),
 .template-product .product-form label.block-swatch__item:first-child:not(.is-disabled),
@@ -376,6 +418,9 @@
   font-weight: normal !important;
 }
 
+.template-product .product-form .block-swatch__item:first-child:hover,
+.template-product .product-form a.block-swatch__item:first-child:hover,
+.template-product .product-form label.block-swatch__item:first-child:hover,
 .template-product .product-form .block-swatch__item:first-child:not(.is-disabled):hover,
 .template-product .product-form a.block-swatch__item:first-child:not(.is-disabled):hover,
 .template-product .product-form label.block-swatch__item:first-child:not(.is-disabled):hover,
@@ -390,6 +435,9 @@
   color: #FFFFFF !important;
 }
 
+.template-product .product-form .block-swatch__item:first-child .block-swatch__item-text,
+.template-product .product-form a.block-swatch__item:first-child .block-swatch__item-text,
+.template-product .product-form label.block-swatch__item:first-child .block-swatch__item-text,
 .template-product .product-form .block-swatch__item:first-child:not(.is-disabled) .block-swatch__item-text,
 .template-product .product-form a.block-swatch__item:first-child:not(.is-disabled) .block-swatch__item-text,
 .template-product .product-form label.block-swatch__item:first-child:not(.is-disabled) .block-swatch__item-text,
