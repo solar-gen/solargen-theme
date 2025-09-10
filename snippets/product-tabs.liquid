@@ -63,8 +63,14 @@ Produkt-Tabs (nur Link-basierte Downloads)
           {%- for href in link_list -%}
             {%- assign label = href | split: '/' | last | split: '?' | first | split: '#' | first -%}
             <li class="sg-dl__item">
-              <span class="sg-dl__icon">📄</span>
-<a
+              <span class="sg-dl__icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <path d="M7 10l5 5 5-5"/>
+                  <path d="M12 15V3"/>
+                </svg>
+              </span>
+              <a
   class="sg-dl__link"
   href="{{ href }}"
   target="_blank"
@@ -228,24 +234,69 @@ window.addEventListener('load', ()=>{
 }
 .sg-tabs__btn:hover{ background:#E5E7EB; }
 .sg-tabs__btn.is-active{
-  background:#005BD3; color:#FFFFFF; border-color:transparent;
+  background:var(--accent-color); color:#FFFFFF; border-color:transparent;
 }
-.sg-tabs__btn.is-active:hover{ background:#004C9A; }
+.sg-tabs__btn.is-active:hover{ background:var(--accent-color); opacity:0.9; }
 .sg-tabs__ico{ display:inline-flex; opacity:.9; }
-.sg-tabs__badge{margin-left:.5rem;background:#fff;color:#005BD3;border-radius:999px;padding:0 .45rem;font-size:.78rem;font-weight:700}
+.sg-tabs__badge{margin-left:.5rem;background:#fff;color:var(--accent-color);border-radius:999px;padding:0 .45rem;font-size:.78rem;font-weight:700}
 
 /* Unterstreich-Indikator optional dezent (oder ausblenden, wenn nicht gewünscht) */
-.sg-tabs__indicator{ position:absolute; bottom:-2px; height:2px; background:#005BD3; border-radius:0; transition:transform .25s,width .25s; }
+.sg-tabs__indicator{ position:absolute; bottom:-2px; height:2px; background:var(--accent-color); border-radius:0; transition:transform .25s,width .25s; }
 
 /* Pane-Layout unverändert */
 .sg-tabs__panes{ margin-top:14px; }
 .sg-tabs__pane{ display:none; }
 .sg-tabs__pane.is-active{ display:block; }
 
-/* Downloadliste – minimal klassisch */
-.sg-dl{ list-style:none; margin:0; padding:0; }
-.sg-dl__item{ display:flex; gap:.5rem; align-items:center; padding:.4rem 0; }
-.sg-dl__icon{ font-size:1rem; }
+/* Downloadliste – traditionell klassisch */
+.sg-dl{ 
+  list-style:none !important; 
+  margin:0; 
+  padding:0; 
+}
+.sg-dl__item{ 
+  display:flex; 
+  gap:.5rem; 
+  align-items:center; 
+  padding:.4rem 0;
+  border-bottom:none !important;
+  list-style:none !important;
+}
+.sg-dl__item:not(:last-child){
+  border-bottom:none !important;
+}
+.sg-dl__item::before,
+.sg-dl__item::after{
+  display:none !important;
+  content:none !important;
+}
+.sg-dl__icon{ 
+  color:#111111; 
+  font-size:1rem; 
+  font-weight:bold;
+  display:inline-flex;
+  align-items:center;
+  transition:color .15s ease;
+}
+.sg-dl__icon svg{
+  width:16px;
+  height:16px;
+  stroke:#111111;
+  transition:stroke .15s ease;
+}
+.sg-dl__item:hover .sg-dl__icon svg{
+  stroke:var(--accent-color);
+}
+.sg-dl__link{ 
+  color:#111111 !important; 
+  text-decoration:underline; 
+  font-weight:normal;
+  transition:color .15s ease;
+}
+.sg-dl__link:hover{ 
+  color:var(--accent-color) !important; 
+  text-decoration:underline;
+}
 
 /* Abholung – weiterhin mit grauem Rahmen (so lassen!) */
 .sg-pickup{

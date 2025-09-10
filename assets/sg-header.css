@@ -323,45 +323,74 @@
   display: inline !important;
 }
 
-/* ===== BLOCK-VARIANTEN STYLING ===== */
-.template-product .block-swatch__item {
-  background: #ffffff !important;
-  border: 2px solid #dddddd !important;
+/* ===== BLOCK-VARIANTEN STYLING (Tab-Design) - MAXIMALE SPEZIFITÄT ===== */
+.template-product .product-form .block-swatch__item,
+.template-product .product-form a.block-swatch__item,
+.template-product .product-form label.block-swatch__item {
+  background: #F3F5F6 !important;
+  border: 1px solid #D6D7D9 !important;
   color: #111111 !important;
-  border-radius: 4px !important;
-  padding: 8px 16px !important;
-  font-weight: 500 !important;
-  font-size: 16px !important;
+  border-radius: 0px !important;
+  padding: 10px 14px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
   cursor: pointer !important;
-  transition: all 0.2s ease !important;
+  transition: background .15s, color .15s, border-color .15s, box-shadow .15s !important;
   min-height: 44px !important;
   min-width: 44px !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
+  text-decoration: none !important;
 }
 
-.template-product .block-swatch__item .block-swatch__item-text {
-  font-weight: 500 !important;
+.template-product .product-form .block-swatch__item .block-swatch__item-text,
+.template-product .product-form a.block-swatch__item .block-swatch__item-text,
+.template-product .product-form label.block-swatch__item .block-swatch__item-text {
+  font-weight: 600 !important;
+  color: inherit !important;
 }
 
-.template-product .block-swatch__item:hover {
-  background: #f8fafc !important;
-  border-color: #cccccc !important;
+.template-product .product-form .block-swatch__item:hover,
+.template-product .product-form a.block-swatch__item:hover,
+.template-product .product-form label.block-swatch__item:hover {
+  background: #E5E7EB !important;
+  border-color: #D6D7D9 !important;
+  color: #111111 !important;
 }
 
-.template-product .block-swatch__item.is-selected,
-.template-product .block-swatch__item[aria-checked="true"] {
+.template-product .product-form .block-swatch__item.is-selected,
+.template-product .product-form .block-swatch__item[aria-checked="true"],
+.template-product .product-form a.block-swatch__item.is-selected,
+.template-product .product-form a.block-swatch__item[aria-checked="true"],
+.template-product .product-form label.block-swatch__item.is-selected,
+.template-product .product-form label.block-swatch__item[aria-checked="true"] {
   background: var(--accent-color) !important;
-  color: #ffffff !important;
-  border-color: var(--accent-color) !important;
-  font-weight: 500 !important;
+  color: #FFFFFF !important;
+  border-color: transparent !important;
+  font-weight: 600 !important;
 }
 
-.template-product .block-swatch__item.is-selected .block-swatch__item-text,
-.template-product .block-swatch__item[aria-checked="true"] .block-swatch__item-text {
-  font-weight: 500 !important;
+.template-product .product-form .block-swatch__item.is-selected:hover,
+.template-product .product-form .block-swatch__item[aria-checked="true"]:hover,
+.template-product .product-form a.block-swatch__item.is-selected:hover,
+.template-product .product-form a.block-swatch__item[aria-checked="true"]:hover,
+.template-product .product-form label.block-swatch__item.is-selected:hover,
+.template-product .product-form label.block-swatch__item[aria-checked="true"]:hover {
+  background: var(--accent-color) !important;
+  opacity: 0.9 !important;
+  color: #FFFFFF !important;
+}
+
+.template-product .product-form .block-swatch__item.is-selected .block-swatch__item-text,
+.template-product .product-form .block-swatch__item[aria-checked="true"] .block-swatch__item-text,
+.template-product .product-form a.block-swatch__item.is-selected .block-swatch__item-text,
+.template-product .product-form a.block-swatch__item[aria-checked="true"] .block-swatch__item-text,
+.template-product .product-form label.block-swatch__item.is-selected .block-swatch__item-text,
+.template-product .product-form label.block-swatch__item[aria-checked="true"] .block-swatch__item-text {
+  font-weight: 600 !important;
+  color: #FFFFFF !important;
 }
 
 .template-product .block-swatch__item.is-disabled,
