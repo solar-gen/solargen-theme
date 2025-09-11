@@ -371,40 +371,36 @@
         </div>
       </div>
     </div>
+
+    <!-- Navigation direkt im Header -->
+    {%- if section.settings.desktop_navigation_layout == 'inline' and navigation_menu.links.size > 0 -%}
+      <nav class="nav-bar">
+        <div class="nav-bar__inner">
+          <div class="container">
+            <ul class="nav-bar__linklist list--unstyled" data-type="menu" role="list">
+              {%- for link in navigation_menu.links -%}
+                <li class="nav-bar__item">
+                  {%- if link.links.size == 0 -%}
+                    <a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem">{{ link.title }}</a>
+                  {%- else -%}
+                    {%- capture index -%}desktop-menu-0-{{ forloop.index }}{%- endcapture -%}
+
+                    <a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem" aria-expanded="false" aria-controls="{{ index }}" aria-haspopup="true">
+                      {{- link.title -}}
+                      {%- render 'icon', icon: 'arrow-bottom' -%}
+                      {%- render 'icon', icon: 'nav-triangle' -%}
+                    </a>
+
+                    {%- render 'desktop-menu', menu: link, index: index -%}
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    {%- endif -%}
   </header>
-        </div>
-
-        <!-- NAV wrap – volle Breite innerhalb der gleichen sg-header-width -->
-        <div class="sg-navwrap">
-          {%- if section.settings.desktop_navigation_layout == 'inline' and navigation_menu.links.size > 0 -%}
-            <nav class="nav-bar">
-              <div class="nav-bar__inner">
-                <div class="container">
-                  <ul class="nav-bar__linklist list--unstyled" data-type="menu" role="list">
-                    {%- for link in navigation_menu.links -%}
-                      <li class="nav-bar__item">
-                        {%- if link.links.size == 0 -%}
-                          <a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem">{{ link.title }}</a>
-                        {%- else -%}
-                          {%- capture index -%}desktop-menu-0-{{ forloop.index }}{%- endcapture -%}
-
-                          <a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem" aria-expanded="false" aria-controls="{{ index }}" aria-haspopup="true">
-                            {{- link.title -}}
-                            {%- render 'icon', icon: 'arrow-bottom' -%}
-                            {%- render 'icon', icon: 'nav-triangle' -%}
-                          </a>
-
-                          {%- render 'desktop-menu', menu: link, index: index -%}
-                        {%- endif -%}
-                      </li>
-                    {%- endfor -%}
-                    
-                  </ul>
-                </div>
-              </div>
-            </nav>
-          {%- endif -%}
-        </div>
 </section>
 
 <style>
