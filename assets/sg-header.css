@@ -330,6 +330,25 @@
   /* border-top: 1px solid var(--border-color); */
 }
 
+/* Galerie-Abstand verringern - richtige Selektoren */
+.template-product .product-gallery__thumbnail-list {
+  margin-right: 5px !important;
+}
+
+.template-product .product-gallery--with-thumbnails .product-gallery__carousel-wrapper {
+  margin-left: 5px !important;
+}
+
+@media screen and (max-width: 749px) {
+  .template-product .product-gallery__thumbnail-list {
+    margin-right: 8px !important;
+  }
+  
+  .template-product .product-gallery--with-thumbnails .product-gallery__carousel-wrapper {
+    margin-left: 8px !important;
+  }
+}
+
 /* Header-Links: Schwarz mit Accent-Farbe beim Hover */
 .sg-infobar__right .sg-link {
   color: #111111 !important;
