@@ -12394,13 +12394,17 @@ product-rerender {
 }
 .lieferzeit-rot::before { content: "●"; color:#d93025; font-size:14px; margin-right:6px; }
 
-/* Lieferhinweis und SKU untereinander */
+/* Lieferhinweis und SKU in einer Zeile */
 .lieferzeit-sku-inline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 16px;
+  flex-wrap: wrap;
 }
 
 .lieferzeit-compact {
-  margin-bottom: 4px !important;
+  margin-bottom: 0 !important;
 }
 
 .product-meta__sku--inline {
@@ -12408,7 +12412,7 @@ product-rerender {
   color: #666;
   margin-bottom: 0;
   text-align: right;
-  display: block;
+  flex-shrink: 0;
 }
 /* Vendor klein und grau über Titel */
 .product__vendor {
