@@ -29,18 +29,6 @@
 
 <div class="product-meta">
 
-  {%- comment -%} VENDOR ÜBER DEM TITEL {%- endcomment -%}
-  {%- if block.settings.show_vendor -%}
-    <div class="product-meta__vendor-top">
-      {%- assign vendor_handle = product.vendor | handle -%}
-      {%- assign collection_for_vendor = collections[vendor_handle] -%}
-      {%- unless collection_for_vendor.empty? -%}
-        <a class="product-meta__vendor-top-link" href="{{ collection_for_vendor.url }}">{{ product.vendor }}</a>
-      {%- else -%}
-        <a class="product-meta__vendor-top-link" href="{{ product.vendor | url_for_vendor }}">{{ product.vendor }}</a>
-      {%- endunless -%}
-    </div>
-  {%- endif -%}
 
   {%- comment -%} TITEL {%- endcomment -%}
   {%- if update_url -%}
