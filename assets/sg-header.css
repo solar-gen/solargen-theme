@@ -161,10 +161,6 @@
 .header__phone-link {
   text-decoration: none;
   transition: all 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
 }
 
 .header__phone-link:hover {
@@ -173,27 +169,56 @@
 
 .header__phone-content {
   display: flex;
-  align-items: center;
-  gap: 6px;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .header__phone-number {
   color: var(--sg-text);
-  font-weight: 700;
-  font-size: 15px;
+  font-weight: 800;
+  font-size: 16px;
   white-space: nowrap;
 }
 
 .header__phone-content svg {
   color: var(--sg-accent);
   flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+}
+
+.header__phone-link {
+  position: relative;
+  padding-left: 0px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.header__phone-link svg {
+  color: var(--sg-accent);
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+}
+
+.header__phone-link-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  line-height: 1.2;
 }
 
 .header__phone-link-text {
   color: var(--sg-text);
-  font-size: 12px;
-  font-weight: 400;
-  margin-left: 22px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 0px;
+  margin-top: 0px;
+  text-indent: 0px;
+  display: block;
 }
 
 .header__phone-link:hover .header__phone-number {

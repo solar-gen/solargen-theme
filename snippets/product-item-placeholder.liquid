@@ -91,17 +91,11 @@ This create a placeholder for product item, and is used exclusively on home page
       {%- endif -%}
 
       {%- if settings.show_inventory_quantity -%}
-        {%- capture random_inventory -%}{% cycle 1, 24, 10, 150, 40, 38 %}{%- endcapture -%}
-        {%- assign random_inventory = random_inventory | times: 1 -%}
-
-        {%- if settings.low_inventory_threshold > 0 -%}
-          {%- if random_inventory <= settings.low_inventory_threshold or random_inventory <= settings.low_inventory_threshold -%}
-            <span class="product-item__inventory inventory inventory--low">{{ 'collection.product.low_stock_with_quantity_count' | t: count: random_inventory }}</span>
-          {%- else -%}
-            <span class="product-item__inventory inventory inventory--high">{{ 'collection.product.in_stock_with_quantity_count' | t: count: random_inventory }}</span>
-          {%- endif -%}
+        {%- assign random_available = forloop.index0 | modulo: 3 -%}
+        {%- if random_available == 0 -%}
+          <div class="product-item__inventory lieferzeit-hinweis lieferzeit-rot">NICHT AUF LAGER</div>
         {%- else -%}
-          <span class="product-item__inventory inventory inventory--high">{{ 'collection.product.in_stock' | t }}</span>
+          <div class="product-item__inventory lieferzeit-hinweis lieferzeit-gruen">AUF LAGER</div>
         {%- endif -%}
       {%- endif -%}
     </div>
