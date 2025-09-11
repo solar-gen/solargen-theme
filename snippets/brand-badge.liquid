@@ -1,0 +1,20 @@
+{%- comment -%}
+  Brand Badge Snippet
+  Zeigt das Brand-Logo aus dem Produkt-Metafeld custom.brand an
+  Nur anzeigen wenn Logo vorhanden ist
+{%- endcomment -%}
+
+{%- assign brand_metaobject = product.metafields.custom.brand.value -%}
+
+{%- if brand_metaobject and brand_metaobject.logo -%}
+  <div class="brand-badge">
+    <img 
+      src="{{ brand_metaobject.logo | image_url: width: 100 }}" 
+      alt="{{ brand_metaobject.logo.alt | default: 'Brand Logo' }}"
+      class="brand-badge__logo"
+      loading="lazy"
+      width="100"
+      height="auto"
+    >
+  </div>
+{%- endif -%}

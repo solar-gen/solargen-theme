@@ -51,6 +51,9 @@
     </h3>
   {%- endif -%}
 
+  {%- comment -%} BRAND BADGE {%- endcomment -%}
+  {%- render 'brand-badge', product: product -%}
+
   {%- comment -%} LIEFERHINWEIS DIREKT UNTER TITEL + SKU IN EINER ZEILE {%- endcomment -%}
   {%- assign v = product.selected_or_first_available_variant -%}
   <div class="lieferzeit-sku-row">

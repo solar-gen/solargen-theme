@@ -12493,3 +12493,22 @@ product-rerender {
 }
 .sg-pickup__title{ margin:0 0 6px; font-size:16px; font-weight:700; }
 .sg-pickup__addr{ font-style: normal; margin:6px 0 10px; }
+
+/* Brand Badge Styling */
+.brand-badge {
+  margin: 8px 0 12px 0;
+  display: inline-block;
+}
+
+.brand-badge__logo {
+  height: 24px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.brand-badge__logo:hover {
+  opacity: 1;
+}
