@@ -12394,23 +12394,21 @@ product-rerender {
 }
 .lieferzeit-rot::before { content: "●"; color:#d93025; font-size:14px; margin-right:6px; }
 
-/* Lieferhinweis und SKU in einer Zeile */
+/* Lieferhinweis und SKU untereinander */
 .lieferzeit-sku-inline {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
+  margin-bottom: 16px;
 }
 
 .lieferzeit-compact {
-  margin-bottom: 0 !important;
+  margin-bottom: 4px !important;
 }
 
 .product-meta__sku--inline {
   font-size: 14px;
   color: #666;
   margin-bottom: 0;
+  text-align: right;
+  display: block;
 }
 /* Vendor klein und grau über Titel */
 .product__vendor {
