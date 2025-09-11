@@ -12413,6 +12413,7 @@ product-rerender {
   margin-bottom: 0;
   text-align: right;
   flex-shrink: 0;
+  transform: translateY(2px);
 }
 /* Vendor klein und grau über Titel */
 .product__vendor {
