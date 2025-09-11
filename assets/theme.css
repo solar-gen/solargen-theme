@@ -12494,9 +12494,27 @@ product-rerender {
 .sg-pickup__title{ margin:0 0 6px; font-size:16px; font-weight:700; }
 .sg-pickup__addr{ font-style: normal; margin:6px 0 10px; }
 
+/* Product Title Container mit Brand Badge */
+.product-meta__title-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.product-meta__title {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.product-meta__brand-badge {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
 /* Brand Badge Styling */
 .brand-badge {
-  margin: 8px 0 12px 0;
   display: inline-block;
 }
 
