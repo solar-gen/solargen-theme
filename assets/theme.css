@@ -12495,18 +12495,8 @@ product-rerender {
 .sg-pickup__addr{ font-style: normal; margin:6px 0 10px; }
 
 /* Brand Badge Styling */
-.product-meta__header {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 8px;
-}
-
-.product-meta__brand-badge {
-  display: inline-block;
-}
-
 .brand-badge {
-  margin: 0;
+  margin: 8px 0 12px 0;
   display: inline-block;
 }
 
