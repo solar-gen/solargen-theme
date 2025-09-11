@@ -13,7 +13,7 @@
     <div class="product-form__info-list">
       {%- if product.selected_or_first_available_variant != nil -%}
         <div class="product-form__info-item">
-          <span class="product-form__info-title text--strong">{{ 'product.form.price' | t }}:</span>
+          <!-- Preis-Label entfernt -->
 
           <div class="product-form__info-content" role="region" aria-live="polite">
             <div class="price-list">
@@ -49,6 +49,11 @@
                   {%- endif -%}
                 </span>
               {%- endif -%}
+            </div>
+
+            <!-- USt-Klausel unter dem Preis -->
+            <div class="product-form__tax-info" style="margin-top: 4px;">
+              <span class="tax-disclaimer" style="font-size: 0.85em; color: #666;">Inkl. 0% USt. nach §12 Abs. 3 UStG.</span>
             </div>
 
             <div class="product-form__price-info" style="display: {% if selected_variant.unit_price_measurement %}block{% else %}none{% endif %}">
@@ -254,7 +259,7 @@
 <div class="product-form__info-list price-legacy--hidden">
   {%- if product.selected_or_first_available_variant != nil -%}
     <div class="product-form__info-item">
-      <span class="product-form__info-title text--strong">{{ 'product.form.price' | t }}:</span>
+      <!-- Preis-Label entfernt -->
 
       <div class="product-form__info-content" role="region" aria-live="polite">
         <div class="price-list">
@@ -289,6 +294,11 @@
               {%- endif -%}
             </span>
           {%- endif -%}
+        </div>
+
+        <!-- USt-Klausel unter dem Preis (zweiter Block) -->
+        <div class="product-form__tax-info" style="margin-top: 4px;">
+          <span class="tax-disclaimer" style="font-size: 0.85em; color: #666;">Inkl. 0% USt. nach §12 Abs. 3 UStG.</span>
         </div>
 
         <div class="product-form__price-info" style="display: {% if selected_variant.unit_price_measurement %}block{% else %}none{% endif %}">

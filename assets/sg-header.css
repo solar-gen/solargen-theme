@@ -330,14 +330,33 @@
   /* border-top: 1px solid var(--border-color); */
 }
 
-/* Abstand zum oberen Rand des Displays */
-.shopify-section__header {
-  margin-top: 20px;
+/* Header-Links: Schwarz mit Accent-Farbe beim Hover */
+.sg-infobar__right .sg-link {
+  color: #111111 !important;
+  text-decoration: none !important;
+}
+
+.sg-infobar__right .sg-link:hover {
+  color: var(--accent-color) !important;
+}
+
+.sg-infobar__right .sg-link--primary {
+  color: #111111 !important;
+  font-weight: normal !important;
+}
+
+.sg-infobar__right .sg-link--primary:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Sticky Produkt-Info mit mehr Abstand zum oberen Rand */
+.template-product .card--sticky {
+  top: 20px !important;
 }
 
 @media screen and (max-width: 640px) {
-  .shopify-section__header {
-    margin-top: 15px;
+  .template-product .card--sticky {
+    top: 15px !important;
   }
 }
 
@@ -464,4 +483,45 @@
   font-size: inherit !important;
   font-weight: inherit !important;
   color: inherit !important;
+}
+
+/* Preis-Label komplett ausblenden */
+.template-product .price__label,
+.template-product .price-label,
+.template-product .product-price__label {
+  display: none !important;
+}
+
+/* Alle Preise immer schwarz - auch ohne Vergleichspreis */
+.template-product .price,
+.template-product .price--highlight,
+.template-product .price-list .price {
+  color: #111111 !important;
+}
+
+/* Preis-Größen nur in Produkt-Info anpassen */
+/* Hauptpreis (ohne Vergleichspreis) - größer */
+.template-product .product-form__info-content .price-list .price:not(.price--compare) {
+  font-size: clamp(28px, 3vw, 40px) !important;
+  font-weight: 500 !important;
+}
+
+/* Sale-Preis (mit Vergleichspreis) - größer */
+.template-product .product-form__info-content .price-list .price--highlight {
+  font-size: clamp(28px, 3vw, 40px) !important;
+  font-weight: 500 !important;
+}
+
+/* Vergleichspreis - deutlich größer und näher am Hauptpreis - MAXIMALE SPEZIFITÄT */
+.template-product .product-form__info-content .price-list .price--compare,
+.template-product .product-form__info-list .price-list .price--compare,
+.template-product .price-list .price--compare {
+  font-size: 1.4em !important;
+  color: #666 !important;
+  text-decoration: line-through !important;
+  margin-left: 1px !important;
+  display: inline !important;
+  vertical-align: top !important;
+  position: relative !important;
+  top: -2px !important;
 }
