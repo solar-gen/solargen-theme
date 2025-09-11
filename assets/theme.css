@@ -12498,8 +12498,7 @@ product-rerender {
 .product-meta__title-container {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 20px;
   margin-bottom: 8px;
 }
 
