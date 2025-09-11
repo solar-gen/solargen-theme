@@ -30,21 +30,21 @@
 <div class="product-meta">
 
 
-  {%- comment -%} TITEL MIT BRAND BADGE {%- endcomment -%}
-  <div class="product-meta__title-container">
-    {%- if update_url -%}
-      <h1 class="product-meta__title heading h1">{{ product.title }}</h1>
-    {%- else -%}
-      <h3 class="product-meta__title heading h2">
-        <a href="{{ product.url }}">{{ product.title }}</a>
-      </h3>
-    {%- endif -%}
-    
-    {%- comment -%} BRAND BADGE RECHTS {%- endcomment -%}
+  {%- comment -%} BRAND BADGE ÜBER TITEL (RECHTS) {%- endcomment -%}
+  <div class="product-meta__header">
     <div class="product-meta__brand-badge">
       {%- render 'brand-badge', product: product -%}
     </div>
   </div>
+
+  {%- comment -%} TITEL {%- endcomment -%}
+  {%- if update_url -%}
+    <h1 class="product-meta__title heading h1">{{ product.title }}</h1>
+  {%- else -%}
+    <h3 class="product-meta__title heading h2">
+      <a href="{{ product.url }}">{{ product.title }}</a>
+    </h3>
+  {%- endif -%}
 
   {%- comment -%} LIEFERHINWEIS DIREKT UNTER TITEL + SKU IN EINER ZEILE {%- endcomment -%}
   {%- assign v = product.selected_or_first_available_variant -%}
