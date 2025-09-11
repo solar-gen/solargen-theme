@@ -209,7 +209,7 @@
                     </a>
                   {%- else -%}
                     <input class="block-swatch__radio product-form__single-selector" type="radio" name="{{ option_name }}" id="{{ block_swatch_id }}" value="{{ value.id }}" form="{{ product_form_id }}" {% if option.selected_value == value %}checked{% endif %} data-option-position="{{ option.position }}">
-                    <label class="block-swatch__item variant-tiles__item ui-pill variant-pill {% unless value.available %}is-disabled{% endunless %}" role="radio" aria-checked="{% if option.selected_value == value %}true{% else %}false{% endif %}" for="{{ block_swatch_id }}" title="{{ value | escape }}" {% unless value.available %}aria-disabled="true"{% endunless %}>
+                    <label class="block-swatch__item variant-tiles__item ui-pill variant-pill {% if option.selected_value == value %}is-selected{% endif %} {% unless value.available %}is-disabled{% endunless %}" role="radio" aria-checked="{% if option.selected_value == value %}true{% else %}false{% endif %}" for="{{ block_swatch_id }}" title="{{ value | escape }}" {% unless value.available %}aria-disabled="true"{% endunless %}>
                       <span class="block-swatch__item-text">{{ value }}</span>
                     </label>
                   {%- endif -%}

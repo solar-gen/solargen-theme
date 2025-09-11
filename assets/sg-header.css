@@ -345,40 +345,10 @@
   text-decoration: none !important;
 }
 
-/* AGGRESSIVE REGEL: Erste Variante in jeder Gruppe ist IMMER blau */
-.template-product .variant-group .block-swatch__item:first-child,
-.template-product .variant-group a.block-swatch__item:first-child,
-.template-product .variant-group label.block-swatch__item:first-child,
-.template-product .variant-swatch-list .block-swatch__item:first-child,
-.template-product .variant-swatch-list a.block-swatch__item:first-child,
-.template-product .variant-swatch-list label.block-swatch__item:first-child,
-.template-product .block-swatch:first-child .block-swatch__item,
-.template-product .block-swatch:first-child a.block-swatch__item,
-.template-product .block-swatch:first-child label.block-swatch__item {
-  background: var(--accent-color) !important;
-  color: #FFFFFF !important;
-  border-color: transparent !important;
-}
-
-/* NOCH AGGRESSIVER: Alle ersten Block-Swatch Items */
-.template-product .block-swatch:first-child .block-swatch__item,
-.template-product .block-swatch:first-child a.block-swatch__item,
-.template-product .block-swatch:first-child label.block-swatch__item {
-  background: var(--accent-color) !important;
-  color: #FFFFFF !important;
-  border-color: transparent !important;
-}
-
-/* MAXIMALE AGGRESSIVITÄT: Erste Variante in jeder Gruppe */
-.template-product .product-form__option:first-child .block-swatch:first-child .block-swatch__item,
-.template-product .product-form__option:first-child .block-swatch:first-child a.block-swatch__item,
-.template-product .product-form__option:first-child .block-swatch:first-child label.block-swatch__item,
-.template-product .product-form__option:nth-child(2) .block-swatch:first-child .block-swatch__item,
-.template-product .product-form__option:nth-child(2) .block-swatch:first-child a.block-swatch__item,
-.template-product .product-form__option:nth-child(2) .block-swatch:first-child label.block-swatch__item,
-.template-product .product-form__option:nth-child(3) .block-swatch:first-child .block-swatch__item,
-.template-product .product-form__option:nth-child(3) .block-swatch:first-child a.block-swatch__item,
-.template-product .product-form__option:nth-child(3) .block-swatch:first-child label.block-swatch__item {
+/* AUSGEWÄHLTE VARIANTEN: Nur die mit is-selected Klasse sind blau */
+.template-product .block-swatch__item.is-selected,
+.template-product a.block-swatch__item.is-selected,
+.template-product label.block-swatch__item.is-selected {
   background: var(--accent-color) !important;
   color: #FFFFFF !important;
   border-color: transparent !important;
