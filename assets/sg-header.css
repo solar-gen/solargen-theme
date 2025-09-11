@@ -179,8 +179,8 @@
 
 .header__phone-number {
   color: var(--sg-text);
-  font-weight: 800;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 15px;
   white-space: nowrap;
 }
 
@@ -191,10 +191,9 @@
 
 .header__phone-link-text {
   color: var(--sg-text);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 400;
   margin-left: 22px;
-  margin-top: -4px;
 }
 
 .header__phone-link:hover .header__phone-number {

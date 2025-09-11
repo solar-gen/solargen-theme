@@ -1,46 +1,47 @@
 {%- assign pick_up_availabilities = product_variant.store_availabilities | where: 'pick_up_enabled', true -%}
 
-<div class="sg-pickup-container" data-section-id="{{ section.id }}" data-section-type="store-availability" data-count="{{ pick_up_availabilities.size }}">
+<div class="store-availability-container" data-section-id="{{ section.id }}" data-section-type="store-availability" data-count="{{ pick_up_availabilities.size }}">
   {%- if pick_up_availabilities.size > 0 -%}
-    {%- assign closest_location = pick_up_availabilities.first -%}
-    
-    {%- if closest_location.available -%}
-      <div class="sg-pickup-info">
-        <div class="sg-pickup-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 12l2 2 4-4"/>
-            <circle cx="12" cy="12" r="10"/>
-          </svg>
-        </div>
-        
-        <div class="sg-pickup-content">
-          <div class="sg-pickup-title">Abholung in Saarlouis / Bous möglich</div>
-          <div class="sg-pickup-time">Gewöhnlich fertig in 24 Stunden</div>
-          <button type="button" class="sg-pickup-link" data-action="open-modal" aria-controls="StoreAvailabilityModal-{{ product_variant.id }}">
-            Shop-Informationen anzeigen
-          </button>
-        </div>
-      </div>
-    {%- else -%}
-      <div class="sg-pickup-info sg-pickup-info--unavailable">
-        <div class="sg-pickup-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="15" y1="9" x2="9" y2="15"/>
-            <line x1="9" y1="9" x2="15" y2="15"/>
-          </svg>
-        </div>
-        
-        <div class="sg-pickup-content">
-          <div class="sg-pickup-title">Abholung in Saarlouis / Bous derzeit nicht möglich</div>
-          {%- if pick_up_availabilities.size > 1 -%}
-            <button type="button" class="sg-pickup-link" data-action="open-modal" aria-controls="StoreAvailabilityModal-{{ product_variant.id }}">
-              Andere Standorte prüfen
+    <div class="store-availability-information">
+      {%- assign closest_location = pick_up_availabilities.first -%}
+
+      {%- if closest_location.available -%}
+        {%- render 'icon', icon: 'store-availability-in-stock' -%}
+      {%- else -%}
+        {%- render 'icon', icon: 'store-availability-out-of-stock' -%}
+      {%- endif -%}
+
+      <div class="store-availability-information-container">
+        {%- if closest_location.available -%}
+          <p class="store-availability-information__title text--strong">
+            {{- 'store_availability.general.pick_up_available_at' | t: location_name: closest_location.location.name -}}
+          </p>
+
+          <p class="store-availability-information__stock">{{ closest_location.pick_up_time }}</p>
+
+          <p class="store-availability-information__stores">
+            <button type="button" class="store-availability-information__link link link--accented" data-action="open-modal" aria-controls="StoreAvailabilityModal-{{ product_variant.id }}">
+              {%- if pick_up_availabilities.size == 1 -%}
+                {{- 'store_availability.general.view_store_info' | t -}}
+              {%- else -%}
+                {{- 'store_availability.general.check_other_stores' | t -}}
+              {%- endif -%}
             </button>
+          </p>
+        {%- else -%}
+          <p class="store-availability-information__title text--strong">
+            {{- 'store_availability.general.pick_up_unavailable_at' | t: location_name: closest_location.location.name -}}
+          </p>
+          {%- if pick_up_availabilities.size > 1 -%}
+            <p class="store-availability-information__stores">
+              <button type="button" class="store-availability-information__link" data-action="open-modal" aria-controls="StoreAvailabilityModal-{{ product_variant.id }}">
+                {{- 'store_availability.general.check_other_stores' | t -}}
+              </button>
+            </p>
           {%- endif -%}
-        </div>
+        {%- endif -%}
       </div>
-    {%- endif -%}
+    </div>
 
     <dialog class="store-availabilities-modal modal" tabindex="-1" id="StoreAvailabilityModal-{{ product_variant.id }}">
       <div class="modal__dialog" role="dialog">
