@@ -330,6 +330,17 @@
   /* border-top: 1px solid var(--border-color); */
 }
 
+/* Abstand zum oberen Rand des Displays */
+.shopify-section__header {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 640px) {
+  .shopify-section__header {
+    margin-top: 15px;
+  }
+}
+
 /* ===== BLOCK-VARIANTEN STYLING (Tab-Design) - MAXIMALE SPEZIFITÄT ===== */
 .template-product .product-form .block-swatch__item,
 .template-product .product-form a.block-swatch__item,
