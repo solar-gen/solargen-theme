@@ -42,19 +42,21 @@
   {%- comment -%} BRAND BADGE {%- endcomment -%}
   {%- render 'brand-badge', product: product -%}
 
-  {%- comment -%} LIEFERHINWEIS KOMPAKT {%- endcomment -%}
+  {%- comment -%} LIEFERHINWEIS UND SKU IN EINER ZEILE {%- endcomment -%}
   {%- assign v = product.selected_or_first_available_variant -%}
-  {%- if v.available -%}
-    <div class="lieferzeit-hinweis lieferzeit-gruen lieferzeit-compact">AUF LAGER – VERSAND IN 3–7 WERKTAGEN</div>
-  {%- else -%}
-    <div class="lieferzeit-hinweis lieferzeit-rot lieferzeit-compact">DERZEIT NICHT AUF LAGER</div>
-  {%- endif -%}
-  
-  {%- if block.settings.show_sku -%}
-    <div class="product-meta__sku-compact" {% if selected_variant.sku == blank %}style="display: none"{% endif %}>
-      {{- 'product.general.sku' | t -}} <span class="product-meta__sku-number">{{ selected_variant.sku }}</span>
-    </div>
-  {%- endif -%}
+  <div class="lieferzeit-sku-inline">
+    {%- if v.available -%}
+      <div class="lieferzeit-hinweis lieferzeit-gruen lieferzeit-compact">AUF LAGER – VERSAND IN 3–7 WERKTAGEN</div>
+    {%- else -%}
+      <div class="lieferzeit-hinweis lieferzeit-rot lieferzeit-compact">DERZEIT NICHT AUF LAGER</div>
+    {%- endif -%}
+    
+    {%- if block.settings.show_sku -%}
+      <span class="product-meta__sku product-meta__sku--inline" {% if selected_variant.sku == blank %}style="display: none"{% endif %}>
+        {{- 'product.general.sku' | t -}} <span class="product-meta__sku-number">{{ selected_variant.sku }}</span>
+      </span>
+    {%- endif -%}
+  </div>
 
   {%- capture product_labels -%}
 
