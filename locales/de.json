@@ -30,7 +30,7 @@
       "newsletter_input": "Deine Email Adresse",
       "newsletter_submit": "Abschicken",
       "newsletter_success": "Vielen Dank für Deinen Eintrag!",
-      "powered_by_html": "Dieser Shop wird mit {{shopify_link}} betrieben",
+      "powered_by_html": "",
       "login_title": "Bist Du der Shop Besitzer?",
       "login_link": "Einloggen",
       "follow_us": "Folge uns"

@@ -21,7 +21,7 @@
       "newsletter_input": "メールアドレス",
       "newsletter_submit": "購読する",
       "newsletter_success": "ご購読ありがとうございます。",
-      "powered_by_html": "このストアは{{shopify_link}}で作られています。",
+      "powered_by_html": "",
       "login_title": "ストア管理者ですか？",
       "login_link": "ログインはこちら",
       "follow_us": "フォローする"

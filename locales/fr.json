@@ -21,7 +21,7 @@
       "newsletter_input": "Votre adresse email",
       "newsletter_submit": "Me notifier",
       "newsletter_success": "Merci pour votre inscription !",
-      "powered_by_html": "Cette boutique sera propulsée par {{shopify_link}}",
+      "powered_by_html": "",
       "login_title": "Êtes-vous le gérant ?",
       "login_link": "Se connecter",
       "follow_us": "Nous suivre"

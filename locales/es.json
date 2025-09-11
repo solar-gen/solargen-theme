@@ -21,7 +21,7 @@
       "newsletter_input": "Tu correo electrónico",
       "newsletter_submit": "Notificarme",
       "newsletter_success": "Gracias por suscribirte!",
-      "powered_by_html": "Tienda impulsada por {{shopify_link}}",
+      "powered_by_html": "",
       "login_title": "Eres el dueño de la tienda ?",
       "login_link": "Conectarte",
       "follow_us": "Síguenos"

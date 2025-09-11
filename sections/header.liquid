@@ -59,7 +59,7 @@
         <span class="sg-infobar__item">Versand oder Abholung</span>
       </div>
 
-      <nav class="sg-infobar__right" aria-label="Schnellzugriff">
+      <nav class="sg-infobar__right hidden-pocket" aria-label="Schnellzugriff">
         <a href="/pages/angebot-anfordern" class="sg-link sg-link--primary"><strong>Angebot anfordern</strong></a>
         <a href="/pages/ueber-uns" class="sg-link">Über uns</a>
         <a href="/blogs/news" class="sg-link">Magazin</a>
@@ -71,9 +71,139 @@
     </div>
   </div>
 
+  {%- comment -%} SG: MOBILE VEREINFACHTER HEADER - 2x2 GRID {%- endcomment -%}
+  <div class="sg-mobile-header hidden-lap-and-up">
+    <div class="container">
+      <div class="sg-mobile-header__content">
+        <div class="sg-mobile-header__grid">
+          <!-- Zeile 1: Telefon -->
+          <div class="sg-mobile-header__item">
+            <span class="sg-mobile-header__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.86.31 1.7.57 2.5a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.8.26 1.64.45 2.5.57A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </span>
+            <span class="sg-mobile-header__text">06332 5004530</span>
+          </div>
+          
+          <!-- Zeile 1: Öffnungszeiten -->
+          <div class="sg-mobile-header__item">
+            <span class="sg-mobile-header__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+            </span>
+            <span class="sg-mobile-header__text">Mo–Fr 9–16 Uhr</span>
+          </div>
+          
+          <!-- Zeile 2: Skonto -->
+          <div class="sg-mobile-header__item">
+            <span class="sg-mobile-header__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </span>
+            <span class="sg-mobile-header__text">2 % Skonto bei Vorkasse</span>
+          </div>
+          
+          <!-- Zeile 2: Versand -->
+          <div class="sg-mobile-header__item">
+            <span class="sg-mobile-header__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 7h13v10H3z"></path>
+                <path d="M16 7h3l3 3v7h-6z"></path>
+                <circle cx="7.5" cy="17.5" r="1.5"></circle>
+                <circle cx="18.5" cy="17.5" r="1.5"></circle>
+              </svg>
+            </span>
+            <span class="sg-mobile-header__text">Versand oder Abholung</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <header class="header header--{{ section.settings.desktop_navigation_layout }} {% unless section.settings.show_condensed_search %}header--search-expanded{% endunless %}" role="banner">
     <div class="container">
       <div class="header__inner">
+        
+        {%- comment -%} SG: MOBILE HEADER LAYOUT {%- endcomment -%}
+        <div class="sg-mobile-main-header hidden-lap-and-up">
+          <!-- Logo -->
+          <div class="sg-mobile-header__logo">
+            {%- capture header_logo -%}
+              <a href="{{ routes.root_url }}" class="header__logo-link">
+                {%- if section.settings.logo != blank -%}
+                  {%- capture image_size -%}{{ section.settings.mobile_logo_max_width }}x{%- endcapture -%}
+                  <span class="visually-hidden">{{ shop.name }}</span>
+                  <img class="header__logo-image"
+                       style="max-width: {{ section.settings.mobile_logo_max_width }}px"
+                       width="{{ section.settings.logo.width }}"
+                       height="{{ section.settings.logo.height }}"
+                       src="{{ section.settings.logo | img_url: image_size, scale: 2 }}"
+                       alt="{{ section.settings.logo.alt | default: shop.name | escape }}">
+                {%- else -%}
+                  <span class="header__logo-text">{{ shop.name }}</span>
+                {%- endif -%}
+              </a>
+            {%- endcapture -%}
+            {{ header_logo }}
+          </div>
+          
+          <!-- Icons Row -->
+          <div class="sg-mobile-header__icons">
+            <!-- Profil -->
+            <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="sg-mobile-header__icon-link" aria-label="Profil">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </a>
+            
+            <!-- Nachrichten -->
+            <a href="/pages/kontakt" class="sg-mobile-header__icon-link" aria-label="Nachrichten">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </a>
+            
+            <!-- Warenkorb -->
+            <a href="{{ routes.cart_url }}" class="sg-mobile-header__icon-link sg-mobile-header__cart" aria-label="Warenkorb" data-no-instant>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"/>
+                <circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+              </svg>
+              <span class="sg-mobile-header__cart-count">{{ cart.item_count }}</span>
+            </a>
+            
+            <!-- Menu -->
+            <button class="sg-mobile-header__icon-link sg-mobile-header__menu-toggle" data-action="toggle-menu" aria-expanded="false" aria-haspopup="true" aria-controls="mobile-menu" aria-label="Menü">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="3" y1="18" x2="21" y2="18"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobile Suche -->
+        <div class="sg-mobile-search hidden-lap-and-up">
+          <form action="{{ routes.search_url }}" method="get" role="search" class="sg-mobile-search__form">
+            <div class="sg-mobile-search__input-wrapper">
+              <input type="hidden" name="type" value="product">
+              <input class="sg-mobile-search__input" type="text" name="q" autocomplete="off" autocorrect="off" aria-label="Suche" placeholder="Produkte suchen...">
+              <button type="submit" class="sg-mobile-search__submit" aria-label="Suchen">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="M21 21l-4.35-4.35"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
         {%- comment -%}
         --------------------------------------------------------------------------------------
         MOBILE NAV
