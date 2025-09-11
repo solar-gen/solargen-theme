@@ -12540,3 +12540,82 @@ product-rerender {
 .brand-badge__logo:hover {
   opacity: 1;
 }
+
+/* Modernes Abholhinweis-Design */
+.sg-pickup-container {
+  margin: 20px 0 12px 0;
+}
+
+.sg-pickup-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.sg-pickup-info:hover {
+  background: #f1f3f4;
+  border-color: #dee2e6;
+}
+
+.sg-pickup-info--unavailable {
+  background: #fff5f5;
+  border-color: #fed7d7;
+}
+
+.sg-pickup-info--unavailable:hover {
+  background: #fed7d7;
+}
+
+.sg-pickup-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sg-pickup-info .sg-pickup-icon svg {
+  color: #22c55e;
+}
+
+.sg-pickup-info--unavailable .sg-pickup-icon svg {
+  color: #ef4444;
+}
+
+.sg-pickup-content {
+  flex: 1;
+}
+
+.sg-pickup-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+  line-height: 1.4;
+}
+
+.sg-pickup-time {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.sg-pickup-link {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.sg-pickup-link:hover {
+  color: #1d4ed8;
+  text-decoration: none;
+}
