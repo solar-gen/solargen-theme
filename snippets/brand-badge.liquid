@@ -8,13 +8,22 @@
 
 {%- if brand_metaobject and brand_metaobject.logo -%}
   <div class="brand-badge">
+    {%- assign vendor_handle = product.vendor | handle -%}
+    {%- assign collection_for_vendor = collections[vendor_handle] -%}
+    
+    {%- unless collection_for_vendor.empty? -%}
+      <a href="{{ collection_for_vendor.url }}" class="brand-badge__link" title="{{ product.vendor | escape }} - Alle Produkte anzeigen">
+    {%- else -%}
+      <a href="{{ product.vendor | url_for_vendor }}" class="brand-badge__link" title="{{ product.vendor | escape }} - Alle Produkte anzeigen">
+    {%- endunless -%}
+    
     <img 
-      src="{{ brand_metaobject.logo | image_url: width: 100 }}" 
-      alt="{{ brand_metaobject.logo.alt | default: 'Brand Logo' }}"
+      src="{{ brand_metaobject.logo | image_url: width: 240 }}" 
+      alt="{{ brand_metaobject.logo.alt | default: product.vendor | escape }}"
       class="brand-badge__logo"
       loading="lazy"
-      width="100"
-      height="auto"
+      srcset="{{ brand_metaobject.logo | image_url: width: 120 }} 1x, {{ brand_metaobject.logo | image_url: width: 240 }} 2x"
     >
+    </a>
   </div>
 {%- endif -%}

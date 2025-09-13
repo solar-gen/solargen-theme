@@ -68,72 +68,37 @@
     <div class="product-item__info-inner">
       {%- capture price_list -%}
         <div class="product-item__price-list price-list">
-          {%- if product.price < product.compare_at_price -%}
-            {%- if product.price_varies -%}
-              {%- if settings.currency_code_enabled -%}
-                {%- capture price_min -%}{{ product.price_min | money_with_currency }}{%- endcapture -%}
-                {%- capture price_max -%}{{ product.price_max | money_with_currency }}{%- endcapture -%}
-              {%- else -%}
-                {%- capture price_min -%}{{ product.price_min | money }}{%- endcapture -%}
-                {%- capture price_max -%}{{ product.price_max | money }}{%- endcapture -%}
-              {%- endif -%}
-
+          {%- assign display_price = product.price | default: product.selected_or_first_available_variant.price | default: product.variants.first.price -%}
+          {%- assign display_compare_price = product.compare_at_price | default: product.selected_or_first_available_variant.compare_at_price | default: product.variants.first.compare_at_price -%}
+          
+          {%- if display_price -%}
+            {%- if display_compare_price and display_price < display_compare_price -%}
               <span class="price price--highlight">
                 <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
-                {{- 'collection.product.from_price_html' | t: price_min: price_min, price_max: price_max -}}
-              </span>
-
-              <span class="price price--compare">
-                <span class="visually-hidden">{{ 'product.general.regular_price' | t }}</span>
-
                 {%- if settings.currency_code_enabled -%}
-                  {{- product.compare_at_price_min | money_with_currency -}}
+                  {{- display_price | money_with_currency -}}
                 {%- else -%}
-                  {{- product.compare_at_price_min | money -}}
+                  {{- display_price | money -}}
                 {%- endif -%}
               </span>
-            {%- else -%}
-              <span class="price price--highlight">
-                <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
-
-                {%- if settings.currency_code_enabled -%}
-                  {{- product.price | money_with_currency -}}
-                {%- else -%}
-                  {{- product.price | money -}}
-                {%- endif -%}
-              </span>
-
               <span class="price price--compare">
                 <span class="visually-hidden">{{ 'product.general.regular_price' | t }}</span>
                 {%- if settings.currency_code_enabled -%}
-                  {{- product.compare_at_price | money_with_currency -}}
+                  {{- display_compare_price | money_with_currency -}}
                 {%- else -%}
-                  {{- product.compare_at_price | money -}}
+                  {{- display_compare_price | money -}}
+                {%- endif -%}
+              </span>
+            {%- else -%}
+              <span class="price">
+                <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
+                {%- if settings.currency_code_enabled -%}
+                  {{- display_price | money_with_currency -}}
+                {%- else -%}
+                  {{- display_price | money -}}
                 {%- endif -%}
               </span>
             {%- endif -%}
-          {%- elsif product.price_varies -%}
-            {%- if settings.currency_code_enabled -%}
-              {%- capture price_min -%}{{ product.price_min | money_with_currency }}{%- endcapture -%}
-              {%- capture price_max -%}{{ product.price_max | money_with_currency }}{%- endcapture -%}
-            {%- else -%}
-              {%- capture price_min -%}{{ product.price_min | money }}{%- endcapture -%}
-              {%- capture price_max -%}{{ product.price_max | money }}{%- endcapture -%}
-            {%- endif -%}
-
-            <span class="price">
-              <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
-              {{- 'collection.product.from_price_html' | t: price_min: price_min, price_max: price_max -}}
-            </span>
-          {%- else -%}
-            <span class="price">
-              <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
-              {%- if settings.currency_code_enabled -%}
-                {{- product.price | money_with_currency -}}
-              {%- else -%}
-                {{- product.price | money -}}
-              {%- endif -%}
-            </span>
           {%- endif -%}
         </div>
 
@@ -163,6 +128,27 @@
           {%- else -%}
             <a class="product-item__vendor link" href="{{ product.vendor | url_for_vendor }}">{{ product.vendor }}</a>
           {%- endunless -%}
+          
+          {%- comment -%} Brand Logo in Produktkarten - Anklickbar {%- endcomment -%}
+          {%- if product.metafields.custom.brand_logo -%}
+            <div class="product-item__brand-logo" style="margin-top: 4px;">
+              {%- unless collection_for_vendor.empty? -%}
+                <a href="{{ collection_for_vendor.url }}" class="brand-logo-link" title="{{ product.vendor | escape }} - Alle Produkte anzeigen">
+              {%- else -%}
+                <a href="{{ product.vendor | url_for_vendor }}" class="brand-logo-link" title="{{ product.vendor | escape }} - Alle Produkte anzeigen">
+              {%- endunless -%}
+              
+              <img
+                src="{{ product.metafields.custom.brand_logo | image_url: width: 480 }}"
+                alt="{{ product.vendor | escape }}"
+                class="brand-logo"
+                loading="lazy"
+                decoding="async"
+                srcset="{{ product.metafields.custom.brand_logo | image_url: width: 240 }} 1x, {{ product.metafields.custom.brand_logo | image_url: width: 480 }} 2x"
+                style="height: 48px; width: auto;">
+              </a>
+            </div>
+          {%- endif -%}
         {%- endif -%}
       {%- endcapture -%}
 

@@ -1,6 +1,7 @@
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
 
 
+
 <div class="card {% if product.media.size > 0 %}card--collapsed{% endif %} {% if template.name == 'product' %}card--sticky{% endif %}">
   {%- if section.settings.enable_image_zoom -%}
     <div id="product-zoom-{{ section.id }}" class="product__zoom-wrapper"></div>
@@ -22,6 +23,44 @@
                 {%- render 'volume-pricing-table', variant: product.selected_or_first_available_variant -%}
 
               {%- when 'buy_buttons' -%}
+                <!-- PREIS NUR BEI PRODUKTEN OHNE VARIANTEN (1 Variante = Default) -->
+                {%- if product.variants.size == 1 -%}
+                  <div class="product-form__info-item" style="margin-bottom: 20px;">
+                    <div class="product-form__info-content">
+                      <div class="price-list" style="margin-bottom: 8px;">
+                        {%- if selected_variant.compare_at_price > selected_variant.price -%}
+                          <span class="price price--highlight" style="font-size: 28px; font-weight: 600; margin-right: 12px;">
+                            <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
+                            {{ selected_variant.price | money }}
+                          </span>
+                          <span class="price price--compare" style="font-size: 18px; text-decoration: line-through; color: #999;">
+                            <span class="visually-hidden">{{ 'product.general.regular_price' | t }}</span>
+                            {{ selected_variant.compare_at_price | money }}
+                          </span>
+                        {%- else -%}
+                          <span class="price" style="font-size: 28px; font-weight: 600; color: #333;">
+                            <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
+                            {{ selected_variant.price | money }}
+                          </span>
+                        {%- endif -%}
+                      </div>
+                      
+                      <!-- USt-Klausel - Anklickbar mit Theme Modal -->
+                      <div class="product-form__tax-info" style="margin-top: 4px; margin-bottom: 12px;">
+                        <button type="button" class="tax-disclaimer link" style="font-size: 0.85em; color: #666; text-decoration: underline; background: none; border: none; padding: 0; cursor: pointer;" data-action="open-modal" aria-controls="modal-tax-info">Inkl. 0% USt. nach §12 Abs. 3 UStG.</button>
+                      </div>
+                      
+                      <!-- Versandkostenfrei - Mit 3D Punkt -->
+                      <div class="product-form__shipping-info" style="margin-bottom: 18px; padding: 8px 0;">
+                        <div style="color: #333; font-size: 16px; font-weight: 400; display: flex; align-items: center;">
+                          <span style="color: #28a745; margin-right: 10px; font-size: 20px; text-shadow: 1px 1px 2px rgba(40, 167, 69, 0.3), 0px 0px 4px rgba(40, 167, 69, 0.2); filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.1));">●</span>
+                          <span>Versandkostenfrei</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {%- endif -%}
+                
                 {%- render 'product-buy-buttons', product: product, form: form, block: block -%}
 
               {%- when 'text' -%}
@@ -60,6 +99,7 @@
           </div>
         {%- endfor -%}
 
+
         {%- assign product_meta_block = section.blocks | where: 'type', 'product_meta' | first -%}
 
         {%- if product_meta_block != blank and product_meta_block.settings.show_share_buttons -%}
@@ -94,5 +134,36 @@
 
 
     </product-form>
+  </div>
+</div>
+
+<!-- Tax Info Modal -->
+<div id="modal-tax-info" class="modal" aria-hidden="true">
+  <div class="modal__dialog" role="dialog">
+    <button class="modal__close link" data-action="close-modal" title="Schließen">
+      <svg width="14" height="14" viewBox="0 0 14 14"><path d="M13 1L1 13M1 1l12 12" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+    </button>
+
+    <div class="modal__inner" style="padding: 30px; max-width: 800px;">
+      <h2 style="color: #333; margin-bottom: 20px; font-size: 24px; font-weight: 600;">Nullsteuersatz bei Photovoltaikanlagen</h2>
+      
+      <p style="color: #333; line-height: 1.6; margin-bottom: 16px;">Damit Sie bei Ihrer Bestellung, bei uns, von der Nullsteuer nach §12 Abs. 3 Nr. 1 UstG profitieren können, müssen die folgenden Voraussetzungen erfüllt sein:</p>
+      
+      <ul style="color: #333; line-height: 1.6; margin-bottom: 20px; padding-left: 20px;">
+        <li style="margin-bottom: 12px;">die Lieferungen von Solarmodulen erfolgt an den Betreiber einer Photovoltaikanlage, einschließlich der für den Betrieb einer Photovoltaikanlage wesentlichen Komponenten, des Speichers, die dazu dienen, den mit Solarmodulen erzeugten Strom zu speichern, wenn die Photovoltaikanlage auf oder in der Nähe von Privatwohnungen, Wohnungen sowie öffentlichen und anderen Gebäuden, die für dem Gemeinwohl dienende Tätigkeiten genutzt werden, installiert wird. Die Voraussetzungen gelten als erfüllt, wenn die installierte Bruttoleistung der Photovoltaikanlage laut Marktstammdatenregister nicht mehr als 30 Kilowatt (peak) beträgt oder betragen wird.</li>
+        
+        <li style="margin-bottom: 12px;">Betreiber der Photovoltaikanlage sind die natürlichen Personen, juristischen Personen oder Personenzusammenschlüsse, die dem Grunde nach zum Leistungszeitpunkt als Betreiber im MAStR (Marktstammdatenregister) registrierungspflichtig sind. Die tatsächliche Registrierung im MAStR (z. B. im Falle von Balkonkraftwerken) ist für die Betreibereigenschaft nicht maßgeblich.</li>
+        
+        <li style="margin-bottom: 12px;">Sie erbringen uns gegenüber den Nachweis, dass die Tatbestandsvoraussetzungen zur Anwendung des Nullsteuersatzes erfüllt sind. Dazu ist es Ausreichend, wenn Sie als Erwerber schriftlich erklären, dass Sie Betreiber der Photovoltaikanlage sind und es sich um ein begünstigtes Gebäude handelt oder die installierte Bruttoleistung der Photovoltaikanlage laut MAStR nicht mehr als 30 kW (peak) beträgt oder betragen wird.</li>
+      </ul>
+      
+      <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 4px solid #28a745; margin-bottom: 20px;">
+        <p style="color: #333; line-height: 1.6; font-style: italic; margin: 0;">Sollte sich nachträglich zeigen, dass diese Voraussetzungen entgegen Ihrer Bestätigung nicht erfüllt sind (z.B. durch Außenprüfung), so erklären Sie sich mit der nachträglichen in Rechnungstellung der zu wenig entrichteten Umsatzsteuer einverstanden.</p>
+      </div>
+      
+      <div style="text-align: center;">
+        <button class="button button--primary" data-action="close-modal">Verstanden</button>
+      </div>
+    </div>
   </div>
 </div>

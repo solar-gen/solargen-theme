@@ -32,3 +32,45 @@
   justify-content:center !important;
   text-align:center !important;
 }
+
+/* Vergleichspreis in Produktempfehlungs-Sections kleiner machen */
+section[data-section-type="product-recommendations"] .product-item .product-item__price-list .price--compare,
+section[data-section-type="recently-viewed-products"] .product-item .product-item__price-list .price--compare,
+section[data-section-type="featured-collection"] .product-item .product-item__price-list .price--compare,
+section[data-section-type="offers"] .product-item .product-item__price-list .price--compare {
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+}
+
+/* Vergleichspreis in Kollektionsübersicht wieder normal/größer machen */
+.template-collection .product-item .product-item__price-list .price--compare {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+}
+
+/* Produktbilder: Ladeoptimierung und besseres UX */
+.product-gallery__image {
+  transition: opacity 0.3s ease;
+}
+
+.product-gallery__image[loading="lazy"] {
+  opacity: 0;
+}
+
+.product-gallery__image.loaded,
+.product-gallery__image[loading="eager"] {
+  opacity: 1;
+}
+
+/* Verstecke Ladetext/Platzhalter während Bildladen */
+.product-gallery__carousel-item .aspect-ratio::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f8f8f8;
+  display: block;
+  z-index: -1;
+}

@@ -8832,7 +8832,16 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
 }
 
 .product-item .price--compare {
-  font-size: calc(var(--base-text-font-size)  - (var(--default-text-font-size)  - 14px));
+  font-size: 12px;
+}
+
+/* Empfehlung/Zuletzt angesehen: Vergleichspreis bewusst kleiner halten */
+section[data-section-type="product-recommendations"] .price--compare,
+section[data-section-type="recently-viewed-products"] .price--compare,
+.product-recommendations .price--compare,
+.recently-viewed-products .price--compare {
+  font-size: 12px !important;
+  line-height: 1;
 }
 
 .product-item__reviews-badge {
@@ -12787,424 +12796,71 @@ product-rerender {
   padding: 2px 6px;
 }
 
-/* Produktempfehlungs-Sektionen reparieren - maximale Spezifität */
-section[data-section-type="product-recommendations"] .scroller,
-section[data-section-type="recently-viewed-products"] .scroller,
-.product-recommendations .scroller,
-.recently-viewed-products .scroller {
-  overflow: visible !important;
-  margin-bottom: 0 !important;
-  padding: 0 !important;
-}
+/* (Entfernt: aggressive Overrides für product-recommendations & recently-viewed-products) */
 
-section[data-section-type="product-recommendations"] .scroller__inner,
-section[data-section-type="recently-viewed-products"] .scroller__inner,
-.product-recommendations .scroller__inner,
-.recently-viewed-products .scroller__inner {
-  overflow: visible !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  white-space: normal !important;
-  width: 100% !important;
-}
-
-section[data-section-type="product-recommendations"] .product-list,
-section[data-section-type="recently-viewed-products"] .product-list,
-.product-recommendations .product-list,
-.recently-viewed-products .product-list {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  gap: 16px !important;
-  padding: 0 16px 0 0 !important;
-  margin: 0 !important;
-  overflow-x: hidden !important;
-  overflow-y: visible !important;
-  scroll-behavior: smooth !important;
-  -webkit-overflow-scrolling: touch !important;
-  justify-content: flex-start !important;
-}
-
-section[data-section-type="product-recommendations"] .product-item,
-section[data-section-type="recently-viewed-products"] .product-item,
-.product-recommendations .product-item,
-.recently-viewed-products .product-item {
-  flex: 0 0 280px !important;
-  min-width: 280px !important;
-  max-width: 280px !important;
-  height: auto !important;
-  border: 1px solid #e5e5e5 !important;
-  border-radius: 8px !important;
-  margin: 0 !important;
-  padding: 16px !important;
-  background: #fff !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
-  outline: none !important;
-  box-sizing: border-box !important;
-}
-
-section[data-section-type="product-recommendations"] .product-item:last-child,
-section[data-section-type="recently-viewed-products"] .product-item:last-child,
-.product-recommendations .product-item:last-child,
-.recently-viewed-products .product-item:last-child {
-  border: 1px solid #e5e5e5 !important;
-}
-
-/* Zusätzliche maximale Spezifität für horizontales Layout */
-section[data-section-type="product-recommendations"] .product-list,
-section[data-section-type="recently-viewed-products"] .product-list {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  align-items: stretch !important;
-  justify-content: flex-start !important;
-}
-
-/* Scrollbar entfernt - keine Scrollbar-Styling mehr nötig */
-
-/* Mobile Anpassungen für Produktempfehlungen - horizontaler Scroll wie Desktop */
-@media screen and (max-width: 640px) {
-  section[data-section-type="product-recommendations"] .product-item,
-  section[data-section-type="recently-viewed-products"] .product-item,
-  .product-recommendations .product-item,
-  .recently-viewed-products .product-item {
-    flex: 0 0 250px !important;
-    min-width: 250px !important;
-    max-width: 250px !important;
-    border: 1px solid #e5e5e5 !important;
-    border-radius: 8px !important;
-    padding: 12px !important;
+/* Desktop: Viewport-Mindesthöhe, damit Karten nicht abgeschnitten wirken */
+@media screen and (min-width: 1000px) {
+  section[data-section-type="product-recommendations"] .flickity-viewport,
+  section[data-section-type="recently-viewed-products"] .flickity-viewport,
+  section[data-section-type="featured-collection"] .flickity-viewport,
+  section[data-section-type="offers"] .flickity-viewport {
+    min-height: 380px;
   }
 }
 
-/* Aggressive Überschreibung für horizontales Layout - maximale Spezifität */
-section[data-section-type="product-recommendations"] .product-list,
-section[data-section-type="recently-viewed-products"] .product-list,
-.product-recommendations .product-list,
-.recently-viewed-products .product-list {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  align-items: stretch !important;
-  justify-content: flex-start !important;
-  overflow-x: hidden !important;
-  overflow-y: visible !important;
-  gap: 16px !important;
-  padding: 0 16px 0 0 !important;
-  margin: 0 !important;
+/* (Entfernt: aggressive Overrides für featured-collection) */
+
+/* Brand Logo Styling - hochauflösend */
+.brand-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  max-height: none !important;   /* überschreibt evtl. Theme-Limits */
+  max-width: 240px;               /* optional: Begrenzung der Breite */
+  vertical-align: middle;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
-/* Scrollbar komplett entfernen - maximale Spezifität */
-section[data-section-type="product-recommendations"] .product-list::-webkit-scrollbar,
-section[data-section-type="recently-viewed-products"] .product-list::-webkit-scrollbar,
-.product-recommendations .product-list::-webkit-scrollbar,
-.recently-viewed-products .product-list::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
+/* Spezifische Überschreibung falls Theme img-Maximum setzt */
+.product-meta__reference .brand-logo,
+.product-meta__vendor .brand-logo {
+  max-height: none !important;
 }
 
-/* Doppelte Borders entfernen - maximale Spezifität */
-section[data-section-type="product-recommendations"] .product-item *,
-section[data-section-type="recently-viewed-products"] .product-item *,
-.product-recommendations .product-item *,
-.recently-viewed-products .product-item * {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
+/* Anklickbare Brand-Logos */
+.brand-logo-link {
+  display: inline-block;
+  transition: opacity 0.2s ease;
+  text-decoration: none;
 }
 
-section[data-section-type="product-recommendations"] .product-item,
-section[data-section-type="recently-viewed-products"] .product-item,
-.product-recommendations .product-item,
-.recently-viewed-products .product-item {
-  border: 1px solid #e5e5e5 !important;
-  border-radius: 8px !important;
-  outline: none !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+.brand-logo-link:hover {
+  opacity: 0.8;
 }
 
-/* Ultra-aggressive Überschreibung für alle Theme-Regeln */
-section[data-section-type="product-recommendations"],
-section[data-section-type="recently-viewed-products"] {
-  overflow: visible !important;
+/* Brand Badge anklickbar machen */
+.brand-badge__link {
+  display: inline-block;
+  transition: opacity 0.2s ease;
+  text-decoration: none;
 }
 
-/* Geraden Streifen rechts entfernen */
-section[data-section-type="product-recommendations"] .product-item::after,
-section[data-section-type="recently-viewed-products"] .product-item::after,
-.product-recommendations .product-item::after,
-.recently-viewed-products .product-item::after {
-  display: none !important;
-  content: none !important;
+.brand-badge__link:hover {
+  opacity: 0.8;
 }
 
-section[data-section-type="product-recommendations"] .product-item::before,
-section[data-section-type="recently-viewed-products"] .product-item::before,
-.product-recommendations .product-item::before,
-.recently-viewed-products .product-item::before {
-  display: none !important;
-  content: none !important;
+.brand-badge__logo {
+  height: 32px !important;
+  width: auto !important;
+  max-width: 120px !important;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
-section[data-section-type="product-recommendations"] .scroller,
-section[data-section-type="recently-viewed-products"] .scroller {
-  overflow: visible !important;
-  overflow-x: hidden !important;
-  overflow-y: visible !important;
-}
-
-section[data-section-type="product-recommendations"] .scroller__inner,
-section[data-section-type="recently-viewed-products"] .scroller__inner {
-  overflow: visible !important;
-  overflow-x: hidden !important;
-  overflow-y: visible !important;
-}
-
-/* Alle möglichen geraden Streifen und Borders entfernen */
-section[data-section-type="product-recommendations"] .product-item,
-section[data-section-type="recently-viewed-products"] .product-item,
-.product-recommendations .product-item,
-.recently-viewed-products .product-item {
-  position: relative !important;
-}
-
-section[data-section-type="product-recommendations"] .product-item > *,
-section[data-section-type="recently-viewed-products"] .product-item > *,
-.product-recommendations .product-item > *,
-.recently-viewed-products .product-item > * {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-}
-
-/* Spezifisch für mögliche Container-Elemente */
-section[data-section-type="product-recommendations"] .product-item .product-item__image,
-section[data-section-type="recently-viewed-products"] .product-item .product-item__image,
-.product-recommendations .product-item .product-item__image,
-.recently-viewed-products .product-item .product-item__image {
-  border: none !important;
-  border-radius: 0 !important;
-  outline: none !important;
-}
-
-section[data-section-type="product-recommendations"] .product-item .product-item__info,
-section[data-section-type="recently-viewed-products"] .product-item .product-item__info,
-.product-recommendations .product-item .product-item__info,
-.recently-viewed-products .product-item .product-item__info {
-  border: none !important;
-  border-radius: 0 !important;
-  outline: none !important;
-}
-
-/* Preis-Größen speziell für Produktempfehlungen */
-.product-recommendations .price,
-.recently-viewed-products .price {
-  font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 18px)) !important;
-}
-
-.product-recommendations .price--highlight,
-.recently-viewed-products .price--highlight {
-  font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 18px)) !important;
-  margin-right: 8px !important;
-}
-
-/* Vergleichspreis in Produktempfehlungen - maximale Spezifität */
-section[data-section-type="product-recommendations"] .product-item .price--compare,
-section[data-section-type="recently-viewed-products"] .product-item .price--compare,
-.product-recommendations .product-item__price-list .price-list .price--compare,
-.recently-viewed-products .product-item__price-list .price-list .price--compare,
-.product-recommendations .price-list .price--compare,
-.recently-viewed-products .price-list .price--compare {
-  font-size: 12px !important;
-  margin-left: 0 !important;
-  display: inline !important;
-  line-height: 1 !important;
-}
-
-/* Recently viewed Sektion spezifisch reparieren */
-.recently-viewed-products-placeholder {
-  overflow: visible !important;
-  height: auto !important;
-  min-height: auto !important;
-}
-
-.recently-viewed-products-placeholder .scroller {
-  overflow: visible !important;
-  margin: 0 !important;
-  height: auto !important;
-}
-
-.recently-viewed-products-placeholder .scroller__inner {
-  overflow: visible !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  height: auto !important;
-  white-space: normal !important;
-}
-
-.recently-viewed-products-placeholder .product-list {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 20px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  overflow: visible !important;
-}
-
-.recently-viewed-products-placeholder .product-item {
-  flex: 0 0 calc(25% - 15px) !important;
-  min-width: 250px !important;
-  max-width: 300px !important;
-  height: auto !important;
-}
-
-/* Featured Collection Sektion reparieren - maximale Spezifität */
-section[data-section-type="featured-collection"] .scroller,
-.featured-collection .scroller {
-  overflow: visible !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  height: auto !important;
-  min-height: auto !important;
-}
-
-section[data-section-type="featured-collection"] .scroller__inner,
-.featured-collection .scroller__inner {
-  overflow: visible !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  height: auto !important;
-  white-space: normal !important;
-  width: 100% !important;
-}
-
-section[data-section-type="featured-collection"] .product-list,
-.featured-collection .product-list {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  gap: 16px !important;
-  padding: 0 16px 0 0 !important;
-  margin: 0 !important;
-  overflow-x: hidden !important;
-  overflow-y: visible !important;
-  scroll-behavior: smooth !important;
-  -webkit-overflow-scrolling: touch !important;
-  justify-content: flex-start !important;
-}
-
-section[data-section-type="featured-collection"] .product-item,
-.featured-collection .product-item {
-  flex: 0 0 280px !important;
-  min-width: 280px !important;
-  max-width: 280px !important;
-  height: auto !important;
-  border: 1px solid #e5e5e5 !important;
-  border-radius: 8px !important;
-  margin: 0 !important;
-  padding: 16px !important;
-  background: #fff !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
-  outline: none !important;
-  box-sizing: border-box !important;
-}
-
-section[data-section-type="featured-collection"] .product-item:last-child,
-.featured-collection .product-item:last-child {
-  border: 1px solid #e5e5e5 !important;
-}
-
-/* Featured Collection Mobile - horizontaler Scroll wie Desktop */
-@media screen and (max-width: 640px) {
-  section[data-section-type="featured-collection"] .product-item,
-  .featured-collection .product-item {
-    flex: 0 0 250px !important;
-    min-width: 250px !important;
-    max-width: 250px !important;
-    border: 1px solid #e5e5e5 !important;
-    border-radius: 8px !important;
-    padding: 12px !important;
-  }
-}
-
-/* Featured Collection Container reparieren */
-section[data-section-type="featured-collection"] {
-  overflow: visible !important;
-  height: auto !important;
-}
-
-section[data-section-type="featured-collection"] .container {
-  overflow: visible !important;
-  height: auto !important;
-}
-
-/* Featured Collection - Scrollbar entfernen und Borders reparieren */
-section[data-section-type="featured-collection"] .scroller {
-  overflow: visible !important;
-  overflow-x: hidden !important;
-  overflow-y: visible !important;
-}
-
-section[data-section-type="featured-collection"] .scroller__inner {
-  overflow: visible !important;
-  overflow-x: hidden !important;
-  overflow-y: visible !important;
-}
-
-section[data-section-type="featured-collection"] .product-list::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-
-section[data-section-type="featured-collection"] .product-item * {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-section[data-section-type="featured-collection"] .product-item {
-  border: 1px solid #e5e5e5 !important;
-  border-radius: 8px !important;
-  outline: none !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
-  position: relative !important;
-}
-
-/* Featured Collection - Geraden Streifen entfernen */
-section[data-section-type="featured-collection"] .product-item::after,
-section[data-section-type="featured-collection"] .product-item::before {
-  display: none !important;
-  content: none !important;
-}
-
-section[data-section-type="featured-collection"] .product-item > * {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-}
-
-section[data-section-type="featured-collection"] .product-item .product-item__image,
-section[data-section-type="featured-collection"] .product-item .product-item__info {
-  border: none !important;
-  border-radius: 0 !important;
-  outline: none !important;
-}
-
-/* Featured Collection Preis-Größen */
-.featured-collection .price {
-  font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 18px)) !important;
-}
-
-.featured-collection .price--highlight {
-  font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 18px)) !important;
-  margin-right: 8px !important;
-}
-
-.featured-collection .price--compare {
-  font-size: 12px !important;
-  margin-left: 0 !important;
-  display: inline !important;
-  line-height: 1 !important;
+/* Brand Badge Abstände optimieren */
+.brand-badge {
+  margin-top: 4px !important;
+  margin-bottom: 8px !important;
 }

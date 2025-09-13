@@ -17,8 +17,8 @@
 
           <div class="product-form__info-content" role="region" aria-live="polite">
             <div class="price-list">
-              {%- assign selected_variant = product.selected_or_first_available_variant -%}
-              {%- if selected_variant.compare_at_price > selected_variant.price -%}
+              {%- assign selected_variant = product.selected_or_first_available_variant | default: product.variants.first -%}
+              {%- if selected_variant and selected_variant.compare_at_price > selected_variant.price -%}
                 <span class="price price--highlight">
                   <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
 
@@ -263,7 +263,8 @@
 
       <div class="product-form__info-content" role="region" aria-live="polite">
         <div class="price-list">
-          {%- if selected_variant.compare_at_price > selected_variant.price -%}
+          {%- assign selected_variant = product.selected_or_first_available_variant | default: product.variants.first -%}
+          {%- if selected_variant and selected_variant.compare_at_price > selected_variant.price -%}
             <span class="price price--highlight">
               <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
 
