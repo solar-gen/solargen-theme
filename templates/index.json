@@ -1,1 +1,820 @@
-{"sections":{"slideshow":{"type":"slideshow","blocks":{"image-1":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/DE444098641_8.png","show_overlay":false,"overlay_opacity":30,"text_color":"#ffffff","title":"PV-Komplettsets","content":"Eine Solaranlage als Komplettpaket?\nFinde die passende Lösung genau für dich","content_position":"middle_left","button_background":"#3a4e86","button_text_color":"#ffffff","button_text":"Alles ansehen","link":"shopify:\/\/collections\/all"}},"image-2":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/DE444098641_7.png","show_overlay":false,"overlay_opacity":30,"text_color":"#ffffff","title":"Unser Bestseller Anker Solarbank 3 Pro E2700","content":"Entdecken sie die Vorteile eines ausgeklügelten Systems","content_position":"middle_right","button_background":"#4f63a6","button_text_color":"#ffffff","button_text":"Jetzt ansehen","link":"shopify:\/\/collections\/all"}},"image-3":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/DE444098641_1.png","show_overlay":false,"overlay_opacity":30,"text_color":"#ffffff","title":"Balkonkraftwerk-Komplettsets","content":"Die einfachste Lösung um Strom zu sparen!","content_position":"middle_left","button_background":"#3a4e86","button_text_color":"#ffffff","button_text":"Jetzt entdecken","link":"shopify:\/\/collections\/all"}}},"block_order":["image-1","image-2","image-3"],"settings":{"edge_to_edge":false,"section_size":"preserve_ratio","carousel_effect":"slide","autoplay":true,"cycle_speed":5}},"promotion-list":{"type":"promotion-list","blocks":{"item-1":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/Design_ohne_Titel_39.png","stretch_image":false,"show_overlay":false,"overlay_opacity":50,"background":"#e7ecf9","text_color":"#111111","title":"Balkonkraftwerk-Speicher","content":"<p>Exklusive Angebote mit bis zu 15% Rabatt<\/p>","content_position":"top_left","button_background":"#3a4e86","button_text_color":"#ffffff","button_text":"Alle Ansehen","button_link":"shopify:\/\/collections\/sunpro"}},"item-2":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/Design_ohne_Titel_30.png","stretch_image":false,"show_overlay":false,"overlay_opacity":50,"background":"#e8f4ec","text_color":"#111111","title":"Balkonkraftwerk Sets","content":"<p>Alles was Sie brauchen um eigenen Strom zu erzeugen<\/p>","content_position":"top_left","button_background":"#3a4e86","button_text_color":"#ffffff","button_text":"Alle Ansehen","button_link":"shopify:\/\/collections\/balkonkraftwerke"}},"item-3":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/Design_ohne_Titel_42.png","stretch_image":false,"show_overlay":false,"overlay_opacity":50,"background":"#f9f3e7","text_color":"#111111","title":"PV-Komplettsets","content":"<p>Große Solaranlagen als Komplettpaket<\/p>","content_position":"top_left","button_background":"#3a4e86","button_text_color":"#ffffff","button_text":"Alle Ansehen","button_link":""}}},"block_order":["item-1","item-2","item-3"],"name":"Promotion blocks","settings":{"expand_items":false,"section_size":"medium","stack_mobile":false}},"logo-list":{"type":"logo-list","blocks":{"logo-5":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/250_x_80px_2_22bab8f6-15ad-4cc0-b61b-982475d6c740.png","link":"shopify:\/\/collections\/anker"}},"logo-3":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/250_x_80px_3_e4ff53f2-5c47-4ad2-b98e-c5e679516bc6.png","link":"shopify:\/\/collections\/ecoflow"}},"logo-1":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/250_x_80px_9c3d38b5-4097-402b-9464-d3db3fad4c10.png","link":"shopify:\/\/collections\/marstek"}},"logo-4":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/250_x_80px_1_82dce2b1-5e52-4f29-a575-3bbe3cb2978a.png","link":"shopify:\/\/collections\/hoymiles"}},"logo-2":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/250_x_80px_4.png","link":"shopify:\/\/collections\/growatt"}}},"block_order":["logo-5","logo-3","logo-1","logo-4","logo-2"],"name":"Logo list","settings":{"title":"Führende Partner – Beste Angebote","link_title":"","link":""}},"offers":{"type":"offers","blocks":{"offer-1":{"type":"offer","settings":{"title":"Exklusive Wochendeals!","content":"<p>Wir bieten Ihnen die fairsten Preise und Wöchentlich wechselnde Angebote, sowie Rabattaktionen und Treukundenrabatt. Zudem können Sie Ihre Freunde einladen und exklusive Gutscheine auf jedes Produkt erhalten.  <\/p>"}},"offer-2":{"type":"offer","settings":{"title":"Deutschlandweit kostenloser Versand","content":"<p>Wir arbeiten mit allen bekannten Versanddienstleistern zusammen und bieten auf alle Produkte kostenlosen Versand an. (ausgenommen Balkonkraftwerke und Pv-Komplettsets) <\/p>"}}},"block_order":["offer-1","offer-2"],"name":"Offers","settings":{"items_per_row":2,"stack_mobile":false}},"map_HKpBUR":{"type":"map","blocks":{"store_Fa8KGD":{"type":"store","settings":{"title":"Abholstelle Bous \/ Saar","address":"<p>Saarbrücker Str. 104A, 66359 Bous<\/p>","hours":"<p>Montag - Freitag: 9 - 16 Uhr<br\/>Sonntag: 9 - 16 Uhr<br\/>Sonntag: Geschlossen<\/p>","map_address":"Saarbrücker Str. 104A, 66359 Bous, Germany"}}},"block_order":["store_Fa8KGD"],"disabled":true,"name":"Map","settings":{"title":"Unsere Abholstellen","map_link_label":"Wegbeschreibung","api_key":"","zoom":15,"draggable_map":false,"show_map_controls":false,"map_style":"standard"}},"collection-list":{"type":"collection-list","blocks":{"collection-2":{"type":"collection","settings":{"collection":"pv-komplettsets","link":""}},"collection-1":{"type":"collection","settings":{"collection":"balkonkraftwerke","link":""}},"collection-3":{"type":"collection","settings":{"collection":"solarmodule","link":""}},"collection-4":{"type":"collection","settings":{"collection":"sunpro","link":""}},"collection-5":{"type":"collection","settings":{"collection":"wechselrichter","link":""}},"collection-6":{"type":"collection","settings":{"collection":"zubehoer","link":""}}},"block_order":["collection-2","collection-1","collection-3","collection-4","collection-5","collection-6"],"settings":{"title":"Entdecke unser Sortiment","link_title":"","link":"shopify:\/\/collections","round_images":true,"show_collection_title":true}},"featured-collection":{"type":"featured-collection","settings":{"collection":"sunpro","title":"Aktuelle Angebote","products_count":12,"layout":"vertical","stack_products":false,"show_quick_buy":false,"link_title":"","link_url":"shopify:\/\/collections\/sunpro"}},"mosaic":{"type":"mosaic","blocks":{"item-1":{"type":"item","settings":{"show_overlay":false,"overlay_opacity":50,"background":"#ff2e1f","text_color":"#ffffff","title":"Bluetooth","content":"Feel the freedom with our Bluetooth headphones and speakers.","content_position":"top_left","button_background":"#4f5558","button_text_color":"#f3f4f4","button_text":"Learn more","link":""}},"item-2":{"type":"item","settings":{"show_overlay":false,"overlay_opacity":50,"background":"#383639","text_color":"#ffffff","title":"Professional audio","content":"Get the best deals for professional audio equipment.","content_position":"top_left","button_background":"#4f5558","button_text_color":"#f3f4f4","button_text":"Learn more","link":""}},"item-3":{"type":"item","settings":{"show_overlay":false,"overlay_opacity":50,"background":"#f3f4f4","text_color":"#000000","title":"Headphones","content":"Our selection of premium headphones to enjoy your favorite playlist with an incredible sound.","content_position":"top_left","button_background":"#4f5558","button_text_color":"#f3f4f4","button_text":"Learn more","link":""}},"item-4":{"type":"item","settings":{"show_overlay":false,"overlay_opacity":50,"background":"#f3f4f4","text_color":"#000000","title":"Accessories","content":"Our various accessories to have the best experience.","content_position":"top_left","button_background":"#4f5558","button_text_color":"#f3f4f4","button_text":"Learn more","link":""}},"item-5":{"type":"item","settings":{"show_overlay":false,"overlay_opacity":50,"background":"#383639","text_color":"#ffffff","title":"Projectors","content":"Play or watch your favorites TV shows with these projectors.","content_position":"top_left","button_background":"#4f5558","button_text_color":"#f3f4f4","button_text":"Learn more","link":""}}},"block_order":["item-1","item-2","item-3","item-4","item-5"],"disabled":true,"name":"Mosaic","settings":{"section_size":"medium"}},"rich-text":{"type":"rich-text","name":"Rich text","settings":{"text_width":"narrow","title":"Über uns","content":"<p>Wir sind dein Partner für hochwertige Solarprodukte: von Balkonkraftwerken für den schnellen Einstieg bis zu kompletten PV-Anlagen inklusive Modulen, Wechselrichtern, Speichern, Unterkonstruktion und Zubehör. Unser Anspruch: <strong>erstklassige Marken – dauerhaft günstig<\/strong>.<br\/><br\/>Wie wir das schaffen? Mit direktem Einkauf, schlanken Prozessen und klarer Beratung ohne Umwege. So zahlst du nur für das, was zählt: <strong>verlässliche Leistung, lange Garantien und schnelle Lieferung<\/strong>.<br\/><br\/>Ob Eigenheim, Gewerbe oder Mietwohnung – wir helfen dir, die passende Lösung zu konfigurieren, Energie­kosten zu senken und unabhängiger zu werden.<\/p><p><\/p>","button_text":"","button_link":"shopify:\/\/collections\/all"}},"collection-with-image":{"type":"collection-with-image","name":"Collection with image","settings":{"collection":"","products_count":12,"show_quick_buy":false,"background":"#2d2d2d","text_color":"#ffffff","title":"New TVs","content":"Here is our selection of new TVs on the market, picked by our experts.","button_background":"#ffffff","button_text_color":"#2d2d2d","button_text":"Learn more","button_link":""}},"featured-product":{"type":"featured-product","blocks":{"product-meta-1":{"type":"product_meta","settings":{"show_vendor":true,"show_sku":false,"show_reviews_badge":false,"show_share_buttons":true}},"featured-description-1":{"type":"featured_description","settings":{}},"variant-selector-1":{"type":"variant_selector","settings":{"selector_mode":"block","color_mode":"swatch","variant_image_options":"","show_quantity_selector":true,"show_taxes_included":false,"show_inventory_quantity":false,"low_inventory_threshold":0,"progress_bar_max_value":50}},"buy-buttons-1":{"type":"buy_buttons","settings":{"show_payment_button":true,"show_gift_card_recipient":true}}},"block_order":["product-meta-1","featured-description-1","variant-selector-1","buy-buttons-1"],"settings":{"product":"","title":"Featured product","link_title":"View details","link_url":"","image_size":"small","enable_image_zoom":true,"enable_video_looping":false,"zoom_effect":"outside","carousel_effect":"fade"}},"featured-collection-1":{"type":"featured-collection","name":"Featured collection","settings":{"collection":"","title":"Top-rated products","products_count":12,"layout":"collage","stack_products":false,"show_quick_buy":false,"link_title":"View all","link_url":""}},"blog-posts":{"type":"blog-posts","disabled":true,"settings":{"blog":"","blog_posts_count":3,"title":"Blog posts","link_title":"View all","show_category":true,"show_author":true,"show_date":true,"show_excerpt":false,"stack_mobile":false}},"quick-links":{"type":"quick-links","blocks":{"link-1":{"type":"link","settings":{"title":"Headphones","link":""}},"link-2":{"type":"link","settings":{"title":"Speakers","link":""}},"link-3":{"type":"link","settings":{"title":"TVs","link":""}},"link-4":{"type":"link","settings":{"title":"Turntables","link":""}},"link-5":{"type":"link","settings":{"title":"Subwoofers","link":""}},"link-6":{"type":"link","settings":{"title":"Projectors","link":""}}},"block_order":["link-1","link-2","link-3","link-4","link-5","link-6"],"disabled":true,"name":"Quick links","settings":{"title":"Quick links","expand_items":true,"show_desktop":true,"link_title":"","link":""}},"blog_posts_xGbbEU":{"type":"blog-posts","name":"Blog posts","settings":{"blog":"news","blog_posts_count":3,"title":"Blog posts","link_title":"View all","show_category":true,"show_author":true,"show_date":true,"show_excerpt":false,"stack_mobile":false}}},"order":["slideshow","promotion-list","logo-list","offers","map_HKpBUR","collection-list","featured-collection","mosaic","rich-text","collection-with-image","featured-product","featured-collection-1","blog-posts","quick-links","blog_posts_xGbbEU"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "image-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DE444098641_8.png",
+            "mobile_image": "shopify://shop_images/ChatGPT_Image_Sep_14_2025_12_40_24_AM.png",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "PV-Komplettsets",
+            "content": "Eine Solaranlage als Komplettpaket?\nFinde die passende Lösung genau für dich",
+            "content_position": "middle_left",
+            "button_background": "#3a4e86",
+            "button_text_color": "#ffffff",
+            "button_text": "Alles ansehen",
+            "link": "shopify://collections/all"
+          }
+        },
+        "image-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DE444098641_7.png",
+            "mobile_image": "shopify://shop_images/KV_1536x_d1f5cc91-a1df-4210-857e-26f05ece5d8c.png",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "Unser Bestseller Anker Solarbank 3 Pro E2700",
+            "content": "Entdecken sie die Vorteile eines ausgeklügelten Systems",
+            "content_position": "middle_right",
+            "button_background": "#4f63a6",
+            "button_text_color": "#ffffff",
+            "button_text": "Jetzt ansehen",
+            "link": "shopify://collections/all"
+          }
+        },
+        "image-3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DE444098641_1.png",
+            "mobile_image": "shopify://shop_images/KV_1536x_d1f5cc91-a1df-4210-857e-26f05ece5d8c.png",
+            "show_overlay": true,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "Balkonkraftwerk-Komplettsets",
+            "content": "Die einfachste Lösung um Strom zu sparen!",
+            "content_position": "middle_left",
+            "button_background": "#3a4e86",
+            "button_text_color": "#ffffff",
+            "button_text": "Jetzt entdecken",
+            "link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "image-1",
+        "image-2",
+        "image-3"
+      ],
+      "settings": {
+        "edge_to_edge": false,
+        "section_size": "preserve_ratio",
+        "carousel_effect": "slide",
+        "autoplay": true,
+        "cycle_speed": 5
+      }
+    },
+    "promotion-list": {
+      "type": "promotion-list",
+      "blocks": {
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Design_ohne_Titel_39.png",
+            "stretch_image": false,
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#e7ecf9",
+            "text_color": "#111111",
+            "title": "Balkonkraftwerk-Speicher",
+            "content": "<p>Exklusive Angebote mit bis zu 15% Rabatt</p>",
+            "content_position": "top_left",
+            "button_background": "#3a4e86",
+            "button_text_color": "#ffffff",
+            "button_text": "Alle Ansehen",
+            "button_link": "shopify://collections/sunpro"
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Design_ohne_Titel_30.png",
+            "stretch_image": false,
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#e8f4ec",
+            "text_color": "#111111",
+            "title": "Balkonkraftwerk Sets",
+            "content": "<p>Alles was Sie brauchen um eigenen Strom zu erzeugen</p>",
+            "content_position": "top_left",
+            "button_background": "#3a4e86",
+            "button_text_color": "#ffffff",
+            "button_text": "Alle Ansehen",
+            "button_link": "shopify://collections/balkonkraftwerke"
+          }
+        },
+        "item-3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Design_ohne_Titel_42.png",
+            "stretch_image": false,
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f9f3e7",
+            "text_color": "#111111",
+            "title": "PV-Komplettsets",
+            "content": "<p>Große Solaranlagen als Komplettpaket</p>",
+            "content_position": "top_left",
+            "button_background": "#3a4e86",
+            "button_text_color": "#ffffff",
+            "button_text": "Alle Ansehen",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item-1",
+        "item-2",
+        "item-3"
+      ],
+      "name": "Promotion blocks",
+      "settings": {
+        "expand_items": false,
+        "section_size": "large",
+        "stack_mobile": true
+      }
+    },
+    "logo-list": {
+      "type": "logo-list",
+      "blocks": {
+        "logo-5": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/250_x_80px_2_22bab8f6-15ad-4cc0-b61b-982475d6c740.png",
+            "link": "shopify://collections/anker"
+          }
+        },
+        "logo-3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/250_x_80px_3_e4ff53f2-5c47-4ad2-b98e-c5e679516bc6.png",
+            "link": "shopify://collections/ecoflow"
+          }
+        },
+        "logo-1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/250_x_80px_9c3d38b5-4097-402b-9464-d3db3fad4c10.png",
+            "link": "shopify://collections/marstek"
+          }
+        },
+        "logo-4": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/250_x_80px_1_82dce2b1-5e52-4f29-a575-3bbe3cb2978a.png",
+            "link": "shopify://collections/hoymiles"
+          }
+        },
+        "logo-2": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/250_x_80px_4.png",
+            "link": "shopify://collections/growatt"
+          }
+        }
+      },
+      "block_order": [
+        "logo-5",
+        "logo-3",
+        "logo-1",
+        "logo-4",
+        "logo-2"
+      ],
+      "name": "Logo list",
+      "settings": {
+        "title": "",
+        "link_title": "",
+        "link": ""
+      }
+    },
+    "featured_collection_tTTLkC": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "sunpro",
+        "title": "Führende Partner – Beste Angebote",
+        "products_count": 4,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "",
+        "link_url": "shopify://collections/sunpro"
+      }
+    },
+    "offers": {
+      "type": "offers",
+      "blocks": {
+        "offer-1": {
+          "type": "offer",
+          "settings": {
+            "title": "Exklusive Wochendeals!",
+            "content": "<p>Wir bieten Ihnen die fairsten Preise und Wöchentlich wechselnde Angebote, sowie Rabattaktionen und Treukundenrabatt. Zudem können Sie Ihre Freunde einladen und exklusive Gutscheine auf jedes Produkt erhalten.  </p>"
+          }
+        },
+        "offer-2": {
+          "type": "offer",
+          "settings": {
+            "title": "Deutschlandweit kostenloser Versand",
+            "content": "<p>Wir arbeiten mit allen bekannten Versanddienstleistern zusammen und bieten auf alle Produkte kostenlosen Versand an. (ausgenommen Balkonkraftwerke und Pv-Komplettsets) </p>"
+          }
+        }
+      },
+      "block_order": [
+        "offer-1",
+        "offer-2"
+      ],
+      "name": "Offers",
+      "settings": {
+        "items_per_row": 2,
+        "stack_mobile": false
+      }
+    },
+    "collection_with_image_jqPRA7": {
+      "type": "collection-with-image",
+      "name": "Collection with image",
+      "settings": {
+        "collection": "anker",
+        "products_count": 4,
+        "show_quick_buy": false,
+        "background": "#ffffff",
+        "text_color": "#111111",
+        "title": "Anker SOLIX",
+        "content": "Jetzt noch Leistungsstärker! \nBis zu 3600W Eingang und beliebig erweiterbare Speicherleistung von bis zu 16,12kWh",
+        "button_background": "#3a4e86",
+        "button_text_color": "#ffffff",
+        "button_text": "Zum Angebot",
+        "button_link": ""
+      }
+    },
+    "collection_list_6VfhXx": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_g9mJkf": {
+          "type": "collection",
+          "settings": {
+            "collection": "pv-komplettsets",
+            "image": "shopify://shop_images/42.png",
+            "link": ""
+          }
+        },
+        "collection_HxHPXm": {
+          "type": "collection",
+          "settings": {
+            "collection": "balkonkraftwerke",
+            "image": "shopify://shop_images/41.png",
+            "link": ""
+          }
+        },
+        "collection_QrUDdg": {
+          "type": "collection",
+          "settings": {
+            "collection": "solarmodule",
+            "image": "shopify://shop_images/43.png",
+            "link": ""
+          }
+        },
+        "collection_VWW3ry": {
+          "type": "collection",
+          "settings": {
+            "collection": "sunpro",
+            "image": "shopify://shop_images/29_869879fd-6d65-4360-a534-a50e9afd819d.png",
+            "link": ""
+          }
+        },
+        "collection_9aPcT3": {
+          "type": "collection",
+          "settings": {
+            "collection": "wechselrichter",
+            "image": "shopify://shop_images/27_018e7405-b6b4-4f9d-91ae-12642044b4de.png",
+            "link": ""
+          }
+        },
+        "collection_nRwGzA": {
+          "type": "collection",
+          "settings": {
+            "collection": "zubehoer",
+            "image": "shopify://shop_images/White_Modern_Discount_Product_Instagram_Post_15.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_g9mJkf",
+        "collection_HxHPXm",
+        "collection_QrUDdg",
+        "collection_VWW3ry",
+        "collection_9aPcT3",
+        "collection_nRwGzA"
+      ],
+      "settings": {
+        "title": "Entdecke unser Sortiment",
+        "link_title": "",
+        "link": "shopify://collections",
+        "round_images": true,
+        "show_collection_title": true
+      }
+    },
+    "custom_liquid_wrKryX": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "{% render 'etrusted-widget', id: 'wdg-f54d8cd0-0dd1-4b32-a4f4-f4f10ea97343' %}"
+      }
+    },
+    "map_HKpBUR": {
+      "type": "map",
+      "blocks": {
+        "store_Fa8KGD": {
+          "type": "store",
+          "settings": {
+            "title": "Abholstelle Bous / Saar",
+            "address": "<p>Saarbrücker Str. 104A, 66359 Bous</p>",
+            "hours": "<p>Montag - Freitag: 9 - 16 Uhr<br/>Sonntag: 9 - 16 Uhr<br/>Sonntag: Geschlossen</p>",
+            "map_address": "Saarbrücker Str. 104A, 66359 Bous, Germany"
+          }
+        }
+      },
+      "block_order": [
+        "store_Fa8KGD"
+      ],
+      "disabled": true,
+      "name": "Map",
+      "settings": {
+        "title": "Unsere Abholstellen",
+        "map_link_label": "Wegbeschreibung",
+        "api_key": "",
+        "zoom": 15,
+        "draggable_map": false,
+        "show_map_controls": false,
+        "map_style": "standard"
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "sunpro",
+        "title": "Aktuelle Angebote",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "",
+        "link_url": "shopify://collections/sunpro"
+      }
+    },
+    "mosaic": {
+      "type": "mosaic",
+      "blocks": {
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#ff2e1f",
+            "text_color": "#ffffff",
+            "title": "Bluetooth",
+            "content": "Feel the freedom with our Bluetooth headphones and speakers.",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#383639",
+            "text_color": "#ffffff",
+            "title": "Professional audio",
+            "content": "Get the best deals for professional audio equipment.",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "item-3": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#000000",
+            "title": "Headphones",
+            "content": "Our selection of premium headphones to enjoy your favorite playlist with an incredible sound.",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "item-4": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#000000",
+            "title": "Accessories",
+            "content": "Our various accessories to have the best experience.",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "item-5": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#383639",
+            "text_color": "#ffffff",
+            "title": "Projectors",
+            "content": "Play or watch your favorites TV shows with these projectors.",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item-1",
+        "item-2",
+        "item-3",
+        "item-4",
+        "item-5"
+      ],
+      "disabled": true,
+      "name": "Mosaic",
+      "settings": {
+        "section_size": "medium"
+      }
+    },
+    "rich-text": {
+      "type": "rich-text",
+      "name": "Rich text",
+      "settings": {
+        "text_width": "narrow",
+        "title": "Über uns",
+        "content": "<p>Wir sind dein Partner für hochwertige Solarprodukte: von Balkonkraftwerken für den schnellen Einstieg bis zu kompletten PV-Anlagen inklusive Modulen, Wechselrichtern, Speichern, Unterkonstruktion und Zubehör. Unser Anspruch: <strong>erstklassige Marken – dauerhaft günstig</strong>.<br/><br/>Wie wir das schaffen? Mit direktem Einkauf, schlanken Prozessen und klarer Beratung ohne Umwege. So zahlst du nur für das, was zählt: <strong>verlässliche Leistung, lange Garantien und schnelle Lieferung</strong>.<br/><br/>Ob Eigenheim, Gewerbe oder Mietwohnung – wir helfen dir, die passende Lösung zu konfigurieren, Energie­kosten zu senken und unabhängiger zu werden.</p><p></p>",
+        "button_text": "",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "image_with_text_3UHbbm": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/wrs-tm-pl-TCkIri6lxEo-unsplash.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "title": "Über uns",
+        "content": "<p>Wir sind SolarGen – ein Team aus dem Südwesten Deutschlands. Bei uns bekommst du Photovoltaik <strong>aus einer Hand</strong>: Marken-PV-Sets, Balkonkraftwerk-Komplettpakete sowie einzelne Komponenten wie <strong>Solarmodule, Wechselrichter und Speicher</strong>. Wir <strong>halten Lagerware</strong> vor, liefern schnell und beraten dich <strong>vom Fachmann</strong> – per Telefon und Mail. So kommst du ohne Umwege zu einer sauberen, verlässlichen Lösung für dein Zuhause oder dein Projekt.</p>",
+        "button_text": "",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "rich_text_AFfb4Q": {
+      "type": "rich-text",
+      "name": "Rich text",
+      "settings": {
+        "text_width": "regular",
+        "title": "So könnte dein Kraftwerk aussehen!",
+        "content": "<p>Beispielbilder zufriedener Kunden:</p>",
+        "button_text": "Our products",
+        "button_link": ""
+      }
+    },
+    "mosaic_U34tfG": {
+      "type": "mosaic",
+      "blocks": {
+        "item_DBcncW": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/2024-04-29.webp",
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#ffffff",
+            "title": "",
+            "content": "",
+            "content_position": "middle_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "",
+            "link": "shopify://collections/balkonkraftwerke"
+          }
+        },
+        "item_V9JT4n": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_6.webp",
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#4f5558",
+            "title": "",
+            "content": "",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "item_y7jtUB": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_5.webp",
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#ffffff",
+            "text_color": "#ffffff",
+            "title": "",
+            "content": "",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "item_EFcnXM": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_3.webp",
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#4f5558",
+            "title": "",
+            "content": "",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "item_UNKa7b": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_8.webp",
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#4f5558",
+            "title": "",
+            "content": "",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_DBcncW",
+        "item_V9JT4n",
+        "item_y7jtUB",
+        "item_EFcnXM",
+        "item_UNKa7b"
+      ],
+      "name": "Mosaic",
+      "settings": {
+        "section_size": "small"
+      }
+    },
+    "collection-with-image": {
+      "type": "collection-with-image",
+      "disabled": true,
+      "name": "Collection with image",
+      "settings": {
+        "collection": "",
+        "products_count": 12,
+        "show_quick_buy": false,
+        "background": "#2d2d2d",
+        "text_color": "#ffffff",
+        "title": "New TVs",
+        "content": "Here is our selection of new TVs on the market, picked by our experts.",
+        "button_background": "#ffffff",
+        "button_text_color": "#2d2d2d",
+        "button_text": "Learn more",
+        "button_link": ""
+      }
+    },
+    "featured-product": {
+      "type": "featured-product",
+      "blocks": {
+        "product-meta-1": {
+          "type": "product_meta",
+          "settings": {
+            "show_vendor": true,
+            "show_sku": false,
+            "show_reviews_badge": false,
+            "show_share_buttons": true
+          }
+        },
+        "featured-description-1": {
+          "type": "featured_description",
+          "settings": {}
+        },
+        "variant-selector-1": {
+          "type": "variant_selector",
+          "settings": {
+            "selector_mode": "block",
+            "color_mode": "swatch",
+            "variant_image_options": "",
+            "show_quantity_selector": true,
+            "show_taxes_included": false,
+            "show_inventory_quantity": false,
+            "low_inventory_threshold": 0,
+            "progress_bar_max_value": 50
+          }
+        },
+        "buy-buttons-1": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true
+          }
+        }
+      },
+      "block_order": [
+        "product-meta-1",
+        "featured-description-1",
+        "variant-selector-1",
+        "buy-buttons-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "product": "",
+        "title": "Featured product",
+        "link_title": "View details",
+        "link_url": "",
+        "image_size": "small",
+        "enable_image_zoom": true,
+        "enable_video_looping": false,
+        "zoom_effect": "outside",
+        "carousel_effect": "fade"
+      }
+    },
+    "featured-collection-1": {
+      "type": "featured-collection",
+      "disabled": true,
+      "name": "Featured collection",
+      "settings": {
+        "collection": "",
+        "title": "Top-rated products",
+        "products_count": 12,
+        "layout": "collage",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "disabled": true,
+      "settings": {
+        "blog": "",
+        "blog_posts_count": 3,
+        "title": "Blog posts",
+        "link_title": "View all",
+        "show_category": true,
+        "show_author": true,
+        "show_date": true,
+        "show_excerpt": false,
+        "stack_mobile": false
+      }
+    },
+    "quick-links": {
+      "type": "quick-links",
+      "blocks": {
+        "link-1": {
+          "type": "link",
+          "settings": {
+            "title": "Headphones",
+            "link": ""
+          }
+        },
+        "link-2": {
+          "type": "link",
+          "settings": {
+            "title": "Speakers",
+            "link": ""
+          }
+        },
+        "link-3": {
+          "type": "link",
+          "settings": {
+            "title": "TVs",
+            "link": ""
+          }
+        },
+        "link-4": {
+          "type": "link",
+          "settings": {
+            "title": "Turntables",
+            "link": ""
+          }
+        },
+        "link-5": {
+          "type": "link",
+          "settings": {
+            "title": "Subwoofers",
+            "link": ""
+          }
+        },
+        "link-6": {
+          "type": "link",
+          "settings": {
+            "title": "Projectors",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "link-1",
+        "link-2",
+        "link-3",
+        "link-4",
+        "link-5",
+        "link-6"
+      ],
+      "disabled": true,
+      "name": "Quick links",
+      "settings": {
+        "title": "Quick links",
+        "expand_items": true,
+        "show_desktop": true,
+        "link_title": "",
+        "link": ""
+      }
+    },
+    "blog_posts_xGbbEU": {
+      "type": "blog-posts",
+      "disabled": true,
+      "name": "Blog posts",
+      "settings": {
+        "blog": "news",
+        "blog_posts_count": 3,
+        "title": "Blog posts",
+        "link_title": "View all",
+        "show_category": true,
+        "show_author": true,
+        "show_date": true,
+        "show_excerpt": false,
+        "stack_mobile": false
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "promotion-list",
+    "logo-list",
+    "featured_collection_tTTLkC",
+    "offers",
+    "collection_with_image_jqPRA7",
+    "collection_list_6VfhXx",
+    "custom_liquid_wrKryX",
+    "map_HKpBUR",
+    "featured-collection",
+    "mosaic",
+    "rich-text",
+    "image_with_text_3UHbbm",
+    "rich_text_AFfb4Q",
+    "mosaic_U34tfG",
+    "collection-with-image",
+    "featured-product",
+    "featured-collection-1",
+    "blog-posts",
+    "quick-links",
+    "blog_posts_xGbbEU"
+  ]
+}

@@ -132,5 +132,8 @@
     <ul hidden>
       <li id="a11y-new-window-message">{{ 'general.accessibility.new_window' | t }}</li>
     </ul>
+    {%- comment -%} eTrusted Bootstrap nur 1× pro Seite laden {%- endcomment -%}
+<script src="https://integrations.etrusted.com/applications/widget.js/v2" async defer></script>
+
   </body>
 </html>

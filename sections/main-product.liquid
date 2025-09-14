@@ -173,53 +173,58 @@
                   </div>
                 {%- endif -%}
 
-            {%- when 'liquid' -%}
-              {%- comment -%}
-              --------------------------------------------------------------------------------------
-              LIQUID CODE
-              --------------------------------------------------------------------------------------
-              {%- endcomment -%}
+{%- when 'liquid' -%}
+  {%- comment -%}
+  --------------------------------------------------------------------------------------
+  LIQUID CODE (Titel optional)
+  --------------------------------------------------------------------------------------
+  {%- endcomment -%}
 
-              {%- assign title = block.settings.title -%}
-              {%- assign liquid = block.settings.liquid -%}
+  {%- assign title = block.settings.title -%}
+  {%- assign liquid = block.settings.liquid -%}
 
-              <div class="product-block-list__item product-block-list__item--content" data-block-type="{{ block.type }}" data-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
-                {%- if title != blank and liquid != blank -%}
-                  <div class="card">
-                    {%- if block.settings.display_mode == 'collapse' -%}
-                      <button class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
-                        <span class="card__title heading h3">{{ title }}</span>
-                        <span class="plus-button plus-button--large"></span>
-                      </button>
+  <div class="product-block-list__item product-block-list__item--content" data-block-type="{{ block.type }}" data-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
+    {%- if liquid != blank -%}
+      <div class="card">
+        {%- if block.settings.display_mode == 'collapse' -%}
+          <button class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
+            {%- if title != blank -%}
+              <span class="card__title heading h3">{{ title }}</span>
+            {%- endif -%}
+            <span class="plus-button plus-button--large"></span>
+          </button>
 
-                      <div id="block-{{ section.id }}-{{ block.id }}" class="card__collapsible">
-                        <div class="card__collapsible-content">
-                          <div class="rte text--pull">
-                            {{ liquid }}
-                          </div>
-                        </div>
-                      </div>
-                    {%- else -%}
-                      <div class="card__header">
-                        <h2 class="card__title heading h3">{{ title }}</h2>
-                      </div>
-
-                      <div class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}" {% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
-                        <div class="rte text--pull">
-                          {{ liquid }}
-                        </div>
-
-                        {%- if block.settings.display_mode == 'view_more' -%}
-                          <button class="expandable-content__toggle">
-                            <span class="expandable-content__toggle-icon"></span>
-                            <span class="expandable-content__toggle-text" data-view-more="{{ 'product.general.view_more' | t | escape }}" data-view-less="{{ 'product.general.view_less' | t | escape }}">{{- 'product.general.view_more' | t -}}</span>
-                          </button>
-                        {%- endif -%}
-                      </div>
-                    {%- endif -%}
-                  </div>
-                {%- endif -%}
+          <div id="block-{{ section.id }}-{{ block.id }}" class="card__collapsible">
+            <div class="card__collapsible-content">
+              <div class="rte text--pull">
+                {{ liquid }}
               </div>
+            </div>
+          </div>
+        {%- else -%}
+          {%- if title != blank -%}
+            <div class="card__header">
+              <h2 class="card__title heading h3">{{ title }}</h2>
+            </div>
+          {%- endif -%}
+
+          <div class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}" {% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
+            <div class="rte text--pull">
+              {{ liquid }}
+            </div>
+
+            {%- if block.settings.display_mode == 'view_more' -%}
+              <button class="expandable-content__toggle">
+                <span class="expandable-content__toggle-icon"></span>
+                <span class="expandable-content__toggle-text" data-view-more="{{ 'product.general.view_more' | t | escape }}" data-view-less="{{ 'product.general.view_less' | t | escape }}">{{- 'product.general.view_more' | t -}}</span>
+              </button>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
 
               {%- comment -%}
               --------------------------------------------------------------------------------------

@@ -1,1 +1,86 @@
-{"type":"footer","name":"Footer group","sections":{"text-with-icons":{"type":"text-with-icons","blocks":{"item-1":{"type":"item","settings":{"icon":"bi-delivery","title":"Schnelle Lieferung","content":"<p>Unsere Ware wird innerhalb von wenigen Tagen über versicherten Versand geliefert.<\/p>"}},"item-2":{"type":"item","settings":{"icon":"bi-returns","title":"100 % Geld-zurück-Garantie","content":"<p>Sicher einkaufen – Rückgabe innerhalb von 30 Tagen<\/p>"}},"item-3":{"type":"item","settings":{"icon":"bi-customer-support","title":"Persönlicher Support","content":"<p>Antwort innerhalb weniger Stunden – wir helfen direkt<\/p>"}},"item-4":{"type":"item","settings":{"icon":"bi-secure-payment","title":"Sichere Zahlung","content":"<p>SSL-verschlüsselt & Käuferschutz bei allen Zahlungen<\/p>"}}},"block_order":["item-1","item-2","item-3","item-4"],"settings":{"stack_mobile":false}},"newsletter_HTEQL8":{"type":"newsletter","name":"Newsletter","settings":{"title":"Unser Newsletter","content":"<p>Melde dich an für Sonderangebote und Produktneuheiten.<\/p>","background":"#ffffff","text":"#111111"}},"footer":{"type":"footer","blocks":{"footer-1":{"type":"links","settings":{"menu":"footer"}},"links_LV8DPz":{"type":"links","settings":{"menu":"main-menu"}},"links_gCp4Qr":{"type":"links","settings":{"menu":"main-menu"}},"links_LRCfLR":{"type":"links","settings":{"menu":"main-menu"}},"links_TarFRN":{"type":"links","settings":{"menu":"main-menu"}},"footer-0":{"type":"text","settings":{"title":"About the shop","content":"<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>"}}},"block_order":["footer-1","links_LV8DPz","links_gCp4Qr","links_LRCfLR","links_TarFRN","footer-0"],"settings":{"show_social_media":true,"enable_follow_on_shop":true,"show_payment_icons":true,"show_locale_selector":true,"show_country_selector":true}}},"order":["text-with-icons","newsletter_HTEQL8","footer"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "text-with-icons": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-delivery",
+            "title": "Schnelle Lieferung",
+            "content": "<p>Unsere Ware wird innerhalb von wenigen Tagen über versicherten Versand geliefert.</p>"
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-returns",
+            "title": "100 % Geld-zurück-Garantie",
+            "content": "<p>Sicher einkaufen – Rückgabe innerhalb von 30 Tagen</p>"
+          }
+        },
+        "item-3": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-customer-support",
+            "title": "Persönlicher Support",
+            "content": "<p>Antwort innerhalb weniger Stunden – wir helfen direkt</p>"
+          }
+        },
+        "item-4": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-secure-payment",
+            "title": "Sichere Zahlung",
+            "content": "<p>SSL-verschlüsselt & Käuferschutz bei allen Zahlungen</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item-1",
+        "item-2",
+        "item-3",
+        "item-4"
+      ],
+      "settings": {
+        "stack_mobile": false
+      }
+    },
+    "newsletter_HTEQL8": {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "settings": {
+        "title": "Unser Newsletter",
+        "content": "<p>Melde dich an für Sonderangebote und Produktneuheiten.</p>",
+        "background": "#ffffff",
+        "text": "#111111"
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "show_social_media": true,
+        "enable_follow_on_shop": false,
+        "show_payment_icons": true,
+        "show_locale_selector": true,
+        "show_country_selector": true
+      }
+    }
+  },
+  "order": [
+    "text-with-icons",
+    "newsletter_HTEQL8",
+    "footer"
+  ]
+}

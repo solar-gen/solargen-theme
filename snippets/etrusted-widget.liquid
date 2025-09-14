@@ -1,0 +1,14 @@
+{%- comment -%}
+  Reusable eTrusted widget snippet.
+  Usage: {% render 'etrusted-widget', id: 'wdg-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX' %}
+{%- endcomment -%}
+
+{%- assign _id = id | default: 'wdg-f54d8cd0-0dd1-4b32-a4f4-f4f10ea97343' -%}
+<div class="etrusted-widget-wrap">
+  <etrusted-widget data-etrusted-widget-id="{{ _id }}"></etrusted-widget>
+</div>
+
+<style>
+/* Minimal, neutral spacing – passt in die meisten Themes */
+.etrusted-widget-wrap { margin: 16px 0; }
+</style>

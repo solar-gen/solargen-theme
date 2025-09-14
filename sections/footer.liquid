@@ -163,7 +163,7 @@
             {%- endform -%}
           {%- endif -%}
 
-          {%- capture copyright_info -%}© {{ 'now' | date: '%Y' }} {{ shop.name }}{%- endcapture -%}
+          {%- capture copyright_info -%}© {{ 'now' | date: '%Y' }}, Solargen™{%- endcapture -%}
           <p class="hidden-pocket">{{ copyright_info }}</p>
         </div>
 
@@ -201,6 +201,24 @@
           <p>{{ copyright_info }}</p>
         </div>
       </aside>
+
+    </div>
+
+    <!-- Legal Links Section -->
+    <div class="footer__legal-links">
+      <div class="footer__legal-links-wrapper">
+        <div class="footer__legal-links-left">
+          <a href="https://www.solar-gen.de/policies/privacy-policy" class="footer__legal-link">Datenschutzerklärung</a>
+          <a href="https://www.solar-gen.de/policies/legal-notice" class="footer__legal-link">Impressum</a>
+          <a href="https://www.solar-gen.de/policies/contact-information" class="footer__legal-link">Kontakt</a>
+          <a href="https://www.solar-gen.de/policies/terms-of-service" class="footer__legal-link">AGB</a>
+          <a href="https://www.solar-gen.de/policies/refund-policy" class="footer__legal-link">Widerrufsrecht</a>
+          <a href="https://www.solar-gen.de/policies/shipping-policy" class="footer__legal-link">Versandbedingungen</a>
+        </div>
+        <div class="footer__legal-links-right">
+          <span class="footer__brand">© {{ 'now' | date: '%Y' }}, Solargen™</span>
+        </div>
+      </div>
     </div>
   </div>
 </footer>

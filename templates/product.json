@@ -48,7 +48,7 @@
         "liquid_VAcfVi": {
           "type": "liquid",
           "settings": {
-            "title": "Übersicht",
+            "title": "",
             "liquid": "{% render 'product-tabs' %}",
             "display_mode": "show_all"
           }
@@ -72,12 +72,13 @@
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
-        "heading": "You may also like",
+        "heading": "Das könnte dich auch interessieren",
         "show_quick_buy": false
       }
     },
     "recently-viewed-products": {
       "type": "recently-viewed-products",
+      "disabled": true,
       "settings": {
         "title": "Recently viewed",
         "show_quick_buy": false
@@ -87,9 +88,22 @@
       "type": "custom-liquid",
       "name": "Custom Liquid",
       "settings": {
-        "title": "Your title",
+        "title": "Kundenbewertungen",
         "include_margins": true,
         "liquid": "{% render 'etrusted-widget' %}"
+      }
+    },
+    "image_with_text_Wmp8Qy": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/wrs-tm-pl-TCkIri6lxEo-unsplash.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "title": "Über uns",
+        "content": "<p><br/>Wir sind SolarGen – ein Team aus dem Südwesten Deutschlands. Bei uns bekommst du Photovoltaik <strong>aus einer Hand</strong>: Marken-PV-Sets, Balkonkraftwerk-Komplettpakete sowie einzelne Komponenten wie <strong>Solarmodule, Wechselrichter und Speicher</strong>. Wir <strong>halten Lagerware</strong> vor, liefern schnell und beraten dich <strong>vom Fachmann</strong> – per Telefon und Mail. So kommst du ohne Umwege zu einer sauberen, verlässlichen Lösung für dein Zuhause oder dein Projekt.<br/><br/></p>",
+        "button_text": "Jetzt beraten lassen",
+        "button_link": "shopify://pages/contact"
       }
     }
   },
@@ -97,6 +111,7 @@
     "main",
     "product-recommendations",
     "recently-viewed-products",
-    "custom_liquid_KjY8bY"
+    "custom_liquid_KjY8bY",
+    "image_with_text_Wmp8Qy"
   ]
 }
