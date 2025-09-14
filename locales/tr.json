@@ -1,10 +1,26 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
+  "404": {
+    "general": {
+      "title": "Sayfa bulunamadı",
+      "content": "Aradığınız sayfa bulunamadı.",
+      "search": "Websitesinde ara...",
+      "continue_shopping": "Alışverişe devam etmek için buraya tıklayın"
+    }
+  },
   "general": {
     "meta": {
       "tags": "Etiketlendi \"{{ tags }}\"",
       "page": "Sayfa {{ page }}"
     },
-
     "accessibility": {
       "skip_to_content": "İçeriği geç",
       "close": "Kapat",
@@ -13,7 +29,6 @@
       "new_window": "Yeni bir sayfa da aç.",
       "star_reviews_info": "{{ rating_value }} yıldız {{ rating_max }} dışında"
     },
-
     "password": {
       "enter_password": "Şifre kullanarak girin",
       "password_input": "Şifre",
@@ -26,20 +41,17 @@
       "follow_us": "Takip edin",
       "powered_by_html": ""
     },
-
     "pagination": {
       "previous_page": "Önceki",
       "next_page": "Sonraki",
       "go_to_page": "{{page}} sayfasına gidin",
-      "page_count": "Sayfa {{current_page}} \/ {{pages}}"
+      "page_count": "Sayfa {{current_page}} / {{pages}}"
     },
-
     "breadcrumb": {
       "title": "Sayfa işaretleri yolu",
       "home": "Anasayfa",
       "account": "Hesabım"
     },
-
     "social": {
       "follow_label": "Bizi sosyal medyadan takip edin {{social_media}}",
       "facebook_share": "Facebook'ta paylaş",
@@ -47,18 +59,15 @@
       "twitter_tweet": "Twitter'da paylaş",
       "email_share": "E-posta ile paylaş"
     },
-
     "form": {
       "max_characters": "Maksimum {{ max_chars }} karakter"
     },
-
     "popup": {
       "success": "Bültenimize kayıt oldunuz!",
       "email_placeholder": "E-posta adresiniz",
       "subscribe": "Abone ol"
     }
   },
-
   "header": {
     "general": {
       "country": "Ülke",
@@ -68,7 +77,6 @@
       "welcome": "Selam {{first_name}}",
       "cart": "Sepet"
     },
-
     "navigation": {
       "menu": "Menü",
       "open_menu": "Menüyü aç",
@@ -76,7 +84,6 @@
       "need_help": "Yardıma mı ihtiyacınız var?",
       "follow_us": "Bizi takip edin"
     },
-
     "search": {
       "open_search": "Aramayı aç",
       "close_search": "Kapat",
@@ -95,7 +102,6 @@
       "collections": "Koleksiyonlar"
     }
   },
-
   "footer": {
     "general": {
       "country": "Ülke",
@@ -103,19 +109,16 @@
       "follow_us": "Bizi takip edin",
       "we_accept": "Ödeme seçenekleri"
     },
-
     "newsletter": {
       "success": "Bültenimize kayıt oldunuz!",
       "input": "E-posta adresiniz",
       "submit": "Abone ol"
     },
-
     "cookie_bar": {
       "accept": "Kabul",
       "decline": "Reddetmek"
     }
   },
-
   "search": {
     "general": {
       "title": "Arama",
@@ -140,16 +143,6 @@
       }
     }
   },
-
-  "404": {
-    "general": {
-      "title": "Sayfa bulunamadı",
-      "content": "Aradığınız sayfa bulunamadı.",
-      "search": "Websitesinde ara...",
-      "continue_shopping": "Alışverişe devam etmek için buraya tıklayın"
-    }
-  },
-
   "home_page": {
     "onboarding": {
       "vendor_title": "Markanın adı",
@@ -164,14 +157,12 @@
       "instagram_likes": "28 beğeni",
       "instagram_caption": "Bu bir başlık örneğidir."
     },
-
     "newsletter": {
       "success": "Bültenimize kayıt oldunuz!",
       "input": "E-posta adresiniz",
       "submit": "Abone ol"
     }
   },
-
   "collection": {
     "general": {
       "all_collections": "Tüm koleksiyonlar",
@@ -201,7 +192,6 @@
       },
       "page_size": "Sayfa başına {{page_size}}"
     },
-
     "filter": {
       "title": "Filtre",
       "price_filter_from": "İtibaren",
@@ -213,17 +203,14 @@
       "clear": "Temizle",
       "view_results": "Sonuçları Görüntüle"
     },
-
     "sorting": {
       "title": "Göre sırala"
     },
-
     "layout": {
       "title": "Görüntüle",
       "grid": "Ürünleri ızgarada göster",
       "list": "Ürünleri liste olarak göster"
     },
-
     "product": {
       "from_price_html": "{{price_min}}",
       "add_to_cart": "Sepete ekle",
@@ -244,7 +231,6 @@
       }
     }
   },
-
   "customer": {
     "general": {
       "my_account": "Hesabım",
@@ -254,7 +240,6 @@
       "no_orders": "Henüz siparişiniz yok",
       "no_orders_button": "İlk siparişinizi verin"
     },
-
     "login": {
       "login": "Hesabıma giriş yap",
       "description": "E-posta adresinizi ve şifrenizi girin:",
@@ -266,7 +251,6 @@
       "lost_password": "Şifreni mi unuttun?",
       "recover_password": "Yeni şifre oluşturma"
     },
-
     "order": {
       "order": "Sipariş",
       "order_number": "{{order_number}} sipariş",
@@ -276,12 +260,12 @@
       "fulfillment_status": "Kargo durumu",
       "back_to_account": "Hesabıma dön",
       "cancelled_at": "{{date}} tarihinde sipariş iptal edildi. Sebep: {{reason}}.",
-      "fulfillment_with_url_and_number_html": "Tüm ürünler gönderildi. Sipariş takip numarası {{tracking_number}} veya <a href=\"{{tracking_url}}\" target=\"_blank\">buraya tıklayın<\/a>.",
-      "fulfillment_with_url_html": "Tüm ürünler gönderildi. Bu linke <a href=\"{{tracking_url}}\" target=\"_blank\">tıklayabilirsiniz<\/a>.",
+      "fulfillment_with_url_and_number_html": "Tüm ürünler gönderildi. Sipariş takip numarası {{tracking_number}} veya <a href=\"{{tracking_url}}\" target=\"_blank\">buraya tıklayın</a>.",
+      "fulfillment_with_url_html": "Tüm ürünler gönderildi. Bu linke <a href=\"{{tracking_url}}\" target=\"_blank\">tıklayabilirsiniz</a>.",
       "fulfillment_with_number_html": "Tüm ürünler gönderildi. Sipariş takip numarası {{tracking_number}}.",
       "fulfillment_html": "Tüm ürünler gönderildi.",
-      "line_fulfillment_with_url_and_number_html": "Ürününüz gönderildi. Sipariş takip numarası {{tracking_number}} veya <a href=\"{{tracking_url}}\" target=\"_blank\">buraya tıklayın<\/a>.",
-      "line_fulfillment_with_url_html": "Ürününüz gönderildi. Bu linke <a href=\"{{tracking_url}}\" target=\"_blank\">tıklayabilirsiniz<\/a>.",
+      "line_fulfillment_with_url_and_number_html": "Ürününüz gönderildi. Sipariş takip numarası {{tracking_number}} veya <a href=\"{{tracking_url}}\" target=\"_blank\">buraya tıklayın</a>.",
+      "line_fulfillment_with_url_html": "Ürününüz gönderildi. Bu linke <a href=\"{{tracking_url}}\" target=\"_blank\">tıklayabilirsiniz</a>.",
       "line_fulfillment_with_number_html": "Ürününüz gönderildi. Sipariş numarası {{tracking_number}}.",
       "line_fulfillment_html": "Ürününüz gönderildi.",
       "product": "Ürün",
@@ -299,7 +283,6 @@
       "no_billing_address": "Bu sipariş için fatura adresi gerekli değil.",
       "no_shipping_address": "Bu sipariş için teslimat adresi gerekli değil."
     },
-
     "activate_account": {
       "activate_account": "Hesabı etkinleştir",
       "description": "Hesabınızı oluşturmak için bir şifre girin:",
@@ -308,7 +291,6 @@
       "submit": "Etkinleştir",
       "decline": "Reddet"
     },
-
     "recover_password": {
       "recover_password": "Şifre kurtarma",
       "description": "E-postanızı giriniz:",
@@ -318,7 +300,6 @@
       "remembered_your_password": "Şifrenizi hatırlıyor musunuz?",
       "back_to_login": "Girişe geri dön"
     },
-
     "reset_password": {
       "reset_password": "Şifreyi yenile",
       "description": "Yeni şifre girin",
@@ -326,7 +307,6 @@
       "password_confirmation": "Şifreni doğrula",
       "submit": "Şifreyi yenile"
     },
-
     "addresses": {
       "no_addresses": "Henüz adres yok",
       "no_addresses_button": "İlk adresinizi ekleyin",
@@ -349,7 +329,6 @@
       "phone": "Telefon",
       "set_default": "Varsayılan adres olarak ayarla"
     },
-
     "register": {
       "create_account": "Hesabımı oluştur",
       "description": "Lütfen aşağıdaki bilgileri doldurun:",
@@ -362,7 +341,6 @@
       "login": "Giriş yapın"
     }
   },
-
   "cart": {
     "general": {
       "title": "Sepetim",
@@ -379,24 +357,21 @@
       "amount_saved_html": "{{amount_saved}} tasarruf ettiniz!",
       "free": "Ücretsiz!",
       "taxes_and_shipping_at_checkout": "Ödeme sırasında hesaplanan vergiler ve kargo ücreti",
-      "taxes_and_shipping_policy_at_checkout_html": "Ödeme sırasında hesaplanan vergiler ve <a href=\"{{ link }}\">kargo<\/a>",
+      "taxes_and_shipping_policy_at_checkout_html": "Ödeme sırasında hesaplanan vergiler ve <a href=\"{{ link }}\">kargo</a>",
       "taxes_included_but_shipping_at_checkout": "Vergi dahil. Ödeme sırasında hesaplanan kargo",
-      "taxes_included_and_shipping_policy_html": "Vergi dahil. <a href=\"{{ link }}\">Kargo<\/a>, ödeme sırasında hesaplanır",
+      "taxes_included_and_shipping_policy_html": "Vergi dahil. <a href=\"{{ link }}\">Kargo</a>, ödeme sırasında hesaplanır",
       "total": "Toplam",
       "checkout": "Ödeme"
     },
-
     "items": {
       "decrease_quantity": "Miktarı 1 azalt",
       "increase_quantity": "Miktarı 1 artır",
       "no_more_stock": "Artık stok yok",
       "remove": "Sil"
     },
-
     "gift_wrap": {
       "price_html": "Yalnızca {{price}}"
     },
-
     "shipping_estimator": {
       "title": "Kargo hesaplama",
       "country": "Ülke",
@@ -409,7 +384,6 @@
       "errors": "Bazı hatalar var:"
     }
   },
-
   "product": {
     "general": {
       "previous_product": "Önce",
@@ -431,24 +405,21 @@
       "estimate_shipping": "Kargo hesaplama",
       "refund_policy": "Geri iade politikası",
       "include_taxes": "Vergi dahil",
-      "shipping_policy_html": "Kargo, <a href=\"{{ link }}\" class=\"link link--accented\">ödeme sayfasında hesaplanır.<\/a>",
+      "shipping_policy_html": "Kargo, <a href=\"{{ link }}\" class=\"link link--accented\">ödeme sayfasında hesaplanır.</a>",
       "reviews_count": {
         "zero": "Yorum yok",
         "one": "{{ count }} yorum",
         "other": "{{ count }} yorum"
       }
     },
-
     "volume_pricing": {
       "title": "Toplu Alım Bazlı Fiyatlandırma",
       "minimum": "{{ quantity }}+",
       "price_at_each": "{{ price }}/adet"
     },
-
     "labels": {
       "sold_out": "Tükendi"
     },
-
     "form": {
       "variant": "Varyant",
       "price": "Fiyat",
@@ -473,14 +444,12 @@
       "added": "Ürün sepetinize eklendi",
       "added_short": "Eklendi!"
     },
-
     "quantity": {
       "minimum_of": "{{ min }} en az",
       "maximum_of": "{{ max }} en fazla",
       "increment_of": "{{ step }} artış"
     }
   },
-
   "store_availability": {
     "general": {
       "view_store_info": "Mağaza bilgilerini görüntüle",
@@ -491,7 +460,6 @@
       "pick_up_unavailable_at": "Şu anda {{ location_name }} adresinden teslim alınamıyor"
     }
   },
-
   "gift_card": {
     "issued": {
       "subtext": "İşte hediye kartın!",
@@ -504,7 +472,6 @@
       "print": "Yazdır",
       "add_to_apple_wallet": "Apple Wallet'a ekle"
     },
-
     "recipient": {
       "checkbox": "Bunu hediye olarak göndermek istiyorum",
       "email_label": "Alıcı e-postası",
@@ -513,7 +480,6 @@
       "message_label": "Mesaj (isteğe bağlı)"
     }
   },
-
   "blog": {
     "general": {
       "empty": "Bu blogda makale yok",
@@ -521,7 +487,6 @@
       "categories": "Kategoriler",
       "all_tag": "Hepsi"
     },
-
     "article": {
       "tags": "Etiketler:",
       "written_by": "{{author}}",
@@ -534,7 +499,6 @@
         "other": "{{count}} yorum"
       }
     },
-
     "comments": {
       "leave_comment": "Yorum yap",
       "name": "İsim",
@@ -546,7 +510,6 @@
       "success_moderated": "Yorumunuz gönderildi. Editörler yorumunuzu kabul ettiğinde yorumunuz görünür olacak!"
     }
   },
-
   "contact": {
     "form": {
       "name": "İsiminiz",
@@ -556,10 +519,54 @@
       "successfully_sent": "Mesajınız başarıyla gönderildi."
     }
   },
-
   "date_formats": {
     "month_day_year": "%d %B, %Y",
     "short_month_day_year": "%d %b, %Y",
     "month_day_year_time": "%d %B, %Y at %H:%M%P"
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
+    }
   }
 }
