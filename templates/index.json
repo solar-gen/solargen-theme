@@ -473,17 +473,6 @@
         "section_size": "medium"
       }
     },
-    "rich-text": {
-      "type": "rich-text",
-      "name": "Rich text",
-      "settings": {
-        "text_width": "narrow",
-        "title": "Über uns",
-        "content": "<p>Wir sind dein Partner für hochwertige Solarprodukte: von Balkonkraftwerken für den schnellen Einstieg bis zu kompletten PV-Anlagen inklusive Modulen, Wechselrichtern, Speichern, Unterkonstruktion und Zubehör. Unser Anspruch: <strong>erstklassige Marken – dauerhaft günstig</strong>.<br/><br/>Wie wir das schaffen? Mit direktem Einkauf, schlanken Prozessen und klarer Beratung ohne Umwege. So zahlst du nur für das, was zählt: <strong>verlässliche Leistung, lange Garantien und schnelle Lieferung</strong>.<br/><br/>Ob Eigenheim, Gewerbe oder Mietwohnung – wir helfen dir, die passende Lösung zu konfigurieren, Energie­kosten zu senken und unabhängiger zu werden.</p><p></p>",
-        "button_text": "",
-        "button_link": "shopify://collections/all"
-      }
-    },
     "image_with_text_3UHbbm": {
       "type": "image-with-text",
       "name": "Image with text",
@@ -806,7 +795,6 @@
     "map_HKpBUR",
     "featured-collection",
     "mosaic",
-    "rich-text",
     "image_with_text_3UHbbm",
     "rich_text_AFfb4Q",
     "mosaic_U34tfG",
