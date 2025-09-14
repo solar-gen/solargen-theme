@@ -3671,6 +3671,15 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
   .product-list--scrollable .product-item + .product-item {
     border-left: none;
   }
+  
+  /* Featured Collection spezifisch - vollständiger Border */
+  .featured-collection .product-list--scrollable .product-item {
+    border: 1px solid var(--border-color);
+  }
+  
+  .featured-collection .product-list--scrollable .product-item + .product-item {
+    border-left: none;
+  }
 
   .product-list--scrollable .product-item:first-child {
     border-radius: 3px 0 0 3px;
@@ -3753,8 +3762,8 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 }
 
 .featured-collection .product-item {
-  border: none;
-  border-right: 1px solid var(--border-color);
+  border: 1px solid var(--border-color);
+  border-right: none;
 }
 
 .featured-collection .product-item:after {
@@ -3762,7 +3771,12 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 }
 
 .featured-collection .product-item:last-child {
-  border-right: 0;
+  border-right: 1px solid var(--border-color);
+}
+
+/* Äußerste rechte Border für die gesamte Produktliste */
+.featured-collection .product-list {
+  border-right: 1px solid var(--border-color);
 }
 
 @media screen and (max-width: 640px) {

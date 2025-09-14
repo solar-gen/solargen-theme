@@ -178,8 +178,23 @@
               <span class="sg-mobile-header__cart-count">{{ cart.item_count }}</span>
             </a>
             
-            <!-- Menu -->
-            <button class="sg-mobile-header__icon-link sg-mobile-header__menu-toggle" data-action="toggle-menu" aria-expanded="false" aria-haspopup="true" aria-controls="mobile-menu" aria-label="Menü">
+            <!-- Menu - TESTE MICH AUF ECHTEM HANDY! -->
+            <button class="sg-mobile-header__icon-link sg-mobile-header__menu-toggle" 
+                    onclick="alert('Button funktioniert! Jetzt auf echtem Handy testen.'); 
+                      let menu = document.getElementById('sg-simple-menu');
+                      if (!menu) {
+                        menu = document.createElement('div');
+                        menu.id = 'sg-simple-menu';
+                        menu.innerHTML = '<div style=\\'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.9);z-index:9999;padding:20px;color:white;font-size:18px;\\'><button onclick=\\'this.parentElement.parentElement.remove()\\' style=\\'position:absolute;top:15px;right:15px;background:rgba(255,255,255,0.1);border:none;color:white;font-size:28px;cursor:pointer;line-height:1;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background-color 0.2s ease;\\'>&times;</button><div style=\\'margin-top:80px;\\'><a href=\\'/\\' style=\\'color:white;display:block;padding:20px 0;font-size:24px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);\\'>🏠 Home</a><a href=\\'/collections\\' style=\\'color:white;display:block;padding:20px 0;font-size:24px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);\\'>🛍️ Alle Produkte</a><a href=\\'/pages/contact\\' style=\\'color:white;display:block;padding:20px 0;font-size:24px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);\\'>📞 Kontakt</a><a href=\\'/pages/angebot-anfordern\\' style=\\'color:#00badb;display:block;padding:20px 0;font-size:24px;text-decoration:none;font-weight:bold;\\'>💼 Angebot anfordern</a></div></div>';
+                        document.body.appendChild(menu);
+                      } else {
+                        menu.remove();
+                      }
+                    " 
+                    aria-expanded="false" 
+                    aria-haspopup="true" 
+                    aria-controls="sg-mobile-menu" 
+                    aria-label="Menü">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="3" y1="6" x2="21" y2="6"/>
                 <line x1="3" y1="12" x2="21" y2="12"/>
@@ -188,6 +203,7 @@
             </button>
           </div>
         </div>
+        
         
         <!-- Mobile Suche -->
         <div class="sg-mobile-search hidden-lap-and-up">
@@ -210,16 +226,6 @@
         --------------------------------------------------------------------------------------
         {%- endcomment -%}
 
-        {%- if navigation_menu.links.size > 0 -%}
-          <nav class="header__mobile-nav hidden-lap-and-up">
-            <button class="header__mobile-nav-toggle icon-state touch-area" data-action="toggle-menu" aria-expanded="false" aria-haspopup="true" aria-controls="mobile-menu" aria-label="{{ 'header.navigation.open_menu' | t }}">
-              <span class="icon-state__primary">{%- render 'icon', icon: 'hamburger-mobile' -%}</span>
-              <span class="icon-state__secondary">{%- render 'icon', icon: 'close' -%}</span>
-            </button>
-
-            {%- render 'mobile-menu', menu: navigation_mobile_menu -%}
-          </nav>
-        {%- endif -%}
 
         {%- comment -%}
           --------------------------------------------------------------------------------------
