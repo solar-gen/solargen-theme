@@ -5055,6 +5055,85 @@ select option {
   }
 }
 
+/* Shipping Partners Section */
+.footer__aside-item--shipping {
+  margin-top: 34px;
+}
+@media screen and (min-width: 640px) {
+  .footer__aside-item--shipping {
+    margin-top: 0;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .footer__aside-item--shipping {
+    margin-top: 0;
+  }
+}
+
+.footer__shipping-partners-logos {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footer__shipping-logo {
+  width: 65px;
+  height: 36px;
+  max-height: 36px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 4px;
+  padding: 2px;
+  border: 1px solid rgba(var(--text-color), 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: grayscale(30%);
+  transition: filter 0.2s ease;
+}
+
+.footer__shipping-logo:hover {
+  filter: grayscale(0%);
+}
+
+.footer__shipping-logo--dhl {
+  background: #FFCC00 !important;
+  border: 1px solid rgba(var(--text-color), 0.12) !important;
+  padding: 0px !important;
+}
+
+.footer__shipping-logo--dpd {
+  padding: 0px !important;
+}
+
+@media screen and (max-width: 740px) {
+  .footer__shipping-partners-logos {
+    justify-content: flex-start;
+    gap: 6px;
+  }
+  
+  .footer__shipping-logo {
+    width: 65px;
+    height: 36px;
+    padding: 2px;
+  }
+}
+
+/* Layout ordering and alignment for aside items on large screens */
+@media screen and (min-width: 1000px) {
+  .footer__aside-item--shipping,
+  .footer__aside-item--social,
+  .footer__aside-item--payment {
+    width: 33%;
+  }
+
+  .footer__aside-item--shipping { order: 1; text-align: left; }
+  .footer__aside-item--social { order: 2; text-align: left; }
+  .footer__aside-item--payment { order: 3; text-align: left; }
+}
+
 /* Legal Links Section */
 .footer__legal-links {
   margin-top: 0px;
@@ -5082,8 +5161,8 @@ select option {
 }
 
 .footer__legal-link {
-  font-size: 14px;
-  color: rgba(var(--text-color), 0.6);
+  font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px)) !important;
+  color: rgba(var(--text-color), 0.7) !important;
   text-decoration: none;
   transition: color 0.2s ease;
   padding: 0;
@@ -5104,13 +5183,14 @@ select option {
 }
 
 .footer__legal-links-right {
-  font-size: 14px;
+  font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px));
 }
 
 .footer__brand {
-  color: rgba(var(--text-color), 0.6);
-  font-weight: 400;
+  color: rgba(var(--text-color), 0.7) !important;
+  font-weight: 500 !important;
   letter-spacing: 0.2px;
+  font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px)) !important;
 }
 
 @media screen and (max-width: 740px) {
@@ -5155,6 +5235,96 @@ select option {
   content: "";
   clear: both;
   display: table;
+}
+
+/* Trust Row */
+.footer__trust-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin: 20px 0 2px;
+  padding: 18px 0 10px;
+  border-top: 1px solid rgba(var(--text-color), 0.08);
+  border-bottom: 1px solid rgba(var(--text-color), 0.06);
+}
+
+.footer__trust-col {
+  padding: 12px 0;
+}
+
+/* Remove legacy top aside row (copyright/social/payment) */
+.footer__aside { display: none !important; }
+
+.footer__trust-col .footer__aside-title {
+  /* Footer Title Properties */
+  text-align: left !important;
+  color: var(--footer-heading-text-color) !important;
+  width: 100% !important;
+  margin-bottom: .85em !important;
+  display: block !important;
+  position: relative !important;
+  
+  /* H6 Heading Properties */
+  font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px)) !important;
+  text-transform: uppercase !important;
+  line-height: 1.85 !important;
+  
+  /* Additional heading properties */
+  font-family: var(--heading-font-family) !important;
+  font-weight: var(--heading-font-weight) !important;
+  font-style: var(--heading-font-style) !important;
+}
+
+.footer__trust-subtitle { margin: 0 0 6px; font-weight: 600; color: rgba(var(--text-color), .9); }
+.footer__trust-list {
+  list-style: none;
+  margin: 15px 0 12px;
+  padding: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.footer__trust-list li { margin-bottom: 3px; }
+
+.footer__trust-badges { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.footer__trust-badge { display: inline-flex; align-items: center; justify-content: center; background: transparent; border: 0; transition: filter 0.2s ease; filter: grayscale(20%); }
+.footer__trust-badge:hover { filter: grayscale(0%); }
+.footer__trust-badge img { max-height: 50px; height: 50px; width: auto; }
+.footer__trust-badge--trusted img { max-height: 56px; height: 56px; }
+.footer__trust-badge--idealo img { max-height: 50px; height: 50px; }
+
+.footer__trust-logos { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.footer__trust-copy { color: #666; margin: 15px 0 0; font-size: 14px; line-height: 1.5; }
+
+
+@media screen and (min-width: 1000px) {
+  .footer__trust-row {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    gap: 48px;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .footer__trust-row {
+    gap: 32px;
+  }
+  
+  .payment-list {
+    max-width: 280px;
+  }
+  
+  .payment-list__item:nth-child(4n) {
+    margin-right: 6px;
+  }
+  
+  .payment-list__item:nth-child(4n+2) {
+    margin-right: 0;
+  }
+  
+  .footer__trust-logos {
+    max-width: 280px;
+  }
 }
 
 .header {
@@ -10996,14 +11166,26 @@ section[data-section-type="recently-viewed-products"] .price--compare,
 
 .payment-list {
   flex-wrap: wrap;
-  margin: -4px;
+  margin: 0;
   display: flex;
+  max-width: 320px;
 }
 
 .payment-list__item {
-  width: 38px;
-  height: 24px;
-  margin: 4px;
+  width: 60px;
+  height: 32px;
+  margin: 3px 6px 3px 0;
+  flex: 0 0 auto;
+  filter: grayscale(30%);
+  transition: filter 0.2s ease;
+}
+
+.payment-list__item:hover {
+  filter: grayscale(0%);
+}
+
+.payment-list__item:nth-child(4n) {
+  margin-right: 0;
 }
 
 .payment-list__notice {

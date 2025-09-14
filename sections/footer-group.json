@@ -69,6 +69,53 @@
     },
     "footer": {
       "type": "footer",
+      "blocks": {
+        "links_9UWUkm": {
+          "type": "links",
+          "settings": {
+            "menu": "speicher"
+          }
+        },
+        "links_UDetAh": {
+          "type": "links",
+          "settings": {
+            "menu": "service-hilfe"
+          }
+        },
+        "links_Q8K7qy": {
+          "type": "links",
+          "settings": {
+            "menu": "balkonkraftwerke"
+          }
+        },
+        "links_d79i43": {
+          "type": "links",
+          "settings": {
+            "menu": "solarmodule"
+          }
+        },
+        "links_yJCyra": {
+          "type": "links",
+          "settings": {
+            "menu": "zubeh-r"
+          }
+        },
+        "links_REWhYY": {
+          "type": "links",
+          "disabled": true,
+          "settings": {
+            "menu": "wechselrichter"
+          }
+        }
+      },
+      "block_order": [
+        "links_9UWUkm",
+        "links_UDetAh",
+        "links_Q8K7qy",
+        "links_d79i43",
+        "links_yJCyra",
+        "links_REWhYY"
+      ],
       "settings": {
         "show_social_media": true,
         "enable_follow_on_shop": false,

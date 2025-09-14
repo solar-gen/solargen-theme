@@ -202,6 +202,50 @@
         </div>
       </aside>
 
+      {%- if section.settings.show_trust_row -%}
+        <div class="footer__trust-row">
+          <div class="footer__trust-col footer__trust-col--payments">
+            <p class="footer__aside-title">Sicher bezahlen</p>
+            {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
+              <div class="payment-list">
+                {%- for type in shop.enabled_payment_types -%}
+                  {{ type | payment_type_svg_tag: class: 'payment-list__item' }}
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </div>
+
+          <div class="footer__trust-col footer__trust-col--shop">
+            <p class="footer__aside-title">Sicher online shoppen</p>
+            <div class="footer__trust-badges">
+              <a href="https://www.idealo.de/preisvergleich/Shop/334775.html#i" target="_blank" rel="noopener" class="footer__trust-badge footer__trust-badge--idealo">
+                <img src="https://img.idealo.com/badges/334775/f31a4e5c-0586-4e5d-95a4-be29e1abb196" alt="idealo.de Siegel" loading="lazy">
+              </a>
+              <span class="footer__trust-badge footer__trust-badge--trusted">
+                <img src="https://cdn.shopify.com/s/files/1/0905/2549/9734/files/Trustedshop.png?v=1757869421" alt="Trusted Shops Siegel" loading="lazy">
+              </span>
+            </div>
+            <ul class="footer__trust-list">
+              <li>PayPal Käuferschutz</li>
+              <li>SSL‑verschlüsselte Datenübertragung</li>
+              <li>Datenschutz gemäß DSGVO</li>
+            </ul>
+          </div>
+
+          <div class="footer__trust-col footer__trust-col--shipping">
+            <p class="footer__aside-title">Sicher liefern</p>
+            <div class="footer__trust-logos">
+              <img src="https://cdn.shopify.com/s/files/1/0905/2549/9734/files/logo_dhl.svg?v=1757861671" alt="DHL" class="footer__shipping-logo footer__shipping-logo--dhl" loading="lazy">
+              <img src="https://cdn.shopify.com/s/files/1/0905/2549/9734/files/logo_dpd.svg?v=1757861672" alt="DPD" class="footer__shipping-logo footer__shipping-logo--dpd" loading="lazy">
+              <img src="https://cdn.shopify.com/s/files/1/0905/2549/9734/files/GLS_SVG.svg?v=1757861691" alt="GLS" class="footer__shipping-logo" loading="lazy">
+              <img src="https://cdn.shopify.com/s/files/1/0905/2549/9734/files/DSV_SVG.svg?v=1757861672" alt="DSV" class="footer__shipping-logo" loading="lazy">
+            </div>
+            <p class="footer__trust-copy">Sichere und schnelle Lieferung: Pakete bis 31,5&nbsp;kg innerhalb Deutschlands und Österreichs mit Sendungsverfolgung (DHL/DPD/GLS).<br>Speditionsware wird vor Anlieferung telefonisch avisiert. Faire Versandkosten.</p>
+          </div>
+        </div>
+
+      {%- endif -%}
+
     </div>
 
     <!-- Legal Links Section -->
@@ -269,6 +313,34 @@
       "id": "show_country_selector",
       "label": "Show country/region selector",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Trust row"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_row",
+      "label": "Show trust row",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_contact",
+      "label": "Show contact CTA under trust row",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "support_phone",
+      "label": "Support phone number",
+      "default": "+49 0000 000000"
+    },
+    {
+      "type": "text",
+      "id": "support_hours",
+      "label": "Support hours",
+      "default": "Mo–Fr, 9–16 Uhr"
     }
   ],
   "blocks": [
