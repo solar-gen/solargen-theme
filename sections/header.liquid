@@ -577,208 +577,278 @@
       }
     }
   {%- endif -%}
+
+  /* Mobile Menu Dropdown Styles */
+  .mobile-menu-slide {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    background: white;
+    border-radius: 0;
+    border-top: 1px solid #e0e0e0;
+    overflow-y: auto;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-menu-slide--open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Backdrop */
+  .mobile-menu-slide::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-menu-slide--open::before {
+    opacity: 1;
+  }
+
+  .mobile-menu-content {
+    padding: 0;
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px 12px 20px;
+    background: white;
+  }
+
+  .mobile-menu-title {
+    margin: 0;
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 0.3px;
+  }
+
+
+  .mobile-menu-nav {
+    padding: 0;
+  }
+
+  .mobile-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-menu-item {
+    background: white;
+    position: relative;
+  }
+
+  .mobile-menu-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: #e0e0e0;
+  }
+
+  .mobile-menu-link {
+    display: block;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    font-weight: 400;
+    background: white;
+  }
+
+  /* Hamburger zu X Animation */
+  .sg-mobile-header__menu-toggle {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .sg-mobile-header__menu-toggle svg {
+    transition: all 0.3s ease;
+  }
+
+  .sg-mobile-header__menu-toggle[aria-expanded="true"] svg {
+    opacity: 0;
+  }
+
+  .sg-mobile-header__menu-toggle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    transform: translate(-50%, -50%) rotate(45deg);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .sg-mobile-header__menu-toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .sg-mobile-header__menu-toggle[aria-expanded="true"]::after,
+  .sg-mobile-header__menu-toggle[aria-expanded="true"]::before {
+    opacity: 1;
+  }
+
+  /* Responsive Anpassungen */
+  @media screen and (min-width: 641px) {
+    .mobile-menu-slide {
+      display: none;
+    }
+  }
 </style>
 
 <script>
-  document.documentElement.style.setProperty('--header-height', document.getElementById('shopify-section-{{ section.id }}').clientHeight + 'px');
+  // Berechne Position direkt relativ zum Menü-Button
+  function getMenuButtonPosition() {
+    let menuButton = document.querySelector('.sg-mobile-header__menu-toggle');
+    if (menuButton) {
+      let rect = menuButton.getBoundingClientRect();
+      return rect.bottom;
+    }
+    return 80; // Fallback
+  }
+  
+  // Berechne Position bei der Suchzeile-Höhe
+  function getSearchLineMenuPosition() {
+    let searchBar = document.querySelector('.sg-mobile-search');
+    
+    if (searchBar) {
+      let searchRect = searchBar.getBoundingClientRect();
+      return searchRect.top + 10; // 10px tiefer als die Suchzeile
+    }
+    
+    // Fallback: Suche nach der Suchzeile im Header
+    let searchInput = document.querySelector('.sg-mobile-search__input');
+    if (searchInput) {
+      let inputRect = searchInput.getBoundingClientRect();
+      return inputRect.top + 10; // 10px tiefer als die Suchzeile
+    }
+    
+    // Fallback zur ursprünglichen Methode
+    return getMenuButtonPosition() + 15;
+  }
   
   function openMobileMenu() {
     console.log('openMobileMenu aufgerufen!');
     
-    // Entferne existierendes Menü falls vorhanden
-    let existingMenu = document.getElementById('mobile-menu-overlay');
+    // Prüfe ob Menü bereits geöffnet ist
+    let existingMenu = document.getElementById('mobile-menu-slide');
     if (existingMenu) {
-      existingMenu.remove();
+      closeMobileMenu();
       return;
     }
     
-    // Erstelle neues Menü
-    console.log('Erstelle neues Menü...');
+    // Erstelle Slide-Down-Menü
+    console.log('Erstelle Slide-Down-Menü...');
     let menu = document.createElement('div');
-    menu.id = 'mobile-menu-overlay';
-    menu.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);z-index:99999;display:flex;align-items:center;justify-content:center;';
+    menu.id = 'mobile-menu-slide';
+    menu.className = 'mobile-menu-slide';
     
-    // Einfaches Menü HTML
+    // Lade Menüpunkte aus main-menu
+    let menuItems = '';
+    {%- for link in navigation_menu.links -%}
+      menuItems += '<li class="mobile-menu-item"><a href="{{ link.url }}" class="mobile-menu-link">{{ link.title }}</a></li>';
+    {%- endfor -%}
+    
+     // Slide-Down-Menü HTML
     menu.innerHTML = `
-      <div style="background:white;width:90%;max-width:400px;height:80vh;border-radius:10px;position:relative;overflow:hidden;display:flex;flex-direction:column;">
-        <div style="padding:20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;">
-          <h2 style="margin:0;color:#333;font-size:20px;font-weight:600;">Menü</h2>
-          <button onclick="document.getElementById('mobile-menu-overlay').remove()" style="background:none;border:none;font-size:24px;cursor:pointer;color:#666;padding:5px;">&times;</button>
+       <div class="mobile-menu-content">
+         <div class="mobile-menu-header">
+           <h2 class="mobile-menu-title">Sortiment</h2>
         </div>
-        <div style="flex:1;overflow-y:auto;padding:20px;">
-          <nav>
-            <ul style="list-style:none;padding:0;margin:0;">
-              <li style="margin-bottom:15px;"><a href="/" style="display:block;padding:15px;background:#f8f9fa;border-radius:8px;text-decoration:none;color:#333;font-size:16px;font-weight:600;">🏠 Home</a></li>
-              <li style="margin-bottom:15px;"><a href="/collections/solarmodule" style="display:block;padding:15px;background:#f8f9fa;border-radius:8px;text-decoration:none;color:#333;font-size:16px;">☀️ Solarmodule</a></li>
-              <li style="margin-bottom:15px;"><a href="/collections/batteriespeicher" style="display:block;padding:15px;background:#f8f9fa;border-radius:8px;text-decoration:none;color:#333;font-size:16px;">🔋 Batteriespeicher</a></li>
-              <li style="margin-bottom:15px;"><a href="/collections/wechselrichter" style="display:block;padding:15px;background:#f8f9fa;border-radius:8px;text-decoration:none;color:#333;font-size:16px;">⚡ Wechselrichter</a></li>
-              <li style="margin-bottom:15px;"><a href="/collections/solaranlagen-komplettsets-1" style="display:block;padding:15px;background:#f8f9fa;border-radius:8px;text-decoration:none;color:#333;font-size:16px;">📦 Komplettsets</a></li>
-              <li style="margin-bottom:15px;"><a href="/collections/balkonkraftwerke-mini-solaranlagen-zu-bestpreisen" style="display:block;padding:15px;background:#f8f9fa;border-radius:8px;text-decoration:none;color:#333;font-size:16px;">🏠 Balkonkraftwerke</a></li>
-              <li style="margin-bottom:15px;"><a href="/pages/contact" style="display:block;padding:15px;background:#f8f9fa;border-radius:8px;text-decoration:none;color:#333;font-size:16px;">📞 Kontakt</a></li>
-              <li style="margin-bottom:15px;"><a href="/pages/angebot-anfordern" style="display:block;padding:15px;background:#00badb;border-radius:8px;text-decoration:none;color:white;font-size:16px;font-weight:600;">💼 Angebot anfordern</a></li>
+         <nav class="mobile-menu-nav">
+           <ul class="mobile-menu-list">
+             ${menuItems}
             </ul>
           </nav>
-        </div>
       </div>
     `;
     
+    // Füge Menü als Overlay hinzu
     document.body.appendChild(menu);
-    console.log('Menü erstellt und hinzugefügt!');
-  }
-  
-  function createSimpleMenu() {
-    return `
-      <div style="background:white;width:90%;max-width:400px;height:80vh;border-radius:10px;position:relative;overflow:hidden;display:flex;flex-direction:column;">
-        <div style="padding:20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;">
-          <h2 style="margin:0;color:#333;font-size:20px;font-weight:600;">Menü</h2>
-          <button onclick="document.getElementById('mobile-menu-overlay').remove()" style="background:none;border:none;font-size:24px;cursor:pointer;color:#666;padding:5px;">&times;</button>
-        </div>
-        <div style="flex:1;overflow-y:auto;padding:20px;">
-          <nav>
-            <ul style="list-style:none;padding:0;margin:0;">
-              <li style="margin-bottom:15px;"><a href="/" style="display:block;padding:15px;background:#f8f9fa;border-radius:8px;text-decoration:none;color:#333;font-size:16px;font-weight:600;">🏠 Home</a></li>
-              <li style="margin-bottom:15px;"><a href="/collections/solarmodule" style="display:block;padding:15px;background:#f8f9fa;border-radius:8px;text-decoration:none;color:#333;font-size:16px;">☀️ Solarmodule</a></li>
-              <li style="margin-bottom:15px;"><a href="/collections/batteriespeicher" style="display:block;padding:15px;background:#f8f9fa;border-radius:8px;text-decoration:none;color:#333;font-size:16px;">🔋 Batteriespeicher</a></li>
-              <li style="margin-bottom:15px;"><a href="/collections/wechselrichter" style="display:block;padding:15px;background:#f8f9fa;border-radius:8px;text-decoration:none;color:#333;font-size:16px;">⚡ Wechselrichter</a></li>
-              <li style="margin-bottom:15px;"><a href="/collections/solaranlagen-komplettsets-1" style="display:block;padding:15px;background:#f8f9fa;border-radius:8px;text-decoration:none;color:#333;font-size:16px;">📦 Komplettsets</a></li>
-              <li style="margin-bottom:15px;"><a href="/collections/balkonkraftwerke-mini-solaranlagen-zu-bestpreisen" style="display:block;padding:15px;background:#f8f9fa;border-radius:8px;text-decoration:none;color:#333;font-size:16px;">🏠 Balkonkraftwerke</a></li>
-              <li style="margin-bottom:15px;"><a href="/pages/contact" style="display:block;padding:15px;background:#f8f9fa;border-radius:8px;text-decoration:none;color:#333;font-size:16px;">📞 Kontakt</a></li>
-              <li style="margin-bottom:15px;"><a href="/pages/angebot-anfordern" style="display:block;padding:15px;background:#00badb;border-radius:8px;text-decoration:none;color:white;font-size:16px;font-weight:600;">💼 Angebot anfordern</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    `;
-  }
-  
-  function createMobileMenu() {
-    return `
-      <div style="background:white;width:90%;max-width:400px;height:90vh;border-radius:10px;position:relative;overflow:hidden;display:flex;flex-direction:column;">
-        <div style="padding:20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;">
-          <h2 style="margin:0;color:#333;font-size:20px;font-weight:600;">Menü</h2>
-          <button onclick="this.parentElement.parentElement.parentElement.remove()" style="background:none;border:none;font-size:24px;cursor:pointer;color:#666;padding:5px;">&times;</button>
-        </div>
-        <div style="flex:1;overflow-y:auto;padding:0;">
-          <nav style="padding:0;">
-            <ul style="list-style:none;padding:0;margin:0;">
-              <li style="border-bottom:1px solid #f0f0f0;">
-                <div style="padding:15px 20px;font-weight:600;color:#666;font-size:14px;text-transform:uppercase;letter-spacing:0.5px;">Sortiment</div>
-              </li>
-              <li style="border-bottom:1px solid #f0f0f0;">
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:15px 20px;cursor:pointer;" onclick="toggleSubmenu(this)">
-                  <a href="/collections/solarmodule" style="text-decoration:none;color:#333;font-size:16px;flex:1;">Solarmodule</a>
-                  <svg width="12" height="8" viewBox="0 0 12 8" style="transition:transform 0.2s;" class="submenu-arrow">
-                    <path stroke="currentColor" stroke-width="2" d="M10 2L6 6 2 2" fill="none" stroke-linecap="square"></path>
-                  </svg>
-                </div>
-                <ul class="submenu" style="display:none;list-style:none;padding:0;margin:0;background:#f8f9fa;">
-                  <li><a href="/collections/solarmodule" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Alle Solarmodule</a></li>
-                  <li><a href="/collections/aiko-solar" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Aiko Solar</a></li>
-                  <li><a href="/collections/ja-solar" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Ja Solar</a></li>
-                  <li><a href="/collections/jolywood" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Jolywood</a></li>
-                  <li><a href="/collections/trina-vertex-s" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;">Trina Vertex S</a></li>
-                </ul>
-              </li>
-              <li style="border-bottom:1px solid #f0f0f0;">
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:15px 20px;cursor:pointer;" onclick="toggleSubmenu(this)">
-                  <a href="/collections/batteriespeicher" style="text-decoration:none;color:#333;font-size:16px;flex:1;">Batteriespeicher</a>
-                  <svg width="12" height="8" viewBox="0 0 12 8" style="transition:transform 0.2s;" class="submenu-arrow">
-                    <path stroke="currentColor" stroke-width="2" d="M10 2L6 6 2 2" fill="none" stroke-linecap="square"></path>
-                  </svg>
-                </div>
-                <ul class="submenu" style="display:none;list-style:none;padding:0;margin:0;background:#f8f9fa;">
-                  <li><a href="/collections/batteriespeicher" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Alle Batteriespeicher</a></li>
-                  <li><a href="/collections/anker" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Anker</a></li>
-                  <li><a href="/collections/byd" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">BYD</a></li>
-                  <li><a href="/collections/enphase" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Enphase</a></li>
-                  <li><a href="/collections/fronius-speicher" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Fronius</a></li>
-                  <li><a href="/collections/huawei-speicher" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Huawei</a></li>
-                  <li><a href="/collections/solaredge" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">SolarEdge</a></li>
-                  <li><a href="/collections/sungrow-speicher-fur-mehr-effizienz-und-unabhangigkeit" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;">Sungrow</a></li>
-                </ul>
-              </li>
-              <li style="border-bottom:1px solid #f0f0f0;">
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:15px 20px;cursor:pointer;" onclick="toggleSubmenu(this)">
-                  <a href="/collections/wechselrichter" style="text-decoration:none;color:#333;font-size:16px;flex:1;">Wechselrichter</a>
-                  <svg width="12" height="8" viewBox="0 0 12 8" style="transition:transform 0.2s;" class="submenu-arrow">
-                    <path stroke="currentColor" stroke-width="2" d="M10 2L6 6 2 2" fill="none" stroke-linecap="square"></path>
-                  </svg>
-                </div>
-                <ul class="submenu" style="display:none;list-style:none;padding:0;margin:0;background:#f8f9fa;">
-                  <li><a href="/collections/wechselrichter" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Alle Wechselrichter</a></li>
-                  <li><a href="/collections/enphase" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Enphase</a></li>
-                  <li><a href="/collections/fronius" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Fronius</a></li>
-                  <li><a href="/collections/kostal" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Kostal</a></li>
-                  <li><a href="/collections/sma" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">SMA</a></li>
-                  <li><a href="/collections/solaredge-wechselrichter" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;">SolarEdge</a></li>
-                </ul>
-              </li>
-              <li style="border-bottom:1px solid #f0f0f0;">
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:15px 20px;cursor:pointer;" onclick="toggleSubmenu(this)">
-                  <a href="/collections/solaranlagen-komplettsets-1" style="text-decoration:none;color:#333;font-size:16px;flex:1;">Komplettsets</a>
-                  <svg width="12" height="8" viewBox="0 0 12 8" style="transition:transform 0.2s;" class="submenu-arrow">
-                    <path stroke="currentColor" stroke-width="2" d="M10 2L6 6 2 2" fill="none" stroke-linecap="square"></path>
-                  </svg>
-                </div>
-                <ul class="submenu" style="display:none;list-style:none;padding:0;margin:0;background:#f8f9fa;">
-                  <li><a href="/collections/solaranlagen-komplettsets-1" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Alle Komplettsets</a></li>
-                  <li><a href="/collections/5-kwp-solaranlagen-komplettsets-effizient-und-komplett-ausgestattet" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">5 kWp</a></li>
-                  <li><a href="/collections/6-kwp-solaranlagen-komplettset" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">6 kWp</a></li>
-                  <li><a href="/collections/8-kwp-solaranlagen-komplettsets-leistungsstark-und-flexibel" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">8 kWp</a></li>
-                  <li><a href="/collections/10-kwp-solaranlagen-komplettsets-maximale-leistung-fur-ihren-strombedarf" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">10 kWp</a></li>
-                  <li><a href="/collections/12-kwp-solaranlagen-komplettsets-die-perfekte-wahl-fur-grosse-projekte" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;">12 kWp</a></li>
-                </ul>
-              </li>
-              <li style="border-bottom:1px solid #f0f0f0;">
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:15px 20px;cursor:pointer;" onclick="toggleSubmenu(this)">
-                  <a href="/collections/balkonkraftwerke-mini-solaranlagen-zu-bestpreisen" style="text-decoration:none;color:#333;font-size:16px;flex:1;">Balkonkraftwerke</a>
-                  <svg width="12" height="8" viewBox="0 0 12 8" style="transition:transform 0.2s;" class="submenu-arrow">
-                    <path stroke="currentColor" stroke-width="2" d="M10 2L6 6 2 2" fill="none" stroke-linecap="square"></path>
-                  </svg>
-                </div>
-                <ul class="submenu" style="display:none;list-style:none;padding:0;margin:0;background:#f8f9fa;">
-                  <li><a href="/collections/balkonkraftwerke-mini-solaranlagen-zu-bestpreisen" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Alle Balkonkraftwerke</a></li>
-                  <li><a href="/collections/balkonkraftwerk-mit-speicher" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">Balkonkraftwerk mit Speicher</a></li>
-                  <li><a href="/collections/anker-solix-power-dock" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;border-bottom:1px solid #eee;">NEU: Anker Solix Power Dock</a></li>
-                  <li><a href="/collections/balkonkraftwerk-mit-anker-solix-solarbank-3-pro" style="display:block;padding:12px 20px 12px 40px;text-decoration:none;color:#666;font-size:14px;">NEU: Balkonkraftwerk mit Anker 3 Pro</a></li>
-                </ul>
-              </li>
-              <li style="border-bottom:1px solid #f0f0f0;">
-                <div style="padding:15px 20px;font-weight:600;color:#666;font-size:14px;text-transform:uppercase;letter-spacing:0.5px;">Service & Unternehmen</div>
-              </li>
-              <li style="border-bottom:1px solid #f0f0f0;">
-                <a href="/pages/contact" style="display:block;padding:15px 20px;text-decoration:none;color:#333;font-size:16px;">Kontakt</a>
-              </li>
-              <li style="border-bottom:1px solid #f0f0f0;">
-                <a href="/pages/uber-uns" style="display:block;padding:15px 20px;text-decoration:none;color:#333;font-size:16px;">Über uns</a>
-              </li>
-              <li style="border-bottom:1px solid #f0f0f0;">
-                <a href="/blogs/news" style="display:block;padding:15px 20px;text-decoration:none;color:#333;font-size:16px;">Blog</a>
-              </li>
-              <li style="border-bottom:1px solid #f0f0f0;">
-                <a href="/pages/angebot-anfordern" style="display:block;padding:15px 20px;text-decoration:none;color:#00badb;font-size:16px;font-weight:600;">Angebot anfordern</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    `;
-  }
-  
-  function toggleSubmenu(element) {
-    const submenu = element.parentElement.nextElementSibling;
-    const arrow = element.querySelector('.submenu-arrow');
     
-    if (submenu && submenu.classList.contains('submenu')) {
-      if (submenu.style.display === 'none' || submenu.style.display === '') {
-        submenu.style.display = 'block';
-        if (arrow) arrow.style.transform = 'rotate(180deg)';
-      } else {
-        submenu.style.display = 'none';
-        if (arrow) arrow.style.transform = 'rotate(0deg)';
-      }
+    // Setze Position bei der Suchzeile-Höhe (fixiert beim Scrollen)
+    let menuTop = getSearchLineMenuPosition();
+    menu.style.position = 'fixed';
+    menu.style.top = menuTop + 'px';
+    menu.style.left = '0';
+    menu.style.right = '0';
+    menu.style.maxHeight = `calc(100vh - ${menuTop}px)`;
+    menu.style.zIndex = '1000';
+    
+    // Trigger Dropdown Animation
+    setTimeout(() => {
+      menu.classList.add('mobile-menu-slide--open');
+    }, 10);
+    
+    // Update Button State
+    let menuButton = document.querySelector('.sg-mobile-header__menu-toggle');
+    if (menuButton) {
+      menuButton.setAttribute('aria-expanded', 'true');
+    }
+    
+    console.log('Slide-Down-Menü erstellt!');
+  }
+  
+  function closeMobileMenu() {
+    let menu = document.getElementById('mobile-menu-slide');
+    if (menu) {
+      menu.classList.remove('mobile-menu-slide--open');
+      setTimeout(() => {
+        menu.remove();
+      }, 300); // Warte auf Animation
+    }
+    
+    // Update Button State
+    let menuButton = document.querySelector('.sg-mobile-header__menu-toggle');
+    if (menuButton) {
+      menuButton.setAttribute('aria-expanded', 'false');
     }
   }
+  
+  // Schließe Menü beim Klick außerhalb
+  document.addEventListener('click', function(event) {
+    let menu = document.getElementById('mobile-menu-slide');
+    let menuButton = document.querySelector('.sg-mobile-header__menu-toggle');
+    
+    if (menu && menu.classList.contains('mobile-menu-slide--open')) {
+      // Prüfe ob der Klick außerhalb des Menüs und des Buttons war
+      if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+        closeMobileMenu();
+      }
+    }
+  });
+  
+  
 </script>
 
 {% schema %}
