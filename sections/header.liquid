@@ -178,22 +178,12 @@
               <span class="sg-mobile-header__cart-count">{{ cart.item_count }}</span>
             </a>
             
-            <!-- Menu - TESTE MICH AUF ECHTEM HANDY! -->
+            <!-- Menu -->
             <button class="sg-mobile-header__icon-link sg-mobile-header__menu-toggle" 
-                    onclick="alert('Button funktioniert! Jetzt auf echtem Handy testen.'); 
-                      let menu = document.getElementById('sg-simple-menu');
-                      if (!menu) {
-                        menu = document.createElement('div');
-                        menu.id = 'sg-simple-menu';
-                        menu.innerHTML = '<div style=\\'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.9);z-index:9999;padding:20px;color:white;font-size:18px;\\'><button onclick=\\'this.parentElement.parentElement.remove()\\' style=\\'position:absolute;top:15px;right:15px;background:rgba(255,255,255,0.1);border:none;color:white;font-size:28px;cursor:pointer;line-height:1;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background-color 0.2s ease;\\'>&times;</button><div style=\\'margin-top:80px;\\'><a href=\\'/\\' style=\\'color:white;display:block;padding:20px 0;font-size:24px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);\\'>🏠 Home</a><a href=\\'/collections\\' style=\\'color:white;display:block;padding:20px 0;font-size:24px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);\\'>🛍️ Alle Produkte</a><a href=\\'/pages/contact\\' style=\\'color:white;display:block;padding:20px 0;font-size:24px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);\\'>📞 Kontakt</a><a href=\\'/pages/angebot-anfordern\\' style=\\'color:#00badb;display:block;padding:20px 0;font-size:24px;text-decoration:none;font-weight:bold;\\'>💼 Angebot anfordern</a></div></div>';
-                        document.body.appendChild(menu);
-                      } else {
-                        menu.remove();
-                      }
-                    " 
+                    data-action="toggle-menu"
                     aria-expanded="false" 
                     aria-haspopup="true" 
-                    aria-controls="sg-mobile-menu" 
+                    aria-controls="mobile-menu" 
                     aria-label="Menü">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="3" y1="6" x2="21" y2="6"/>
@@ -536,8 +526,37 @@
         </div>
       </nav>
     {%- endif -%}
-  </header>
-</section>
+    </header>
+  </section>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__inner">
+      <nav class="mobile-menu__nav">
+        <ul class="mobile-menu__list">
+          {%- for link in navigation_mobile_menu.links -%}
+            <li class="mobile-menu__item">
+              {%- if link.links.size == 0 -%}
+                <a href="{{ link.url }}" class="mobile-menu__link">{{ link.title }}</a>
+              {%- else -%}
+                <button class="mobile-menu__link mobile-menu__link--has-submenu" data-action="toggle-collapsible" aria-expanded="false" aria-controls="mobile-submenu-{{ forloop.index }}">
+                  {{ link.title }}
+                  <span class="mobile-menu__arrow">{%- render 'icon', icon: 'arrow-bottom' -%}</span>
+                </button>
+                <ul class="mobile-menu__submenu" id="mobile-submenu-{{ forloop.index }}" aria-hidden="true">
+                  {%- for child_link in link.links -%}
+                    <li class="mobile-menu__subitem">
+                      <a href="{{ child_link.url }}" class="mobile-menu__sublink">{{ child_link.title }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    </div>
+  </div>
 
 <style>
   :root {
@@ -587,6 +606,120 @@
       }
     }
   {%- endif -%}
+
+  /* Mobile Menu Styles */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .mobile-menu[aria-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu__inner {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    height: 80vh;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-menu__nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+  }
+
+  .mobile-menu__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-menu__item {
+    margin-bottom: 15px;
+  }
+
+  .mobile-menu__link {
+    display: block;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .mobile-menu__link--has-submenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mobile-menu__arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .mobile-menu__link[aria-expanded="true"] .mobile-menu__arrow {
+    transform: rotate(180deg);
+  }
+
+  .mobile-menu__submenu {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    background: #e9ecef;
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+  }
+
+  .mobile-menu__submenu[aria-hidden="false"] {
+    max-height: 500px;
+  }
+
+  .mobile-menu__subitem {
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .mobile-menu__subitem:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-menu__sublink {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+  }
+
+  .mobile-menu__sublink:hover {
+    background: #f8f9fa;
+  }
 </style>
 
 <script>
