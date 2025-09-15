@@ -180,7 +180,8 @@
             
             <!-- Menu -->
             <button class="sg-mobile-header__icon-link sg-mobile-header__menu-toggle" 
-                    onclick="openMobileMenu()"
+                    id="mobile-menu-button"
+                    onclick="window.toggleMobileMenu()"
                     aria-expanded="false" 
                     aria-haspopup="true" 
                     aria-controls="mobile-menu-overlay" 
@@ -578,19 +579,26 @@
     }
   {%- endif -%}
 
-  /* Mobile Menu Dropdown Styles */
+  /* Mobile Menu Dropdown Styles - NORMALES DROPDOWN */
   .mobile-menu-slide {
-    position: fixed !important;
-    left: 0 !important;
-    right: 0 !important;
+    position: static !important; /* Normaler Dokumentenfluss */
     z-index: 1000 !important;
-    background: white;
+    background: transparent !important;
+    border: none !important; 
     border-radius: 0;
-    border-top: 1px solid #e0e0e0;
-    overflow-y: auto;
+    overflow: visible !important;
     opacity: 0;
     transform: translateY(-20px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: auto !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  
+  
+  /* Backdrop komplett entfernen */
+  .mobile-menu-slide::before {
+    display: none !important;
   }
 
   .mobile-menu-slide--open {
@@ -598,26 +606,12 @@
     opacity: 1;
   }
 
-  /* Backdrop */
-  .mobile-menu-slide::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .mobile-menu-slide--open::before {
-    opacity: 1;
-  }
 
   .mobile-menu-content {
     padding: 0;
+    background: white !important; /* Nur der Content hat weißen Hintergrund */
+    border-top: 1px solid #e0e0e0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   }
 
   .mobile-menu-header {
@@ -727,99 +721,123 @@
 </style>
 
 <script>
-  // Berechne Position direkt relativ zum Menü-Button
-  function getMenuButtonPosition() {
-    let menuButton = document.querySelector('.sg-mobile-header__menu-toggle');
-    if (menuButton) {
-      let rect = menuButton.getBoundingClientRect();
-      return rect.bottom;
-    }
-    return 80; // Fallback
-  }
+  console.log('=== SCRIPT WIRD GELADEN ===');
   
-  // Berechne Position bei der Suchzeile-Höhe
-  function getSearchLineMenuPosition() {
-    let searchBar = document.querySelector('.sg-mobile-search');
+  // Mobiles Menü Toggle
+  window.toggleMobileMenu = function() {
+    console.log('=== toggleMobileMenu gestartet ===');
     
-    if (searchBar) {
-      let searchRect = searchBar.getBoundingClientRect();
-      return searchRect.top + 10; // 10px tiefer als die Suchzeile
-    }
-    
-    // Fallback: Suche nach der Suchzeile im Header
-    let searchInput = document.querySelector('.sg-mobile-search__input');
-    if (searchInput) {
-      let inputRect = searchInput.getBoundingClientRect();
-      return inputRect.top + 10; // 10px tiefer als die Suchzeile
-    }
-    
-    // Fallback zur ursprünglichen Methode
-    return getMenuButtonPosition() + 15;
-  }
-  
-  function openMobileMenu() {
-    console.log('openMobileMenu aufgerufen!');
-    
-    // Prüfe ob Menü bereits geöffnet ist
-    let existingMenu = document.getElementById('mobile-menu-slide');
-    if (existingMenu) {
-      closeMobileMenu();
-      return;
-    }
-    
-    // Erstelle Slide-Down-Menü
-    console.log('Erstelle Slide-Down-Menü...');
-    let menu = document.createElement('div');
-    menu.id = 'mobile-menu-slide';
-    menu.className = 'mobile-menu-slide';
-    
-    // Lade Menüpunkte aus main-menu
-    let menuItems = '';
-    {%- for link in navigation_menu.links -%}
-      menuItems += '<li class="mobile-menu-item"><a href="{{ link.url }}" class="mobile-menu-link">{{ link.title }}</a></li>';
-    {%- endfor -%}
-    
-     // Slide-Down-Menü HTML
-    menu.innerHTML = `
-       <div class="mobile-menu-content">
-         <div class="mobile-menu-header">
-           <h2 class="mobile-menu-title">Sortiment</h2>
-        </div>
-         <nav class="mobile-menu-nav">
-           <ul class="mobile-menu-list">
-             ${menuItems}
+    try {
+      let existingMenu = document.getElementById('mobile-menu-slide');
+      
+      if (existingMenu) {
+        // Menü schließen
+        console.log('Schließe Menü');
+        existingMenu.remove();
+        
+        // Button State
+        let menuButton = document.querySelector('.sg-mobile-header__menu-toggle');
+        if (menuButton) {
+          menuButton.setAttribute('aria-expanded', 'false');
+        }
+        return;
+      }
+      
+      // Menü öffnen
+      console.log('Öffne Menü');
+      
+      let menu = document.createElement('div');
+      menu.id = 'mobile-menu-slide';
+      menu.className = 'mobile-menu-slide mobile-menu-slide--open';
+      
+      // Sauberes Design für das mobile Menü
+      menu.style.cssText = `
+        position: relative !important;
+        background: white !important;
+        border-top: 1px solid #e5e7eb !important;
+        border-bottom: 1px solid #e5e7eb !important;
+        width: 100% !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 1000 !important;
+        box-shadow: 0 4px 25px rgba(0,0,0,0.08) !important;
+        margin: 0 !important;
+      `;
+      
+      // Schöner Menü-Inhalt mit professionellem Design
+      menu.innerHTML = `
+        <div class="mobile-menu-content" style="padding: 0; background: white;">
+          <div class="mobile-menu-header" style="
+            padding: 20px 20px 16px 20px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e5e7eb;
+            margin: 0;
+          ">
+            <h2 class="mobile-menu-title" style="
+              margin: 0;
+              color: #1f2937;
+              font-size: 18px;
+              font-weight: 600;
+              letter-spacing: 0.5px;
+            ">Sortiment</h2>
+          </div>
+          <nav class="mobile-menu-nav" style="padding: 0;">
+            <ul class="mobile-menu-list" style="
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              background: white;
+            ">
+              {%- for link in navigation_menu.links -%}
+                <li class="mobile-menu-item" style="
+                  background: white;
+                  border-bottom: 1px solid #f1f5f9;
+                  margin: 0;
+                ">
+                  <a href="{{ link.url }}" class="mobile-menu-link" style="
+                    display: block;
+                    padding: 18px 20px;
+                    text-decoration: none;
+                    color: #374151;
+                    font-size: 16px;
+                    font-weight: 500;
+                    background: white;
+                    transition: all 0.2s ease;
+                    border-left: 3px solid transparent;
+                  " onmouseover="this.style.background='#f8fafc'; this.style.borderLeftColor='var(--accent-color)'; this.style.color='var(--accent-color)';" 
+                     onmouseout="this.style.background='white'; this.style.borderLeftColor='transparent'; this.style.color='#374151';">
+                    {{ link.title }}
+                  </a>
+                </li>
+              {%- endfor -%}
             </ul>
           </nav>
-      </div>
-    `;
-    
-    // Füge Menü als Overlay hinzu
-    document.body.appendChild(menu);
-    
-    // Setze Position bei der Suchzeile-Höhe (fixiert beim Scrollen)
-    let menuTop = getSearchLineMenuPosition();
-    menu.style.position = 'fixed';
-    menu.style.top = menuTop + 'px';
-    menu.style.left = '0';
-    menu.style.right = '0';
-    menu.style.maxHeight = `calc(100vh - ${menuTop}px)`;
-    menu.style.zIndex = '1000';
-    
-    // Trigger Dropdown Animation
-    setTimeout(() => {
-      menu.classList.add('mobile-menu-slide--open');
-    }, 10);
-    
-    // Update Button State
-    let menuButton = document.querySelector('.sg-mobile-header__menu-toggle');
-    if (menuButton) {
-      menuButton.setAttribute('aria-expanded', 'true');
+        </div>
+      `;
+      
+      // Füge nach Suchzeile ein
+      let searchBar = document.querySelector('.sg-mobile-search');
+      if (searchBar) {
+        searchBar.insertAdjacentElement('afterend', menu);
+      } else {
+        document.body.appendChild(menu);
+      }
+      
+      // Button State
+      let menuButton = document.querySelector('.sg-mobile-header__menu-toggle');
+      if (menuButton) {
+        menuButton.setAttribute('aria-expanded', 'true');
+      }
+      
+      console.log('Mobiles Menü erfolgreich erstellt');
+      
+    } catch (error) {
+      console.error('FEHLER:', error);
     }
-    
-    console.log('Slide-Down-Menü erstellt!');
-  }
+  };
   
-  function closeMobileMenu() {
+  window.closeMobileMenu = function() {
     let menu = document.getElementById('mobile-menu-slide');
     if (menu) {
       menu.classList.remove('mobile-menu-slide--open');
@@ -833,7 +851,7 @@
     if (menuButton) {
       menuButton.setAttribute('aria-expanded', 'false');
     }
-  }
+  };
   
   // Schließe Menü beim Klick außerhalb
   document.addEventListener('click', function(event) {
@@ -846,6 +864,11 @@
         closeMobileMenu();
       }
     }
+  });
+  
+  // DOM Ready Check
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('=== Mobile Menü bereit ===');
   });
   
   

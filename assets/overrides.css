@@ -48,18 +48,182 @@ section[data-section-type="offers"] .product-item .product-item__price-list .pri
   line-height: 1.2 !important;
 }
 
+/* Mobile: Preise zwingend in einer Zeile halten */
+@media screen and (max-width: 640px) {
+  .product-item .product-item__price-list {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+  }
+  
+  .product-item .product-item__price-list .price--compare {
+    font-size: 15px !important;
+    line-height: 1.1 !important;
+    margin-left: 6px !important;
+  }
+  
+  /* Kollektionsseiten auf mobil auch kleiner */
+  .template-collection .product-item .product-item__price-list {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+  }
+  
+  .template-collection .product-item .product-item__price-list .price--compare {
+    font-size: 15px !important;
+    line-height: 1.1 !important;
+    margin-left: 6px !important;
+  }
+}
+
 /* Produktbilder: Ladeoptimierung und besseres UX */
 .product-gallery__image {
   transition: opacity 0.3s ease;
+  opacity: 1;
 }
 
-.product-gallery__image[loading="lazy"] {
-  opacity: 0;
-}
-
-.product-gallery__image.loaded,
 .product-gallery__image[loading="eager"] {
   opacity: 1;
+}
+
+/* ===== MOBILE MENU DESIGN VERBESSERUNGEN ===== */
+
+/* Mobile Menu moderneres Design - höhere Spezifität */
+#mobile-menu.mobile-menu {
+  backdrop-filter: blur(8px) !important;
+  background: rgba(255, 0, 0, 0.8) !important; /* TEMPORÄR: Roter Hintergrund zum Testen */
+}
+
+#mobile-menu .mobile-menu__panel {
+  background: #ffffff !important;
+  border-radius: 0 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Navigation Links modernisieren - höhere Spezifität */
+#mobile-menu .mobile-menu__nav-link {
+  padding: 16px 20px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #333 !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+  transition: all 0.2s ease !important;
+  background: transparent !important;
+}
+
+#mobile-menu .mobile-menu__nav-link:hover,
+#mobile-menu .mobile-menu__nav-link:active {
+  color: #1472b6 !important;
+  background: rgba(20, 114, 182, 0.05) !important;
+  padding-left: 28px !important;
+}
+
+/* Sections modernisieren - höhere Spezifität */
+#mobile-menu .mobile-menu__section {
+  padding: 24px 20px !important;
+  background: #ffffff !important;
+}
+
+#mobile-menu .mobile-menu__section:not(:last-child) {
+  border-bottom: 2px solid #f5f5f5 !important;
+}
+
+/* Section Titles */
+.mobile-menu__section-title {
+  color: var(--accent-color) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  margin-bottom: 12px !important;
+}
+
+/* Back Button modernisieren */
+.mobile-menu__back-button {
+  padding: 12px 0 !important;
+  font-weight: 600 !important;
+  color: var(--accent-color) !important;
+  background: #f8f9fa !important;
+  border-radius: 8px !important;
+  margin-bottom: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-menu__back-button:hover {
+  background: #e9ecef !important;
+  transform: translateX(-2px) !important;
+}
+
+/* Help Wrapper (Kontakt-Info) modernisieren */
+.mobile-menu__help-wrapper {
+  padding: 12px 0 !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-menu__help-wrapper:hover {
+  background: rgba(20, 114, 182, 0.05) !important;
+  padding-left: 8px !important;
+}
+
+.mobile-menu__help-wrapper span,
+.mobile-menu__help-wrapper a {
+  font-weight: 500 !important;
+  color: #333 !important;
+}
+
+.mobile-menu__help-wrapper a:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Icons modernisieren */
+.mobile-menu__help-wrapper .icon--bi-phone,
+.mobile-menu__help-wrapper .icon--bi-email {
+  color: var(--accent-color) !important;
+  margin-right: 12px !important;
+}
+
+/* Promo Bereich modernisieren */
+.mobile-menu__promo {
+  border-radius: 12px !important;
+  background: #f8f9fa !important;
+  transition: all 0.3s ease !important;
+}
+
+.mobile-menu__promo:hover {
+  background: #e9ecef !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mobile-menu__image-wrapper {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.mobile-menu__image-heading {
+  color: #333 !important;
+  font-weight: 600 !important;
+}
+
+.mobile-menu__image-text {
+  color: #666 !important;
+}
+
+/* Social Media Links modernisieren */
+.mobile-menu__section .social-media__item {
+  margin: 8px 12px 8px 0 !important;
+}
+
+.mobile-menu__section .social-media__link {
+  background: var(--accent-color) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 10px !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-menu__section .social-media__link:hover {
+  background: #0f5a91 !important;
+  transform: translateY(-1px) !important;
 }
 
 /* Verstecke Ladetext/Platzhalter während Bildladen */
