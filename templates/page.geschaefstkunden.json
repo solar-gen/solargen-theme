@@ -11,15 +11,23 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {}
     },
-    "newsletter": {
-      "type": "newsletter",
-      "settings": {}
+    "contact_form_4w9nX3": {
+      "type": "contact-form",
+      "name": "Contact form",
+      "settings": {
+        "form_heading": "",
+        "form_content": "",
+        "show_store_info": false,
+        "store_heading": "Find us",
+        "store_info": ""
+      }
     }
   },
   "order": [
     "main",
-    "newsletter"
+    "contact_form_4w9nX3"
   ]
 }
