@@ -38,22 +38,13 @@
         "button_link": "shopify://collections/all"
       }
     },
-    "custom_liquid_BKAQFF": {
-      "type": "custom-liquid",
-      "name": "Custom Liquid",
-      "settings": {
-        "title": "",
-        "include_margins": true,
-        "liquid": "{% render 'etrusted-widget', id: 'wdg-f54d8cd0-0dd1-4b32-a4f4-f4f10ea97343' %}"
-      }
-    },
     "text_with_icons_Kzypig": {
       "type": "text-with-icons",
       "blocks": {
         "item_9aWNGR": {
           "type": "item",
           "settings": {
-            "icon": "bi-delivery",
+            "icon": "bi-comment",
             "title": "400+ positive Bewertungen",
             "content": "<p>Hohe Kundenzufriedenheit auf allen Plattformen</p>"
           }
@@ -61,7 +52,7 @@
         "item_8tPPeh": {
           "type": "item",
           "settings": {
-            "icon": "bi-returns",
+            "icon": "bi-fast-delivery",
             "title": "Schneller Versand",
             "content": "<p>Deutsches Lager, kurze Lieferzeiten</p>"
           }
@@ -69,7 +60,7 @@
         "item_at6EU3": {
           "type": "item",
           "settings": {
-            "icon": "bi-customer-support",
+            "icon": "bi-ecology",
             "title": "Faire Preise",
             "content": "<p>Klare Kalkulation ohne versteckte Kosten</p>"
           }
@@ -77,7 +68,7 @@
         "item_PFihii": {
           "type": "item",
           "settings": {
-            "icon": "bi-secure-payment",
+            "icon": "bi-love",
             "title": "Persönlicher Service",
             "content": "<p>direkter Kontakt statt Callcenter</p>"
           }
@@ -93,13 +84,22 @@
       "settings": {
         "stack_mobile": false
       }
+    },
+    "custom_liquid_BKAQFF": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "{% render 'etrusted-widget', id: 'wdg-f54d8cd0-0dd1-4b32-a4f4-f4f10ea97343' %}"
+      }
     }
   },
   "order": [
     "main",
     "image_with_text_r9Qd9F",
     "rich_text_7T3z38",
-    "custom_liquid_BKAQFF",
-    "text_with_icons_Kzypig"
+    "text_with_icons_Kzypig",
+    "custom_liquid_BKAQFF"
   ]
 }
