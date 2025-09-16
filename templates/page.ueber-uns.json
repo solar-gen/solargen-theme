@@ -11,20 +11,11 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {}
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "settings": {
-        "title": "Newsletter",
-        "content": "<p>A short sentence describing what someone will receive by subscribing</p>",
-        "background": "#d6d7d9",
-        "text": "#111111"
-      }
     }
   },
   "order": [
-    "main",
-    "newsletter"
+    "main"
   ]
 }
