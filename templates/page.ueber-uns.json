@@ -104,6 +104,17 @@
         "button_text": "Zum Shop",
         "button_link": "https://solar-gen.de"
       }
+    },
+    "contact_form_D8cXqz": {
+      "type": "contact-form",
+      "name": "Contact form",
+      "settings": {
+        "form_heading": "Wir sind für dich da",
+        "form_content": "<p>Fragen zu unseren Produkten oder deiner Bestellung?</p>",
+        "show_store_info": false,
+        "store_heading": "Find us",
+        "store_info": ""
+      }
     }
   },
   "order": [
@@ -112,6 +123,7 @@
     "rich_text_7T3z38",
     "text_with_icons_Kzypig",
     "custom_liquid_BKAQFF",
-    "rich_text_xtkR4B"
+    "rich_text_xtkR4B",
+    "contact_form_D8cXqz"
   ]
 }
