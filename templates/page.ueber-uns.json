@@ -93,6 +93,17 @@
         "include_margins": true,
         "liquid": "{% render 'etrusted-widget', id: 'wdg-f54d8cd0-0dd1-4b32-a4f4-f4f10ea97343' %}"
       }
+    },
+    "rich_text_xtkR4B": {
+      "type": "rich-text",
+      "name": "Rich text",
+      "settings": {
+        "text_width": "narrow",
+        "title": "Jetzt Produkte entdecken",
+        "content": "<p>Überzeugen Sie sich selbst von unserer Auswahl an PV-Komponenten und Komplettsets – zuverlässig geliefert, direkt aus Deutschland.</p>",
+        "button_text": "Zum Shop",
+        "button_link": "https://solar-gen.de"
+      }
     }
   },
   "order": [
@@ -100,6 +111,7 @@
     "image_with_text_r9Qd9F",
     "rich_text_7T3z38",
     "text_with_icons_Kzypig",
-    "custom_liquid_BKAQFF"
+    "custom_liquid_BKAQFF",
+    "rich_text_xtkR4B"
   ]
 }
