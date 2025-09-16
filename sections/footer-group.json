@@ -70,16 +70,16 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "links_9UWUkm": {
-          "type": "links",
-          "settings": {
-            "menu": "speicher"
-          }
-        },
         "links_UDetAh": {
           "type": "links",
           "settings": {
             "menu": "service-hilfe"
+          }
+        },
+        "links_9UWUkm": {
+          "type": "links",
+          "settings": {
+            "menu": "speicher"
           }
         },
         "links_Q8K7qy": {
@@ -109,8 +109,8 @@
         }
       },
       "block_order": [
-        "links_9UWUkm",
         "links_UDetAh",
+        "links_9UWUkm",
         "links_Q8K7qy",
         "links_d79i43",
         "links_yJCyra",
