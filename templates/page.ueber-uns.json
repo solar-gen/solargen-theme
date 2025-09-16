@@ -27,6 +27,19 @@
         "button_link": "shopify://collections/all"
       }
     },
+    "image_with_text_jFkq6k": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/chuttersnap-BNBA1h-NgdY-unsplash.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "title": "Unser Standort im Saarland",
+        "content": "<p>Unser Lager befindet sich in Bous, nahe Saarlouis, Völklingen und Saarbrücken. Von hier aus beliefern wir Kunden in ganz Deutschland – zuverlässig, schnell und direkt aus deutschem Lager.</p>",
+        "button_text": "",
+        "button_link": "shopify://collections/all"
+      }
+    },
     "rich_text_7T3z38": {
       "type": "rich-text",
       "name": "Rich text",
@@ -124,6 +137,7 @@
     "rich_text_7T3z38",
     "text_with_icons_Kzypig",
     "custom_liquid_BKAQFF",
+    "image_with_text_jFkq6k",
     "rich_text_xtkR4B",
     "contact_form_D8cXqz"
   ]
