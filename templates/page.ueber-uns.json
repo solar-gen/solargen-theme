@@ -37,11 +37,69 @@
         "button_text": "",
         "button_link": "shopify://collections/all"
       }
+    },
+    "custom_liquid_BKAQFF": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "title": "",
+        "include_margins": true,
+        "liquid": "{% render 'etrusted-widget', id: 'wdg-f54d8cd0-0dd1-4b32-a4f4-f4f10ea97343' %}"
+      }
+    },
+    "text_with_icons_Kzypig": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_9aWNGR": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-delivery",
+            "title": "400+ positive Bewertungen",
+            "content": "<p>Hohe Kundenzufriedenheit auf allen Plattformen</p>"
+          }
+        },
+        "item_8tPPeh": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-returns",
+            "title": "Schneller Versand",
+            "content": "<p>Deutsches Lager, kurze Lieferzeiten</p>"
+          }
+        },
+        "item_at6EU3": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-customer-support",
+            "title": "Faire Preise",
+            "content": "<p>Klare Kalkulation ohne versteckte Kosten</p>"
+          }
+        },
+        "item_PFihii": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-secure-payment",
+            "title": "Persönlicher Service",
+            "content": "<p>direkter Kontakt statt Callcenter</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_9aWNGR",
+        "item_8tPPeh",
+        "item_at6EU3",
+        "item_PFihii"
+      ],
+      "name": "Text with icons",
+      "settings": {
+        "stack_mobile": false
+      }
     }
   },
   "order": [
     "main",
     "image_with_text_r9Qd9F",
-    "rich_text_7T3z38"
+    "rich_text_7T3z38",
+    "custom_liquid_BKAQFF",
+    "text_with_icons_Kzypig"
   ]
 }
