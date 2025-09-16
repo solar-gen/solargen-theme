@@ -12,23 +12,6 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
-        "image-1": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/DE444098641_8.png",
-            "mobile_image": "shopify://shop_images/ChatGPT_Image_Sep_14_2025_12_40_24_AM.png",
-            "show_overlay": false,
-            "overlay_opacity": 30,
-            "text_color": "#ffffff",
-            "title": "PV-Komplettsets",
-            "content": "Eine Solaranlage als Komplettpaket?\nFinde die passende Lösung genau für dich",
-            "content_position": "middle_left",
-            "button_background": "#3a4e86",
-            "button_text_color": "#ffffff",
-            "button_text": "Alles ansehen",
-            "link": "shopify://collections/all"
-          }
-        },
         "image-2": {
           "type": "image",
           "settings": {
@@ -46,11 +29,28 @@
             "link": "shopify://collections/all"
           }
         },
+        "image-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DE444098641_8.png",
+            "mobile_image": "shopify://shop_images/Design_ohne_Titel_45.png",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "PV-Komplettsets",
+            "content": "Eine Solaranlage als Komplettpaket?\nFinde die passende Lösung genau für dich",
+            "content_position": "middle_left",
+            "button_background": "#3a4e86",
+            "button_text_color": "#ffffff",
+            "button_text": "Alles ansehen",
+            "link": "shopify://collections/all"
+          }
+        },
         "image-3": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/DE444098641_1.png",
-            "mobile_image": "shopify://shop_images/KV_1536x_d1f5cc91-a1df-4210-857e-26f05ece5d8c.png",
+            "mobile_image": "shopify://shop_images/Design_ohne_Titel_44.png",
             "show_overlay": true,
             "overlay_opacity": 30,
             "text_color": "#ffffff",
@@ -65,8 +65,8 @@
         }
       },
       "block_order": [
-        "image-1",
         "image-2",
+        "image-1",
         "image-3"
       ],
       "settings": {
