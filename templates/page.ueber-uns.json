@@ -113,6 +113,7 @@
         "form_content": "<p>Fragen zu unseren Produkten oder deiner Bestellung?</p>",
         "show_store_info": false,
         "store_heading": "Find us",
+        "store_image": "shopify://shop_images/AdobeStock_176087690_Preview.jpg",
         "store_info": ""
       }
     }
