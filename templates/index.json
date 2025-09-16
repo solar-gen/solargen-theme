@@ -226,8 +226,8 @@
         "offer-2": {
           "type": "offer",
           "settings": {
-            "title": "Deutschlandweit kostenloser Versand",
-            "content": "<p>Wir arbeiten mit allen bekannten Versanddienstleistern zusammen und bieten auf alle Produkte kostenlosen Versand an. (ausgenommen Balkonkraftwerke und Pv-Komplettsets) </p>"
+            "title": "Deutschlandweit sicher geliefert",
+            "content": "<p>Wir arbeiten mit zuverlässigen Versanddienstleistern zusammen und liefern alle Produkte schnell und sicher direkt zu Ihnen nach Hause. Viele Artikel versenden wir versandkostenfrei – bei Speditionsware gelten faire Festpreise.</p>"
           }
         }
       },
@@ -305,7 +305,7 @@
           "type": "collection",
           "settings": {
             "collection": "zubehoer",
-            "image": "shopify://shop_images/White_Modern_Discount_Product_Instagram_Post_15.png",
+            "image": "shopify://shop_images/440Wp_4.png",
             "link": ""
           }
         }
