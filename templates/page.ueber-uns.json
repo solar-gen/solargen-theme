@@ -13,9 +13,35 @@
       "type": "main-page",
       "disabled": true,
       "settings": {}
+    },
+    "image_with_text_r9Qd9F": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/wrs-tm-pl-TCkIri6lxEo-unsplash1.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "title": "SolarGen – Solartechnik aus Deutschland, verlässlich & schnell",
+        "content": "<p>Wir liefern geprüfte PV-Komponenten aus deutschem Lager – mit ehrlicher Beratung, klaren Prozessen und zügigem Versand.</p>",
+        "button_text": "Produkte entdecken",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "rich_text_7T3z38": {
+      "type": "rich-text",
+      "name": "Rich text",
+      "settings": {
+        "text_width": "narrow",
+        "title": "Unsere Mission",
+        "content": "<p>Seit 2023 unterstützen wir Haushalte und Unternehmen mit moderner Solartechnik. Unser Ziel: faire Preise, schnelle Verfügbarkeit und Lösungen, die zuverlässig funktionieren.<br/><br/>Als junges Unternehmen bauen wir auf klare Werte: <strong>Vertrauen, Qualität und Service</strong>.<br/></p>",
+        "button_text": "",
+        "button_link": "shopify://collections/all"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "image_with_text_r9Qd9F",
+    "rich_text_7T3z38"
   ]
 }
