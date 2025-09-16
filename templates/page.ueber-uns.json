@@ -53,7 +53,7 @@
       "settings": {
         "form_heading": "Wir sind für dich da",
         "form_content": "<p>Fragen zu unseren Produkten oder deiner Bestellung?</p>",
-        "show_store_info": true,
+        "show_store_info": false,
         "store_heading": "Find us",
         "store_info": ""
       }
