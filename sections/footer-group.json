@@ -121,7 +121,11 @@
         "enable_follow_on_shop": false,
         "show_payment_icons": true,
         "show_locale_selector": true,
-        "show_country_selector": true
+        "show_country_selector": true,
+        "show_trust_row": true,
+        "show_trust_contact": true,
+        "support_phone": "+49 0000 000000",
+        "support_hours": "Mo–Fr, 9–16 Uhr"
       }
     }
   },
