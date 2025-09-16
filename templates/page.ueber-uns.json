@@ -27,19 +27,6 @@
         "button_link": "shopify://collections/all"
       }
     },
-    "image_with_text_jFkq6k": {
-      "type": "image-with-text",
-      "name": "Image with text",
-      "settings": {
-        "image": "shopify://shop_images/chuttersnap-BNBA1h-NgdY-unsplash.jpg",
-        "image_position": "left",
-        "image_width": 50,
-        "title": "Unser Standort im Saarland",
-        "content": "<p>Unser Lager befindet sich in Bous, nahe Saarlouis, Völklingen und Saarbrücken. Von hier aus beliefern wir Kunden in ganz Deutschland – zuverlässig, schnell und direkt aus deutschem Lager.</p>",
-        "button_text": "",
-        "button_link": "shopify://collections/all"
-      }
-    },
     "rich_text_7T3z38": {
       "type": "rich-text",
       "name": "Rich text",
@@ -107,8 +94,22 @@
         "liquid": "{% render 'etrusted-widget', id: 'wdg-f54d8cd0-0dd1-4b32-a4f4-f4f10ea97343' %}"
       }
     },
+    "image_with_text_jFkq6k": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/chuttersnap-BNBA1h-NgdY-unsplash.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "title": "Unser Standort im Saarland",
+        "content": "<p>Unser Lager befindet sich in Bous, nahe Saarlouis, Völklingen und Saarbrücken. Von hier aus beliefern wir Kunden in ganz Deutschland – zuverlässig, schnell und direkt aus deutschem Lager.</p>",
+        "button_text": "",
+        "button_link": "shopify://collections/all"
+      }
+    },
     "rich_text_xtkR4B": {
       "type": "rich-text",
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "text_width": "narrow",
