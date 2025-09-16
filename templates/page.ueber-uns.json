@@ -89,7 +89,7 @@
       "type": "custom-liquid",
       "name": "Custom Liquid",
       "settings": {
-        "title": "",
+        "title": "Das sagen unsere Kunden",
         "include_margins": true,
         "liquid": "{% render 'etrusted-widget', id: 'wdg-f54d8cd0-0dd1-4b32-a4f4-f4f10ea97343' %}"
       }
