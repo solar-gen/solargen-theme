@@ -85,7 +85,14 @@
     "checkout_accent_color": "#00badb",
     "checkout_button_color": "#00badb",
     "checkout_error_color": "#ff0000",
-    "content_for_index": []
+    "content_for_index": [],
+    "blocks": {
+      "14327677521557774844": {
+        "type": "shopify://apps/simprosys-google-shopping-feed/blocks/core_settings_block/1f0b859e-9fa6-4007-97e8-4513aff5ff3b",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "installed_preset_name": "Warehouse",
   "presets": {
