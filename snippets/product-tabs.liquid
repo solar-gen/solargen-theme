@@ -113,7 +113,8 @@ Produkt-Tabs (nur Link-basierte Downloads)
     {%- assign chosen = sg[opt] -%}
 
     {%- if chosen != blank -%}
-      <div class="rte">{{ chosen }}</div>
+      {%- assign cleaned_chosen = chosen | remove: 'Versandkosten: 59 €' | remove: 'Versandkosten: 59€' | remove: 'Versandkosten:59 €' | remove: 'Versandkosten:59€' | remove: 'Versandkosten: 59' | remove: 'Versandkosten:59' | remove: 'Versandkosten: ' | strip -%}
+      <div class="rte">{{ cleaned_chosen }}</div>
     {%- else -%}
       {%- assign sg_text = sg.paket_bis_2_kg
           | default: sg.paket_bis_10_kg
@@ -125,7 +126,8 @@ Produkt-Tabs (nur Link-basierte Downloads)
           | default: sg.balkonkraftwerk_2_module
           | default: sg.balkonkraftwerk_4_module
           | default: sg.balkonkraftwerk_8_module -%}
-      <div class="rte">{{ sg_text }}</div>
+      {%- assign cleaned_sg_text = sg_text | remove: 'Versandkosten: 59 €' | remove: 'Versandkosten: 59€' | remove: 'Versandkosten:59 €' | remove: 'Versandkosten:59€' | remove: 'Versandkosten: 59' | remove: 'Versandkosten:59' | remove: 'Versandkosten: ' | strip -%}
+      <div class="rte">{{ cleaned_sg_text }}</div>
     {%- endif -%}
 
   {%- elsif shipping_override != blank -%}

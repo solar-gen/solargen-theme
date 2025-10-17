@@ -1,0 +1,184 @@
+{% comment %}
+  SolarGen – Kontaktformular - Screenshot Layout
+{% endcomment %}
+
+<section class="section">
+  <div class="container container--medium">
+    <div class="layout">
+      <div class="layout__section">
+        
+        <!-- Header -->
+        <header class="form__header text-center">
+          <h1 class="heading h1">Kontakt</h1>
+          
+          <!-- Company Info -->
+          <div class="rte" style="margin: 20px 0; padding: 20px; background: #f8f9fa; border: 1px solid #e5e7eb; border-radius: 8px;">
+            <h3 style="margin: 0 0 10px 0;">Solar-Gen®</h3>
+            <p style="margin: 0 0 8px 0;"><strong>Adresse:</strong> Saarbrücker Str. 104a, 66359 Bous</p>
+            <p style="margin: 0 0 8px 0;"><strong>Telefon:</strong> 06332 5004530</p>
+            <p style="margin: 0 0 8px 0;"><strong>E-Mail:</strong> info@solar-gen.de</p>
+            <p style="margin: 0 0 0 0; font-style: italic;">Wir sind für Sie da! Haben Sie Fragen zu unseren Produkten oder benötigen Sie eine individuelle Beratung? Unser erfahrenes Team steht Ihnen gerne zur Verfügung.</p>
+          </div>
+        </header>
+
+        {% form 'contact', class: 'form' %}
+          {% if form.posted_successfully? %}
+            <p class="alert alert--success">{{ 'contact.form.successfully_sent' | t }}</p>
+          {% endif %}
+
+          {% if form.errors %}
+            <div class="alert alert--error" id="contact-form-error">
+              <ul class="alert__error-list" role="list">
+                {% for field in form.errors %}
+                  {% if field == 'form' %}
+                    <li class="alert__error-item">{{ form.errors.messages[field] }}</li>
+                  {% else %}
+                    <li class="alert__error-item">{{ form.errors.translated_fields[field] | capitalize }} {{ form.errors.messages[field] }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          <input type="hidden" name="form_type" value="contact">
+          <input type="hidden" name="contact[tags]" value="kontakt, anfrage">
+          <input type="hidden" name="contact[subject]" value="Kontaktanfrage über Website">
+          <input type="text" name="contact[company_website]" tabindex="-1" autocomplete="off" style="position: absolute; left: -9999px;" aria-hidden="true">
+
+          <!-- Form Grid - Screenshot Layout -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+            <!-- Left Column -->
+            <div class="form__input-wrapper form__input-wrapper--labelled">
+              <div class="select-wrapper select-wrapper--primary">
+                {% render 'icon', icon: 'arrow-bottom' %}
+                <select name="contact[anrede]" id="contact-anrede">
+                  <option value="" disabled selected></option>
+                  <option>Herr</option>
+                  <option>Frau</option>
+                </select>
+              </div>
+              <label for="contact-anrede" class="form__floating-label">Anrede</label>
+            </div>
+
+            <!-- Right Column -->
+            <div class="form__input-wrapper form__input-wrapper--labelled">
+              <input id="contact-vorname" type="text" class="form__field form__field--text" name="contact[vorname]" required>
+              <label for="contact-vorname" class="form__floating-label">Vorname*</label>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+            <!-- Left Column -->
+            <div class="form__input-wrapper form__input-wrapper--labelled">
+              <input id="contact-nachname" type="text" class="form__field form__field--text" name="contact[nachname]" required>
+              <label for="contact-nachname" class="form__floating-label">Nachname*</label>
+            </div>
+
+            <!-- Right Column -->
+            <div class="form__input-wrapper form__input-wrapper--labelled">
+              <input id="contact-telefon" type="tel" class="form__field form__field--text" name="contact[telefon]">
+              <label for="contact-telefon" class="form__floating-label">Telefonnummer</label>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+            <!-- Left Column -->
+            <div class="form__input-wrapper form__input-wrapper--labelled">
+              <input id="contact-email" type="email" class="form__field form__field--text" name="contact[email]" required>
+              <label for="contact-email" class="form__floating-label">E-Mail*</label>
+            </div>
+
+            <!-- Right Column -->
+            <div class="form__input-wrapper form__input-wrapper--labelled">
+              <input id="contact-strasse" type="text" class="form__field form__field--text" name="contact[strasse]">
+              <label for="contact-strasse" class="form__floating-label">Straße und Hausnummer</label>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+            <!-- Left Column -->
+            <div class="form__input-wrapper form__input-wrapper--labelled">
+              <input id="contact-plz" type="text" class="form__field form__field--text" name="contact[plz]">
+              <label for="contact-plz" class="form__floating-label">Postleitzahl</label>
+            </div>
+
+            <!-- Right Column -->
+            <div class="form__input-wrapper form__input-wrapper--labelled">
+              <input id="contact-stadt" type="text" class="form__field form__field--text" name="contact[stadt]">
+              <label for="contact-stadt" class="form__floating-label">Stadt</label>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+            <!-- Left Column -->
+            <div class="form__input-wrapper form__input-wrapper--labelled">
+              <div class="select-wrapper select-wrapper--primary">
+                {% render 'icon', icon: 'arrow-bottom' %}
+                <select name="contact[land]" id="contact-land">
+                  <option value="" disabled selected></option>
+                  <option>Deutschland</option>
+                  <option>Österreich</option>
+                  <option>Schweiz</option>
+                  <option>Luxemburg</option>
+                  <option>Niederlande</option>
+                  <option>Belgien</option>
+                  <option>Frankreich</option>
+                  <option>Italien</option>
+                  <option>Andere</option>
+                </select>
+              </div>
+              <label for="contact-land" class="form__floating-label">Land</label>
+            </div>
+
+            <!-- Right Column - Empty -->
+            <div></div>
+          </div>
+
+          <!-- Anliegen - Full Width -->
+          <div class="form__input-wrapper form__input-wrapper--labelled" style="margin-bottom: 16px;">
+            <div class="select-wrapper select-wrapper--primary">
+              {% render 'icon', icon: 'arrow-bottom' %}
+              <select name="contact[anliegen]" id="contact-anliegen" required>
+                <option value="" disabled selected></option>
+                <option>Bitte auswählen</option>
+                <option>Produktberatung</option>
+                <option>Bestandsanlage erweitern</option>
+                <option>Technischer Service</option>
+                <option>Lieferstatus erfragen</option>
+                <option>Auftrag ändern</option>
+                <option>Widerruf tätigen</option>
+                <option>Falschlieferung</option>
+                <option>Garantiefall melden</option>
+                <option>Transportschaden melden</option>
+              </select>
+            </div>
+            <label for="contact-anliegen" class="form__floating-label">Ihr Anliegen*</label>
+          </div>
+
+          <!-- Nachricht -->
+          <div class="form__input-wrapper form__input-wrapper--labelled" style="margin-bottom: 16px;">
+            <textarea id="contact-message" name="contact[body]" rows="6" class="form__field form__field--textarea" placeholder="Beschreiben Sie hier Ihr Anliegen..."></textarea>
+            <label for="contact-message" class="form__floating-label">Ihre Nachricht</label>
+          </div>
+
+          <!-- DSGVO -->
+          <div class="form__input-wrapper" style="margin-bottom: 20px;">
+            <label class="form__checkbox">
+              <input type="checkbox" name="contact[consent]" required>
+              <span class="form__checkbox-label">Hiermit bestätige ich, dass Solar-Gen mich per E-Mail und Telefon kontaktieren darf, um meine übermittelten Anliegen zu klären.*</span>
+            </label>
+          </div>
+
+          <button type="submit" class="form__submit button button--primary button--min-width">Senden</button>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SG Kontaktformular",
+  "settings": []
+}
+{% endschema %}

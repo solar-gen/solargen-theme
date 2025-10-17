@@ -1,34 +1,263 @@
-:root{
-  --sg-blue:#005BD3; --sg-blue-dark:#004C9A;
-  --sg-text:#111; --sg-muted:#6B7280;
-  --sg-border:#D6D7D9; --sg-bg:#fff;
+/* SolarGen – Angebotsformular - Screenshot Style */
+.sg-offer{
+  background: var(--background-color, #fff);
+  padding: 20px 0;
 }
-.sg-offer__wrap{max-width:960px;margin:0 auto;padding:24px 16px;}
-.sg-offer__title{margin:0 0 .25rem 0;font-size:28px;line-height:1.2;}
-.sg-offer__sub{margin:0 0 1.25rem 0;color:var(--sg-muted);}
 
-.sg-offer__alert{padding:12px 14px;border:1px solid var(--sg-border);border-radius:0;background:#F8FAFC;margin-bottom:16px;}
-.sg-offer__alert.is-success{border-color:#22c55e;background:#ecfdf5;}
-.sg-offer__alert.is-error{border-color:#ef4444;background:#fef2f2;}
-.sg-offer__hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+.sg-offer__wrap{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  background: var(--background-color, #fff);
+}
 
-.sg-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.sg-field--full{grid-column:1 / -1;}
-.sg-label{display:block;font-weight:600;margin-bottom:6px;}
-.sg-input{width:100%;padding:10px 12px;border:1px solid var(--sg-border);border-radius:0;background:#fff;}
-.sg-input:focus{outline:2px solid var(--sg-blue);outline-offset:1px;border-color:transparent;}
-.sg-check{display:flex;gap:8px;align-items:flex-start;}
+/* Header */
+.sg-offer__header{
+  margin-bottom: 30px;
+}
 
-.sg-pills{display:flex;flex-wrap:wrap;gap:8px;}
-.sg-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--sg-border);background:#F3F5F6;border-radius:0;padding:8px 12px;cursor:pointer;}
-.sg-pill input{accent-color:var(--sg-blue);}
+.sg-offer__title{
+  font-size: 24px;
+  font-weight: var(--heading-font-weight, 600);
+  color: var(--heading-color, #1f2937);
+  margin: 0 0 20px 0;
+  text-align: center;
+}
 
-.sg-actions{display:flex;align-items:center;gap:16px;margin-top:8px;}
-.sg-btn{background:var(--sg-blue);color:#fff;border:0;padding:12px 18px;font-weight:700;border-radius:0;cursor:pointer;}
-.sg-btn:hover{background:var(--sg-blue-dark);}
-.sg-foot{margin:0;color:var(--sg-muted);}
+/* Banner */
+.sg-offer__banner{
+  background: #f8f9fa;
+  border: 1px solid var(--border-color, #e5e7eb);
+  padding: 20px;
+  margin-bottom: 30px;
+}
 
-@media (max-width: 749px){
-  .sg-grid{grid-template-columns:1fr;}
-  .sg-offer__wrap{padding:20px 12px;}
+.sg-offer__banner-content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.sg-offer__company-info h2{
+  font-size: 18px;
+  font-weight: var(--heading-font-weight, 600);
+  color: var(--heading-color, #1f2937);
+  margin: 0 0 8px 0;
+}
+
+.sg-offer__company-info p{
+  margin: 0 0 12px 0;
+  color: var(--text-color, #6B7280);
+  line-height: 1.4;
+}
+
+.sg-offer__contact-details p{
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  color: var(--text-color, #6B7280);
+}
+
+.sg-offer__expert-info h3{
+  font-size: 16px;
+  font-weight: var(--heading-font-weight, 600);
+  color: var(--heading-color, #1f2937);
+  margin: 0 0 12px 0;
+}
+
+.sg-offer__expert-info p{
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: var(--text-color, #6B7280);
+  line-height: 1.5;
+}
+
+/* Form Sections */
+.sg-form-section{
+  margin-bottom: 30px;
+  border: 1px solid var(--border-color, #e5e7eb);
+  padding: 20px;
+  background: var(--background-color, #fff);
+}
+
+.sg-section-title{
+  font-size: 18px;
+  font-weight: var(--heading-font-weight, 600);
+  color: var(--heading-color, #1f2937);
+  margin: 0 0 8px 0;
+  text-align: center;
+}
+
+.sg-section-subtitle{
+  font-size: 14px;
+  color: var(--text-color, #6B7280);
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+.sg-optional-badge{
+  background: #3b82f6;
+  color: white;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  margin: 0 auto 20px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Form Grid */
+.sg-form-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.sg-field{
+  display: flex;
+  flex-direction: column;
+}
+
+.sg-field--full{
+  grid-column: 1 / -1;
+}
+
+.sg-label{
+  font-size: 14px;
+  font-weight: var(--text-font-bolder-weight, 600);
+  color: var(--heading-color, #374151);
+  margin-bottom: 6px;
+}
+
+/* Input Fields */
+.sg-input{
+  padding: 8px 12px;
+  border: 1px solid var(--form-border-color, var(--border-color));
+  background: var(--input-background, #fff);
+  font-size: 14px;
+  color: var(--heading-color, #374151);
+  -webkit-appearance: none;
+  resize: none;
+  font-family: inherit;
+}
+
+.sg-input:focus{
+  outline: none;
+  border-color: var(--primary-button-background, #3b82f6);
+  box-shadow: 0 0 0 1px var(--primary-button-background, #3b82f6) inset;
+}
+
+.sg-input::placeholder{
+  color: var(--text-color, #9ca3af);
+}
+
+/* Alerts */
+.sg-offer__alert{
+  padding: 12px 16px;
+  border: 1px solid var(--border-color, #e5e7eb);
+  background: var(--input-background, #f8f9fa);
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.sg-offer__alert.is-success{
+  border-color: #10b981;
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.sg-offer__alert.is-error{
+  border-color: #ef4444;
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.sg-offer__hp{
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Checkbox */
+.sg-check{
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--text-color, #6b7280);
+}
+
+.sg-check input[type="checkbox"]{
+  margin-top: 2px;
+  width: 14px;
+  height: 14px;
+  accent-color: var(--primary-button-background, #3b82f6);
+}
+
+/* Actions */
+.sg-actions{
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color, #e5e7eb);
+}
+
+.sg-btn{
+  background: var(--primary-button-background, #3b82f6);
+  color: var(--primary-button-text-color, #fff);
+  border: none;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: var(--text-font-bolder-weight, 600);
+  line-height: 48px;
+  cursor: pointer;
+  text-align: center;
+  min-width: 200px;
+  margin-bottom: 12px;
+}
+
+.sg-btn:hover{
+  background: rgba(var(--primary-button-background-rgb, 59, 130, 246), 0.8);
+}
+
+.sg-foot{
+  color: var(--text-color, #6B7280);
+  font-size: 14px;
+  margin: 0;
+  font-weight: var(--text-font-weight, 400);
+}
+
+.sg-foot strong{
+  color: #10b981;
+}
+
+/* Responsive */
+@media (max-width: 768px){
+  .sg-offer__banner-content{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .sg-form-grid{
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .sg-offer__wrap{
+    padding: 0 16px;
+  }
+  
+  .sg-form-section{
+    padding: 16px;
+  }
+  
+  .sg-section-title{
+    font-size: 16px;
+  }
 }

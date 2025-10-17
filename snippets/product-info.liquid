@@ -2,7 +2,8 @@
 
 
 
-<div class="card {% if product.media.size > 0 %}card--collapsed{% endif %} {% if template.name == 'product' %}card--sticky{% endif %}">
+<div style="position: relative; z-index: 1;">
+<div class="card {% if product.media.size > 0 %}card--collapsed{% endif %} {% if template.name == 'product' %}card--sticky{% endif %}" style="{% if template.name == 'product' %}position: sticky; top: 0; background: white;{% endif %}">
   {%- if section.settings.enable_image_zoom -%}
     <div id="product-zoom-{{ section.id }}" class="product__zoom-wrapper"></div>
   {%- endif -%}
@@ -68,9 +69,26 @@
                         {%- endif -%}
                       </div>
                       
-                      <!-- USt-Klausel - Anklickbar mit Theme Modal -->
-                      <div class="product-form__tax-info" style="margin-top: 4px; margin-bottom: 12px;">
-                        <button type="button" class="tax-disclaimer link" style="font-size: 0.85em; color: #666; text-decoration: underline; background: none; border: none; padding: 0; cursor: pointer;" data-action="open-modal" aria-controls="modal-tax-info">Inkl. 0% USt. nach §12 Abs. 3 UStG.</button>
+                      <!-- Steuer- und Zahlungsinfos zusammengefasst -->
+                      <div class="product-form__payment-tax-info" style="margin-top: 16px; margin-bottom: 3px; padding: 10px; background: #F9F9F9; border-radius: 4px;">
+                        <!-- USt-Klausel -->
+                        <div style="margin-bottom: 8px;">
+                          <span style="font-size: 13px; color: #666;">Inkl. 0% USt. nach <button type="button" class="tax-disclaimer link" style="color: #666; text-decoration: underline; background: none; border: none; padding: 0; cursor: pointer; font-size: inherit;" data-action="open-modal" aria-controls="modal-tax-info">§12 Abs. 3 UStG</button></span>
+                        </div>
+                        
+                        <!-- PayPal Ratenzahlung -->
+                        <div style="font-size: 13px;">
+                          {%- assign price_in_euro = selected_variant.price | divided_by: 100.0 -%}
+                          <div
+                            data-pp-message
+                            data-pp-style-layout="text"
+                            data-pp-style-logo-type="inline"
+                            data-pp-style-logo-position="left"
+                            data-pp-style-text-size="12"
+                            data-pp-style-text-color="#666666"
+                            data-pp-amount="{{ price_in_euro }}">
+                          </div>
+                        </div>
                       </div>
                       
                       <!-- Versandkosten - Dynamisch basierend auf Metafeld -->
@@ -170,33 +188,40 @@
     </product-form>
   </div>
 </div>
+</div>
+
+{%- comment -%}Trust-Bereich außerhalb des sticky Wrappers{%- endcomment -%}
+{%- render 'product-payment-trust' -%}
 
 <!-- Tax Info Modal -->
 <div id="modal-tax-info" class="modal" aria-hidden="true">
-  <div class="modal__dialog" role="dialog">
-    <button class="modal__close link" data-action="close-modal" title="Schließen">
-      <svg width="14" height="14" viewBox="0 0 14 14"><path d="M13 1L1 13M1 1l12 12" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-    </button>
+  <div class="modal__dialog" role="dialog" style="max-width: 700px;">
+    <header class="modal__header">
+      <h3 class="modal__title heading h2">Nullsteuersatz bei Photovoltaikanlagen</h3>
+      <button class="modal__close link" data-action="close-modal" title="{{ 'general.accessibility.close' | t | escape }}">
+        {%- render 'icon', icon: 'close' -%}
+      </button>
+    </header>
 
-    <div class="modal__inner" style="padding: 30px; max-width: 800px;">
-      <h2 style="color: #333; margin-bottom: 20px; font-size: 24px; font-weight: 600;">Nullsteuersatz bei Photovoltaikanlagen</h2>
-      
-      <p style="color: #333; line-height: 1.6; margin-bottom: 16px;">Damit Sie bei Ihrer Bestellung, bei uns, von der Nullsteuer nach §12 Abs. 3 Nr. 1 UstG profitieren können, müssen die folgenden Voraussetzungen erfüllt sein:</p>
-      
-      <ul style="color: #333; line-height: 1.6; margin-bottom: 20px; padding-left: 20px;">
-        <li style="margin-bottom: 12px;">die Lieferungen von Solarmodulen erfolgt an den Betreiber einer Photovoltaikanlage, einschließlich der für den Betrieb einer Photovoltaikanlage wesentlichen Komponenten, des Speichers, die dazu dienen, den mit Solarmodulen erzeugten Strom zu speichern, wenn die Photovoltaikanlage auf oder in der Nähe von Privatwohnungen, Wohnungen sowie öffentlichen und anderen Gebäuden, die für dem Gemeinwohl dienende Tätigkeiten genutzt werden, installiert wird. Die Voraussetzungen gelten als erfüllt, wenn die installierte Bruttoleistung der Photovoltaikanlage laut Marktstammdatenregister nicht mehr als 30 Kilowatt (peak) beträgt oder betragen wird.</li>
+    <div class="modal__content">
+      <div class="rte">
+        <p style="margin-bottom: 16px;">Damit Sie bei Ihrer Bestellung, bei uns, von der Nullsteuer nach §12 Abs. 3 Nr. 1 UstG profitieren können, müssen die folgenden Voraussetzungen erfüllt sein:</p>
         
-        <li style="margin-bottom: 12px;">Betreiber der Photovoltaikanlage sind die natürlichen Personen, juristischen Personen oder Personenzusammenschlüsse, die dem Grunde nach zum Leistungszeitpunkt als Betreiber im MAStR (Marktstammdatenregister) registrierungspflichtig sind. Die tatsächliche Registrierung im MAStR (z. B. im Falle von Balkonkraftwerken) ist für die Betreibereigenschaft nicht maßgeblich.</li>
+        <ul style="margin-bottom: 20px; padding-left: 20px;">
+          <li style="margin-bottom: 12px;">die Lieferungen von Solarmodulen erfolgt an den Betreiber einer Photovoltaikanlage, einschließlich der für den Betrieb einer Photovoltaikanlage wesentlichen Komponenten, des Speichers, die dazu dienen, den mit Solarmodulen erzeugten Strom zu speichern, wenn die Photovoltaikanlage auf oder in der Nähe von Privatwohnungen, Wohnungen sowie öffentlichen und anderen Gebäuden, die für dem Gemeinwohl dienende Tätigkeiten genutzt werden, installiert wird. Die Voraussetzungen gelten als erfüllt, wenn die installierte Bruttoleistung der Photovoltaikanlage laut Marktstammdatenregister nicht mehr als 30 Kilowatt (peak) beträgt oder betragen wird.</li>
+          
+          <li style="margin-bottom: 12px;">Betreiber der Photovoltaikanlage sind die natürlichen Personen, juristischen Personen oder Personenzusammenschlüsse, die dem Grunde nach zum Leistungszeitpunkt als Betreiber im MAStR (Marktstammdatenregister) registrierungspflichtig sind. Die tatsächliche Registrierung im MAStR (z. B. im Falle von Balkonkraftwerken) ist für die Betreibereigenschaft nicht maßgeblich.</li>
+          
+          <li style="margin-bottom: 12px;">Sie erbringen uns gegenüber den Nachweis, dass die Tatbestandsvoraussetzungen zur Anwendung des Nullsteuersatzes erfüllt sind. Dazu ist es Ausreichend, wenn Sie als Erwerber schriftlich erklären, dass Sie Betreiber der Photovoltaikanlage sind und es sich um ein begünstigtes Gebäude handelt oder die installierte Bruttoleistung der Photovoltaikanlage laut MAStR nicht mehr als 30 kW (peak) beträgt oder betragen wird.</li>
+        </ul>
         
-        <li style="margin-bottom: 12px;">Sie erbringen uns gegenüber den Nachweis, dass die Tatbestandsvoraussetzungen zur Anwendung des Nullsteuersatzes erfüllt sind. Dazu ist es Ausreichend, wenn Sie als Erwerber schriftlich erklären, dass Sie Betreiber der Photovoltaikanlage sind und es sich um ein begünstigtes Gebäude handelt oder die installierte Bruttoleistung der Photovoltaikanlage laut MAStR nicht mehr als 30 kW (peak) beträgt oder betragen wird.</li>
-      </ul>
-      
-      <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 4px solid #28a745; margin-bottom: 20px;">
-        <p style="color: #333; line-height: 1.6; font-style: italic; margin: 0;">Sollte sich nachträglich zeigen, dass diese Voraussetzungen entgegen Ihrer Bestätigung nicht erfüllt sind (z.B. durch Außenprüfung), so erklären Sie sich mit der nachträglichen in Rechnungstellung der zu wenig entrichteten Umsatzsteuer einverstanden.</p>
-      </div>
-      
-      <div style="text-align: center;">
-        <button class="button button--primary" data-action="close-modal">Verstanden</button>
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 4px solid #28a745; margin-bottom: 20px;">
+          <p style="font-style: italic; margin: 0;">Sollte sich nachträglich zeigen, dass diese Voraussetzungen entgegen Ihrer Bestätigung nicht erfüllt sind (z.B. durch Außenprüfung), so erklären Sie sich mit der nachträglichen in Rechnungstellung der zu wenig entrichteten Umsatzsteuer einverstanden.</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <button class="button button--primary" data-action="close-modal">Verstanden</button>
+        </div>
       </div>
     </div>
   </div>
