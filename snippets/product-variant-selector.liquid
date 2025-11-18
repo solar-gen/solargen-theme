@@ -51,9 +51,26 @@
               {%- endif -%}
             </div>
 
-            <!-- USt-Klausel unter dem Preis -->
-            <div class="product-form__tax-info" style="margin-top: 4px;">
-              <button type="button" class="tax-disclaimer link" style="font-size: 0.85em; color: #666; text-decoration: underline; background: none; border: none; padding: 0; cursor: pointer;" data-action="open-modal" aria-controls="modal-tax-info">Inkl. 0% USt. nach §12 Abs. 3 UStG.</button>
+            <!-- Steuer- und Zahlungsinfos zusammengefasst -->
+            <div class="product-form__payment-tax-info" style="margin-top: 16px; margin-bottom: 3px; padding: 10px; background: #F9F9F9; border-radius: 4px;">
+              <!-- USt-Klausel -->
+              <div style="margin-bottom: 8px;">
+                <span style="font-size: 13px; color: #666;">Inkl. 0% USt. nach <button type="button" class="tax-disclaimer link" style="color: #666; text-decoration: underline; background: none; border: none; padding: 0; cursor: pointer; font-size: inherit;" data-action="open-modal" aria-controls="modal-tax-info">§12 Abs. 3 UStG</button></span>
+              </div>
+              
+              <!-- PayPal Ratenzahlung -->
+              <div style="font-size: 13px;">
+                {%- assign price_in_euro = selected_variant.price | divided_by: 100.0 -%}
+                <div
+                  data-pp-message
+                  data-pp-style-layout="text"
+                  data-pp-style-logo-type="inline"
+                  data-pp-style-logo-position="left"
+                  data-pp-style-text-size="12"
+                  data-pp-style-text-color="#666666"
+                  data-pp-amount="{{ price_in_euro }}">
+                </div>
+              </div>
             </div>
 
             <div class="product-form__price-info" style="display: {% if selected_variant.unit_price_measurement %}block{% else %}none{% endif %}">
@@ -297,9 +314,26 @@
           {%- endif -%}
         </div>
 
-        <!-- USt-Klausel unter dem Preis (zweiter Block) -->
-        <div class="product-form__tax-info" style="margin-top: 4px;">
-          <button type="button" class="tax-disclaimer link" style="font-size: 0.85em; color: #666; text-decoration: underline; background: none; border: none; padding: 0; cursor: pointer;" data-action="open-modal" aria-controls="modal-tax-info">Inkl. 0% USt. nach §12 Abs. 3 UStG.</button>
+        <!-- Steuer- und Zahlungsinfos zusammengefasst (zweiter Block) -->
+        <div class="product-form__payment-tax-info" style="margin-top: 16px; margin-bottom: 3px; padding: 10px; background: #F9F9F9; border-radius: 4px;">
+          <!-- USt-Klausel -->
+          <div style="margin-bottom: 8px;">
+            <span style="font-size: 13px; color: #666;">Inkl. 0% USt. nach <button type="button" class="tax-disclaimer link" style="color: #666; text-decoration: underline; background: none; border: none; padding: 0; cursor: pointer; font-size: inherit;" data-action="open-modal" aria-controls="modal-tax-info">§12 Abs. 3 UStG</button></span>
+          </div>
+          
+          <!-- PayPal Ratenzahlung -->
+          <div style="font-size: 13px;">
+            {%- assign price_in_euro = selected_variant.price | divided_by: 100.0 -%}
+            <div
+              data-pp-message
+              data-pp-style-layout="text"
+              data-pp-style-logo-type="inline"
+              data-pp-style-logo-position="left"
+              data-pp-style-text-size="12"
+              data-pp-style-text-color="#666666"
+              data-pp-amount="{{ price_in_euro }}">
+            </div>
+          </div>
         </div>
 
         <div class="product-form__price-info" style="display: {% if selected_variant.unit_price_measurement %}block{% else %}none{% endif %}">

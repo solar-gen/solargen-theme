@@ -12,9 +12,9 @@
     "main": {
       "type": "sg-offer",
       "settings": {
-        "headline": "Unverbindliches Angebot anfordern",
-        "subline": "Sag uns kurz, was du planst – wir melden uns zügig mit einer passenden Empfehlung.",
-        "show_consent": false
+        "headline": "Experten beraten Sie!",
+        "subline": "Sie sind nicht sicher ob die ausgewählten Komponenten zu Ihrem Projekt passen? Dann fragen Sie unsere Experten um Rat. Unser Team steht Ihnen telefonisch oder per E-Mail zur Seite.\n\nSie wollen Ihr Geld sinnvoll anlegen, unabhängiger von der Strompreisentwicklung sein? Dann fordern Sie jetzt gleich hier ein kostenloses und unverbindliches Angebot über eine Photovoltaikanlage zur Selbstmontage oder mit Montageservice an. Für die Angebotserstellung mit Modulbelegungsplan und Ertragsprognose benötigen wir nur ein paar Angaben zu Ihrem Dach. Es ist ganz einfach und dauert nur 2 Min. Gerne können Sie uns auch Ihre Pläne, Bilder oder Skizzen per E-Mail an planung@photovoltaik4all.de senden.",
+        "show_consent": true
       }
     }
   },

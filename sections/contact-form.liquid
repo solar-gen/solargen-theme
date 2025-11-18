@@ -1,12 +1,38 @@
+<style>
+  @media (max-width: 768px) {
+    .sg-contact-grid {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+    
+    .sg-contact-container {
+      padding: 0 16px !important;
+    }
+    
+    .sg-contact-checkbox-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+
 <div {% if page.handle != 'contact' %}class="section"{% endif %}>
-  <div class="container container--medium">
+  <div class="container sg-contact-container">
     <div class="layout">
       <div class="layout__section">
+        
+        <!-- Company Info Box -->
+        <div class="rte" style="margin: 20px 0; padding: 20px; background: #f8f9fa; border: 1px solid #e5e7eb; border-radius: 8px;">
+          <h3 style="margin: 0 0 10px 0; font-size: 18px; font-weight: 600;">Solar-Gen®</h3>
+          <p style="margin: 0 0 8px 0; font-size: 14px; color: #6b7280;"><strong>Adresse:</strong> Saarbrücker Str. 104a, 66359 Bous</p>
+          <p style="margin: 0 0 8px 0; font-size: 14px; color: #6b7280;"><strong>Telefon:</strong> 06332 5004530</p>
+          <p style="margin: 0 0 8px 0; font-size: 14px; color: #6b7280;"><strong>E-Mail:</strong> info@solar-gen.de</p>
+          <p style="margin: 0 0 0 0; font-style: italic; font-size: 14px; color: #6b7280; line-height: 1.5;">Wir sind für Sie da! Haben Sie Fragen zu unseren Produkten oder benötigen Sie eine individuelle Beratung? Unser erfahrenes Team steht Ihnen gerne zur Verfügung.</p>
+        </div>
+
         {%- form 'contact', class: 'form' -%}
           {%- if section.settings.form_heading != blank -%}
-            <div class="form__header {% unless section.settings.show_store_info %}text-center{% endunless %}">
+            <div class="form__header text-center">
               <h2 class="heading h3">{{ section.settings.form_heading | escape }}</h2>
-
               {%- if section.settings.form_content != blank -%}
                 {{- section.settings.form_content -}}
               {%- endif -%}
@@ -31,94 +57,128 @@
             </div>
           {%- endif -%}
 
-          <div class="form__input-row">
-            <div class="form__input-wrapper form__input-wrapper--labelled">
-              <input id="contact-form-name" type="text" class="form__field form__field--text {% if customer.name != blank %}is-filled{% endif %}" name="contact[name]" aria-label="{{ 'contact.form.name' | t }}" required {% if customer %}value="{{ customer.name }}"{% endif %}>
-              <label for="contact-form-name" class="form__floating-label">{{ 'contact.form.name' | t }}</label>
+          <input type="hidden" name="form_type" value="contact">
+          <input type="hidden" name="contact[tags]" value="kontakt, anfrage">
+          <input type="hidden" name="contact[subject]" value="Kontaktanfrage über Website">
+          <input type="text" name="contact[company_website]" tabindex="-1" autocomplete="off" style="position: absolute; left: -9999px;" aria-hidden="true">
+
+          <!-- Form Grid - Optimiertes Layout -->
+          <div class="sg-contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+            <!-- Left Column -->
+            <div style="display: flex; flex-direction: column;">
+              <label for="contact-anrede" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #374151;">Anrede</label>
+              <select name="contact[anrede]" id="contact-anrede" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 4px; background: #fff; font-size: 14px;">
+                <option value="">Bitte auswählen</option>
+                <option>Herr</option>
+                <option>Frau</option>
+              </select>
             </div>
 
-            <div class="form__input-wrapper form__input-wrapper--labelled">
-              <input id="contact-form-email" type="email" class="form__field form__field--text {% if customer.email != blank %}is-filled{% endif %}" name="contact[email]" aria-label="{{ 'contact.form.email' | t }}" required {% if customer %}value="{{ customer.email }}"{% endif %} {% if form.errors contains 'email' %}aria-invalid="true" aria-describedby="contact-form-error"{% endif %}>
-              <label for="contact-form-email" class="form__floating-label">{{ 'contact.form.email' | t }}</label>
+            <!-- Right Column -->
+            <div style="display: flex; flex-direction: column;">
+              <label for="contact-vorname" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #374151;">Vorname*</label>
+              <input id="contact-vorname" type="text" name="contact[vorname]" required style="padding: 12px; border: 1px solid #d1d5db; border-radius: 4px; background: #fff; font-size: 14px;">
             </div>
           </div>
 
-          {%- for block in section.blocks -%}
-            {%- assign field_title = block.settings.title -%}
+          <div class="sg-contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+            <!-- Left Column -->
+            <div style="display: flex; flex-direction: column;">
+              <label for="contact-nachname" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #374151;">Nachname*</label>
+              <input id="contact-nachname" type="text" name="contact[nachname]" required style="padding: 12px; border: 1px solid #d1d5db; border-radius: 4px; background: #fff; font-size: 14px;">
+            </div>
 
-            {%- if field_title == blank -%}
-              {%- capture field_title -%}Custom field {% increment custom_field %}{%- endcapture -%}
-            {%- endif -%}
-
-            {%- if block.type == 'text' -%}
-              <div class="form__input-wrapper form__input-wrapper--labelled">
-                {%- if block.settings.use_long_text -%}
-                  <textarea id="contact-form-{{ field_title | handle }}" name="contact[{{ field_title | escape }}]" rows="7" class="form__field form__field--textarea" aria-label="{{ block.settings.title | escape }}" {% if block.settings.is_required %}required{% endif %}></textarea>
-                  <label for="contact-form-{{ field_title | handle }}" class="form__floating-label">{{ block.settings.title | escape }}</label>
-                {%- else -%}
-                  <input id="contact-form-{{ field_title | handle }}" type="text" class="form__field form__field--text" name="contact[{{ field_title | escape }}]" aria-label="{{ block.settings.title | escape }}" {% if block.settings.is_required %}required{% endif %}>
-                  <label for="contact-form-{{ field_title | handle }}" class="form__floating-label">{{ block.settings.title | escape }}</label>
-                {%- endif -%}
-              </div>
-            {%- elsif block.type == 'dropdown' -%}
-              {%- assign values = block.settings.values | split: ',' -%}
-
-              {%- if values == empty -%}
-                {%- continue -%}
-              {%- endif -%}
-
-              <div class="form__input-wrapper form__input-wrapper--labelled">
-                <div id="contact-form-{{ field_title | handle }}" class="select-wrapper select-wrapper--primary">
-                  {%- render 'icon', icon: 'arrow-bottom' -%}
-
-                  <select name="contact[{{ field_title | escape }}]" title="{{ block.settings.title | escape }}" required>
-                    <option value="" disabled selected></option>
-
-                    {%- for value in values -%}
-                      {%- assign trim_value = value | strip -%}
-
-                      <option value="{{ trim_value | escape }}">{{ trim_value | escape }}</option>
-                    {%- endfor -%}
-                  </select>
-                </div>
-
-                <label for="contact-form-{{ field_title | handle }}" class="form__floating-label">{{ block.settings.title | escape }}</label>
-              </div>
-            {%- endif -%}
-          {%- endfor -%}
-
-          <div class="form__input-wrapper form__input-wrapper--labelled">
-            <textarea id="contact-form-message" name="contact[body]" rows="8" class="form__field form__field--textarea" aria-label="{{ 'contact.form.message' | t }}" required></textarea>
-            <label for="contact-form-message" class="form__floating-label">{{ 'contact.form.message' | t }}</label>
+            <!-- Right Column -->
+            <div style="display: flex; flex-direction: column;">
+              <label for="contact-telefon" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #374151;">Telefonnummer</label>
+              <input id="contact-telefon" type="tel" name="contact[telefon]" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 4px; background: #fff; font-size: 14px;">
+            </div>
           </div>
 
-          <button type="submit" class="form__submit {% unless section.settings.show_store_info %}form__submit--centered{% endunless %} button button--primary button--min-width">{{ 'contact.form.submit' | t }}</button>
+          <div class="sg-contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+            <!-- Left Column -->
+            <div style="display: flex; flex-direction: column;">
+              <label for="contact-email" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #374151;">E-Mail*</label>
+              <input id="contact-email" type="email" name="contact[email]" required style="padding: 12px; border: 1px solid #d1d5db; border-radius: 4px; background: #fff; font-size: 14px;">
+            </div>
+
+            <!-- Right Column -->
+            <div style="display: flex; flex-direction: column;">
+              <label for="contact-strasse" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #374151;">Straße und Hausnummer</label>
+              <input id="contact-strasse" type="text" name="contact[strasse]" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 4px; background: #fff; font-size: 14px;">
+            </div>
+          </div>
+
+          <div class="sg-contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+            <!-- Left Column -->
+            <div style="display: flex; flex-direction: column;">
+              <label for="contact-plz" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #374151;">Postleitzahl</label>
+              <input id="contact-plz" type="text" name="contact[plz]" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 4px; background: #fff; font-size: 14px;">
+            </div>
+
+            <!-- Right Column -->
+            <div style="display: flex; flex-direction: column;">
+              <label for="contact-stadt" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #374151;">Stadt</label>
+              <input id="contact-stadt" type="text" name="contact[stadt]" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 4px; background: #fff; font-size: 14px;">
+            </div>
+          </div>
+
+          <div class="sg-contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+            <!-- Left Column -->
+            <div style="display: flex; flex-direction: column;">
+              <label for="contact-land" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #374151;">Land</label>
+              <select name="contact[land]" id="contact-land" style="padding: 12px; border: 1px solid #d1d5db; border-radius: 4px; background: #fff; font-size: 14px;">
+                <option value="">Bitte auswählen</option>
+                <option>Deutschland</option>
+                <option>Österreich</option>
+                <option>Schweiz</option>
+                <option>Luxemburg</option>
+                <option>Niederlande</option>
+                <option>Belgien</option>
+                <option>Frankreich</option>
+                <option>Italien</option>
+                <option>Andere</option>
+              </select>
+            </div>
+
+            <!-- Right Column - Empty -->
+            <div></div>
+          </div>
+
+          <!-- Anliegen - Full Width -->
+          <div style="margin-bottom: 20px;">
+            <label for="contact-anliegen" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #374151; display: block;">Ihr Anliegen*</label>
+            <select name="contact[anliegen]" id="contact-anliegen" required style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 4px; background: #fff; font-size: 14px;">
+              <option value="">Bitte auswählen</option>
+              <option>Produktberatung</option>
+              <option>Bestandsanlage erweitern</option>
+              <option>Technischer Service</option>
+              <option>Lieferstatus erfragen</option>
+              <option>Auftrag ändern</option>
+              <option>Widerruf tätigen</option>
+              <option>Falschlieferung</option>
+              <option>Garantiefall melden</option>
+              <option>Transportschaden melden</option>
+            </select>
+          </div>
+
+          <!-- Nachricht - Großes Textarea -->
+          <div style="margin-bottom: 20px;">
+            <label for="contact-message" style="font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #374151; display: block;">Ihre Nachricht</label>
+            <textarea id="contact-message" name="contact[body]" rows="8" style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 4px; background: #fff; font-size: 14px; resize: vertical; min-height: 120px;" placeholder="Beschreiben Sie hier Ihr Anliegen..."></textarea>
+          </div>
+
+          <!-- DSGVO -->
+          <div style="margin-bottom: 24px;">
+            <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 13px; line-height: 1.4; color: #6b7280;">
+              <input type="checkbox" name="contact[consent]" required style="margin-top: 2px; width: 16px; height: 16px; accent-color: #3b82f6;">
+              <span>Hiermit bestätige ich, dass Solar-Gen mich per E-Mail und Telefon kontaktieren darf, um meine übermittelten Anliegen zu klären.*</span>
+            </label>
+          </div>
+
+          <button type="submit" class="form__submit button button--primary button--min-width">Senden</button>
         {%- endform -%}
       </div>
-
-      {%- if section.settings.show_store_info -%}
-        <div class="layout__section layout__section--large-secondary">
-          <div class="contact__store-info">
-            {%- if section.settings.store_heading != blank -%}
-              <h2 class="contact__store-heading heading h3">{{ section.settings.store_heading | escape }}</h2>
-            {%- endif -%}
-
-            {%- if section.settings.store_image -%}
-              <div class="contact__store-image">
-                <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: section.settings.store_image.aspect_ratio }}%">
-                  <img loading="lazy" width="{{ section.settings.store_image.width }}" height="{{ section.settings.store_image.height }}" src="{{ section.settings.store_image | img_url: '700x' }}" alt="{{ section.settings.store_image.alt | escape }}">
-                </div>
-              </div>
-            {%- endif -%}
-
-            {%- if section.settings.store_info != blank -%}
-              <div class="contact__store-text rte">
-                {{ section.settings.store_info }}
-              </div>
-            {%- endif -%}
-          </div>
-        </div>
-      {%- endif -%}
     </div>
   </div>
 </div>

@@ -5,18 +5,24 @@
     {%- assign closest_location = pick_up_availabilities.first -%}
     
     {%- if closest_location.available -%}
-      <div class="sg-pickup-info">
-        <div class="sg-pickup-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 12l2 2 4-4"/>
-            <circle cx="12" cy="12" r="10"/>
+      <div style="margin: 24px 0 16px 0; display: flex; align-items: flex-start; gap: 12px;">
+        
+        <!-- Ganz grüne Akzentleiste -->
+        <div style="width: 2px; background: #10b981; border-radius: 1px; flex-shrink: 0; min-height: 50px;"></div>
+        
+        <!-- Sehr dezentes Checkmark Icon -->
+        <div style="width: 18px; height: 18px; border: 1px solid #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; background: rgba(16, 185, 129, 0.03);">
+          <svg width="10" height="8" viewBox="0 0 10 8" fill="none" style="color: #10b981; opacity: 0.8;">
+            <path d="M1 4L3.5 6.5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         
-        <div class="sg-pickup-content">
-          <div class="sg-pickup-title">Abholung in Saarlouis / Bous möglich</div>
-          <div class="sg-pickup-time">In der Regel abholbereit in 2-4 Werktagen</div>
-          <button type="button" class="sg-pickup-link" data-action="open-modal" aria-controls="StoreAvailabilityModal-{{ product_variant.id }}">
+        <!-- Content -->
+        <div style="flex: 1; padding-left: 4px; padding-top: 1px;">
+          <div style="font-size: 14px; color: #374151; line-height: 1.5; margin-bottom: 4px;">
+            Abholung in Saarlouis / Bous möglich • In der Regel abholbereit in 2-4 Werktagen
+          </div>
+          <button type="button" data-action="open-modal" aria-controls="StoreAvailabilityModal-{{ product_variant.id }}" style="background: none; border: none; color: #3b82f6; text-decoration: underline; font-size: 13px; padding: 0; cursor: pointer; font-weight: 500;">
             Shop-Informationen anzeigen
           </button>
         </div>

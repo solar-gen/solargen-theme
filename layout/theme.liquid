@@ -91,6 +91,9 @@
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
     <script src="{{ 'variant-pills.js' | asset_url }}" defer></script>
     <script src="{{ 'custom.js' | asset_url }}" defer></script>
+    
+    {%- comment -%}PayPal SDK für Ratenzahlungs-Nachrichten{%- endcomment -%}
+    <script src="https://www.paypal.com/sdk/js?client-id=BAA2SK2c3d58asIBdIENGaNBFzdYIjASdiP3Vnw4VWiIVMIfDE2HT_PV0f9jXOuE6NqHx4k3Kev0dswdxA&currency=EUR&components=messages" data-namespace="PayPalSDK" defer></script>
 
     {%- if request.page_type != 'cart' -%}
       <script>
