@@ -85,7 +85,14 @@
     "checkout_accent_color": "#00badb",
     "checkout_button_color": "#00badb",
     "checkout_error_color": "#ff0000",
-    "content_for_index": []
+    "content_for_index": [],
+    "blocks": {
+      "15351435345818755577": {
+        "type": "shopify://apps/pandectes-gdpr/blocks/banner/58c0baa2-6cc1-480c-9ea6-38d6d559556a",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "installed_preset_name": "Warehouse",
   "presets": {
