@@ -1,0 +1,133 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "product_meta": {
+          "type": "product_meta",
+          "settings": {
+            "show_vendor": false,
+            "show_sku": true,
+            "show_reviews_badge": false,
+            "show_share_buttons": false
+          }
+        },
+        "variant_selector": {
+          "type": "variant_selector",
+          "settings": {
+            "selector_mode": "block",
+            "color_mode": "swatch",
+            "variant_image_options": "",
+            "show_quantity_selector": true,
+            "show_taxes_included": false,
+            "show_inventory_quantity": false,
+            "low_inventory_threshold": 0,
+            "progress_bar_max_value": 50
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "store_pickup_nHandG": {
+          "type": "store_pickup",
+          "settings": {}
+        },
+        "liquid_VAcfVi": {
+          "type": "liquid",
+          "settings": {
+            "title": "",
+            "liquid": "{% render 'product-tabs' %}",
+            "display_mode": "show_all"
+          }
+        }
+      },
+      "block_order": [
+        "product_meta",
+        "variant_selector",
+        "buy_buttons",
+        "store_pickup_nHandG",
+        "liquid_VAcfVi"
+      ],
+      "settings": {
+        "image_size": "medium",
+        "enable_video_looping": false,
+        "enable_image_zoom": false,
+        "zoom_effect": "inside",
+        "carousel_effect": "slide"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "Das könnte dich auch interessieren",
+        "show_quick_buy": false
+      }
+    },
+    "recently-viewed-products": {
+      "type": "recently-viewed-products",
+      "disabled": true,
+      "settings": {
+        "title": "Recently viewed",
+        "show_quick_buy": false
+      }
+    },
+    "featured_collection_tH9HcN": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "collection": "empfehlungen",
+        "title": "Das könnte dich auch interessieren",
+        "products_count": 6,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "",
+        "link_url": ""
+      }
+    },
+    "custom_liquid_KjY8bY": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "title": "Kundenbewertungen",
+        "include_margins": true,
+        "liquid": "{% render 'etrusted-widget' %}"
+      }
+    },
+    "image_with_text_Wmp8Qy": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/wrs-tm-pl-TCkIri6lxEo-unsplash.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "title": "Über uns",
+        "content": "<p><br/>Wir sind SolarGen – ein Team aus dem Südwesten Deutschlands. Bei uns bekommst du Photovoltaik <strong>aus einer Hand</strong>: Marken-PV-Sets, Balkonkraftwerk-Komplettpakete sowie einzelne Komponenten wie <strong>Solarmodule, Wechselrichter und Speicher</strong>. Wir <strong>halten Lagerware</strong> vor, liefern schnell und beraten dich <strong>vom Fachmann</strong> – per Telefon und Mail. So kommst du ohne Umwege zu einer sauberen, verlässlichen Lösung für dein Zuhause oder dein Projekt.<br/><br/></p>",
+        "button_text": "",
+        "button_link": "shopify://pages/contact"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-recommendations",
+    "recently-viewed-products",
+    "featured_collection_tH9HcN",
+    "custom_liquid_KjY8bY",
+    "image_with_text_Wmp8Qy"
+  ]
+}
