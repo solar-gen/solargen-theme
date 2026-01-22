@@ -1,0 +1,143 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "product_meta": {
+          "type": "product_meta",
+          "settings": {
+            "show_vendor": false,
+            "show_sku": true,
+            "show_reviews_badge": false,
+            "show_share_buttons": false
+          }
+        },
+        "variant_selector": {
+          "type": "variant_selector",
+          "settings": {
+            "selector_mode": "block",
+            "color_mode": "swatch",
+            "variant_image_options": "",
+            "show_quantity_selector": true,
+            "show_taxes_included": false,
+            "show_inventory_quantity": false,
+            "low_inventory_threshold": 0,
+            "progress_bar_max_value": 50
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "store_pickup_nHandG": {
+          "type": "store_pickup",
+          "settings": {}
+        },
+        "liquid_VAcfVi": {
+          "type": "liquid",
+          "settings": {
+            "title": "",
+            "liquid": "{% render 'product-tabs' %}",
+            "display_mode": "show_all"
+          }
+        }
+      },
+      "block_order": [
+        "product_meta",
+        "variant_selector",
+        "buy_buttons",
+        "store_pickup_nHandG",
+        "liquid_VAcfVi"
+      ],
+      "settings": {
+        "image_size": "medium",
+        "enable_video_looping": false,
+        "enable_image_zoom": false,
+        "zoom_effect": "inside",
+        "carousel_effect": "slide"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "Das könnte dich auch interessieren",
+        "show_quick_buy": false
+      }
+    },
+    "recently-viewed-products": {
+      "type": "recently-viewed-products",
+      "disabled": true,
+      "settings": {
+        "title": "Recently viewed",
+        "show_quick_buy": false
+      }
+    },
+    "custom_liquid_VWdxmY": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "title": "",
+        "include_margins": false,
+        "liquid": "<div class=\"page-width sg-wrapper\">\n  <section class=\"sg-spec\">\n    \n    <div class=\"sg-spec__hero\">\n      <div class=\"sg-spec__media\">\n        <div class=\"sg-badge\">NEU: Version SM2</div>\n        <img\n          class=\"sg-spec__image\"\n          src=\"https://cdn.shopify.com/s/files/1/0905/2549/9734/files/sun-345681012k-sg05lp3-eu-sm2-3.jpg?v=1768503382\"\n          alt=\"Deye SUN-20K-SG05LP3-EU-SM2 Hybrid Wechselrichter Ansicht\"\n          loading=\"lazy\"\n          width=\"800\"\n          height=\"800\"\n        >\n      </div>\n\n      <div class=\"sg-spec__head\">\n        <h2 class=\"sg-spec__title\">Deye SUN-20K-SG05LP3-EU-SM2 <br><span style=\"color:var(--sg-accent); font-size:0.8em;\">Das Kraftwerk: 20 kW Hybrid (48V)</span></h2>\n\n        <p class=\"sg-spec__intro\">\n          Das Maximum des technisch Machbaren im Niedervolt-Bereich. Der <strong>Deye 20K</strong> ist einer der stärksten 48V-Hybridwechselrichter am Markt. \n          Er liefert gewaltige <strong>20.000 Watt</strong> für Gewerbe und große Anwesen, ohne Sie in teure Hochvolt-Batteriesysteme zu zwingen.\n          <br><br>\n          <em>Ideal für: Landwirtschaft, Gewerbe, große Dächer und maximale Autarkie.</em>\n        </p>\n\n        <div class=\"sg-spec__glance\">\n          <div class=\"sg-spec__label\">Wesentliche Merkmale</div>\n\n          <div class=\"sg-spec__cards\">\n            <div class=\"sg-card\">\n              <div class=\"sg-card__icon\" aria-hidden=\"true\">\n                <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg>\n              </div>\n              <div class=\"sg-card__body\">\n                <div class=\"sg-card__title\">Maximale Power</div>\n                <div class=\"sg-card__text\">20 kW AC & 26 kW PV</div>\n              </div>\n            </div>\n\n            <div class=\"sg-card\">\n              <div class=\"sg-card__icon\" aria-hidden=\"true\">\n                <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><path d=\"M13 2L3 14h7l-1 8 10-12h-7l1-8Z\" stroke-linejoin=\"round\"/></svg>\n              </div>\n              <div class=\"sg-card__body\">\n                <div class=\"sg-card__title\">350A Ladung</div>\n                <div class=\"sg-card__text\">Ultraschnelles Laden</div>\n              </div>\n            </div>\n\n            <div class=\"sg-card\">\n              <div class=\"sg-card__icon\" aria-hidden=\"true\">\n                <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><rect x=\"2\" y=\"7\" width=\"20\" height=\"14\" rx=\"2\" ry=\"2\"></rect><path d=\"M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16\"></path></svg>\n              </div>\n              <div class=\"sg-card__body\">\n                <div class=\"sg-card__title\">Offenes System</div>\n                <div class=\"sg-card__text\">Beliebige 48V Speicher</div>\n              </div>\n            </div>\n\n            <div class=\"sg-card\">\n              <div class=\"sg-card__icon\" aria-hidden=\"true\">\n                <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><path d=\"M18.36 6.64a9 9 0 1 1-12.73 0\"></path><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"12\"></line></svg>\n              </div>\n              <div class=\"sg-card__body\">\n                <div class=\"sg-card__title\">Full Backup</div>\n                <div class=\"sg-card__text\">USV für das ganze Haus</div>\n              </div>\n            </div>\n          </div>\n        </div>\n\n      </div>\n    </div>\n\n    <div class=\"sg-spec__body\">\n      <div class=\"sg-grid-sections\">\n        <div class=\"sg-section\">\n          <h3 class=\"sg-section__title\">20.000 Watt für echte Unabhängigkeit</h3>\n          <p>\n            Mit <strong>20 kW Nennleistung</strong> (und 22 kW max. aus dem Netz) ist dieser Wechselrichter ein echtes Kraftwerk. \n            Er wurde entwickelt, um große PV-Felder (bis 26 kWp) effizient zu managen und auch im Notstrombetrieb ganze Betriebe oder große Haushalte ohne Einschränkungen weiterlaufen zu lassen.\n          </p>\n        </div>\n\n        <div class=\"sg-section\">\n          <h3 class=\"sg-section__title\">Massiver 350A Batteriestrom</h3>\n          <p>\n            Das Alleinstellungsmerkmal dieses Modells: Es kann gewaltige <strong>350 Ampere</strong> in die Batterien pumpen oder entnehmen. \n            Damit lassen sich riesige Speicherbänke (z.B. 30-50 kWh) in kürzester Zeit füllen. Perfekt, um günstige Börsenstrompreise im Winter aggressiv zu nutzen.\n          </p>\n        </div>\n        \n        <div class=\"sg-section\">\n          <h3 class=\"sg-section__title\">Normkonformität (SM2)</h3>\n          <p>\n            Trotz der enormen Leistung erhalten Sie die Revisionsklasse <strong>SM2</strong>. Das Gerät verfügt über die nötigen internen Relais für den NA-Schutz nach <strong>VDE-AR-N 4105</strong>. \n            Hinweis: Bei Anlagen >13.8 kVA ist in Deutschland oft ein externer zNAS vorgeschrieben – das Gerät ist dafür technisch vorbereitet (Dry Contact Ansteuerung).\n          </p>\n        </div>\n\n        <div class=\"sg-section\">\n          <h3 class=\"sg-section__title\">Outdoor & Steuerung</h3>\n          <p>\n            Dank IP65-Zertifizierung und robustem Kühlkonzept (Smart Fan) ist der Deye auch für rauere Umgebungen geeignet. \n            Die Steuerung erfolgt per Touchscreen am Gerät oder optional via App. Der \"Gen-Port\" ist stark genug ausgelegt, um auch große Diesel-Generatoren als Backup ins System einzubinden.\n          </p>\n        </div>\n      </div>\n\n      <div class=\"sg-section sg-section--full\">\n        <h3 class=\"sg-section__title\">Technische Daten (SUN-20K-SG05LP3-EU-SM2)</h3>\n        <div class=\"sg-tablewrap\">\n          <table class=\"sg-table\">\n            <tbody>\n              <tr><th>AC-Nennleistung</th><td><strong>20.000 W</strong> (3-phasig)</td></tr>\n              <tr><th>Max. PV-Eingangsleistung</th><td>26.000 W</td></tr>\n              <tr><th>Max. AC-Leistung (Grid)</th><td>22.000 W</td></tr>\n              <tr><th>Batterie-System</th><td><strong>48 V Niedervolt</strong> (40–60 V)</td></tr>\n              <tr><th>Max. Lade-/Entladestrom</th><td><strong>350 A</strong> (Marktspitze!)</td></tr>\n              <tr><th>MPPT Tracker / Strings</th><td>2 Tracker / <strong>2+2 Strings</strong></td></tr>\n              <tr><th>Wirkungsgrad (Euro)</th><td>97,0 %</td></tr>\n              <tr><th>Notstrom-Umschaltung</th><td>< 4ms (USV-Niveau)</td></tr>\n              <tr><th>Zertifizierung</th><td>VDE-AR-N 4105, IEC 62109</td></tr>\n              <tr><th>Abmessungen / Gewicht</th><td>456 × 750 × 269 mm / ca. 51 kg</td></tr>\n              <tr><th>Garantie</th><td>10 Jahre (Hersteller)</td></tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n\n      <div class=\"sg-section sg-section--full\">\n        <h3 class=\"sg-section__title\">Lieferumfang</h3>\n        <div class=\"sg-list-grid\">\n            <div class=\"sg-list-item\">Deye 20K Hybrid-WR (SM2)</div>\n            <div class=\"sg-list-item\">Wandhalterung (Edelstahl)</div>\n            <div class=\"sg-list-item\">WiFi-Datenlogger Stick</div>\n            <div class=\"sg-list-item\">Batterie-Temperatursensor</div>\n            <div class=\"sg-list-item\">3× Stromwandler (CTs)</div>\n            <div class=\"sg-list-item\">MC4-Steckverbinder Set</div>\n            <div class=\"sg-list-item\">Deutsche Anleitung (PDF)</div>\n        </div>\n      </div>\n\n    </div>\n  </section>\n</div>\n\n<style>\n  /* =========================\n     SOLAR-GEN PRO STYLING V1 + V3\n     + CLEAN MOBILE (Identisch zu 12K/15K)\n     ========================= */\n  .sg-spec {\n    --sg-accent: #008a00; /* Deye Grün - Seriös */\n    --sg-text: #111827;\n    --sg-muted: #4b5563;\n    --sg-border: #e5e7eb;\n    --sg-surface: #f9fafb;\n    --sg-bg: #ffffff;\n    --sg-mobile-bg: #f2f4f6; /* App-Grau für Mobile */\n    \n    width: 100%;\n    margin: 0 auto; \n    padding: 40px 0;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif;\n    color: var(--sg-text);\n    box-sizing: border-box;\n  }\n\n  .sg-wrapper {\n      max-width: 1200px;\n      margin-left: auto;\n      margin-right: auto;\n  }\n\n  /* --- DESKTOP LAYOUT --- */\n  .sg-spec__hero {\n    display: grid;\n    grid-template-columns: 45% 1fr; \n    gap: 50px;\n    align-items: start;\n    margin-bottom: 50px;\n  }\n\n  .sg-spec__media {\n    position: relative;\n    border: 1px solid var(--sg-border);\n    border-radius: 16px;\n    background: var(--sg-bg);\n    padding: 30px;\n    box-shadow: 0 10px 25px rgba(0,0,0,0.05);\n  }\n\n  /* BADGE ANPASSUNG */\n  .sg-badge {\n      position: absolute;\n      top: -10px;\n      left: -10px;\n      background: var(--sg-accent); /* Deye Grün */\n      color: white;\n      font-weight: bold;\n      padding: 8px 16px;\n      border-radius: 50px;\n      font-size: 14px;\n      box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n      z-index: 2;\n  }\n\n  .sg-spec__image {\n    width: 100%; height: auto; display: block;\n    transition: transform 0.3s ease;\n  }\n  .sg-spec__image:hover { transform: scale(1.02); }\n\n  .sg-spec__title {\n    margin: 0 0 20px;\n    font-size: 32px;\n    line-height: 1.2;\n    font-weight: 800;\n    color: var(--sg-text);\n  }\n\n  .sg-spec__intro {\n    margin: 0 0 30px;\n    line-height: 1.7;\n    color: var(--sg-muted);\n    font-size: 16px;\n  }\n\n  .sg-spec__label {\n    font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\n    margin-bottom: 15px; color: var(--sg-muted); font-weight: 700;\n  }\n\n  .sg-spec__cards {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    gap: 15px;\n  }\n\n  .sg-card {\n    display: flex; gap: 15px; align-items: center;\n    border: 1px solid var(--sg-border);\n    border-radius: 12px;\n    padding: 15px;\n    background: var(--sg-bg);\n    transition: all 0.2s ease;\n  }\n  .sg-card:hover {\n    border-color: var(--sg-accent);\n    box-shadow: 0 4px 15px rgba(0,0,0,0.08);\n    transform: translateY(-2px);\n  }\n\n  .sg-card__icon {\n    width: 48px; height: 48px; border-radius: 10px;\n    background: #f0fdf4; color: var(--sg-accent);\n    display: flex; align-items: center; justify-content: center;\n    flex-shrink: 0;\n  }\n  .sg-card__icon svg { width: 24px; height: 24px; }\n\n  .sg-card__title { font-size: 15px; font-weight: 700; margin-bottom: 2px; }\n  .sg-card__text { font-size: 13px; color: var(--sg-muted); line-height: 1.3; }\n\n  .sg-grid-sections {\n    display: grid; grid-template-columns: 1fr 1fr; gap: 30px 50px;\n  }\n\n  .sg-section__title {\n    font-size: 20px; margin: 0 0 12px; font-weight: 700;\n    display: flex; align-items: center; gap: 12px;\n  }\n  .sg-section__title::before {\n    content:''; display: block; width: 4px; height: 24px;\n    background: var(--sg-accent); border-radius: 4px;\n  }\n  .sg-section p { margin: 0; line-height: 1.7; color: var(--sg-muted); font-size: 16px; }\n  .sg-section--full { grid-column: 1 / -1; margin-top: 40px; }\n\n  /* Table Style */\n  .sg-tablewrap {\n    overflow-x: auto; border-radius: 12px;\n    border: 1px solid var(--sg-border);\n    box-shadow: 0 2px 8px rgba(0,0,0,0.02);\n  }\n  .sg-table { width: 100%; border-collapse: collapse; min-width: 600px; }\n  .sg-table tr:nth-child(even) { background-color: var(--sg-surface); }\n  .sg-table th, .sg-table td { padding: 14px 20px; text-align: left; font-size: 15px; border-bottom: 1px solid var(--sg-border); }\n  .sg-table th { width: 40%; font-weight: 600; color: var(--sg-text); }\n\n  /* List Grid */\n  .sg-list-grid {\n    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px;\n  }\n  .sg-list-item {\n    background: var(--sg-surface); padding: 10px 15px;\n    border-radius: 8px; font-size: 15px; color: var(--sg-text);\n    display: flex; align-items: center;\n  }\n  .sg-list-item::before {\n    content: \"✓\"; color: var(--sg-accent); margin-right: 10px; font-weight: 900; font-size: 18px;\n  }\n\n  /* ============================\n     MOBILE OPTIMIZATION (Clean List Style)\n     ============================ */\n  @media (max-width: 900px) {\n    /* 1. Layout stapeln, aber KEIN grauer Hintergrund */\n    .sg-spec__hero { display: block; margin-bottom: 30px; }\n    .sg-grid-sections { display: block; }\n\n    /* 2. Abstände korrigieren */\n    .sg-spec { padding: 20px 0; }\n    .page-width .sg-spec, .sg-wrapper { padding-left: 20px !important; padding-right: 20px !important; }\n\n    /* 3. Textgrößen anpassen */\n    .sg-spec__title { font-size: 24px; margin-bottom: 15px; }\n    .sg-spec__media { margin-bottom: 30px; } /* Abstand Bild zu Text */\n    \n    /* 4. Feature Cards auf Mobile (Clean Grid) */\n    .sg-spec__cards {\n        gap: 10px;\n    }\n    .sg-card {\n        padding: 10px;\n        flex-direction: column; /* Icon oben, Text unten */\n        text-align: center;\n        align-items: center;\n        justify-content: center;\n        background: white; /* Weiß statt Grau */\n        border: 1px solid var(--sg-border);\n    }\n    .sg-card__text { font-size: 12px; }\n\n    /* 5. Sections untereinander */\n    .sg-section { margin-bottom: 30px; }\n    .sg-section--full { margin-top: 20px; }\n    \n    /* 6. Tabelle scrollbar lassen aber Text etwas kleiner */\n    .sg-table th, .sg-table td { padding: 10px; font-size: 13px; }\n  }\n</style>"
+      }
+    },
+    "featured_collection_tH9HcN": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "collection": "empfehlungen-deye-wechselrichter",
+        "title": "Das könnte dich auch interessieren",
+        "products_count": 6,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "",
+        "link_url": ""
+      }
+    },
+    "custom_liquid_KjY8bY": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "title": "Kundenbewertungen",
+        "include_margins": true,
+        "liquid": "{% render 'etrusted-widget' %}"
+      }
+    },
+    "image_with_text_Wmp8Qy": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/wrs-tm-pl-TCkIri6lxEo-unsplash.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "title": "Über uns",
+        "content": "<p><br/>Wir sind SolarGen – ein Team aus dem Südwesten Deutschlands. Bei uns bekommst du Photovoltaik <strong>aus einer Hand</strong>: Marken-PV-Sets, Balkonkraftwerk-Komplettpakete sowie einzelne Komponenten wie <strong>Solarmodule, Wechselrichter und Speicher</strong>. Wir <strong>halten Lagerware</strong> vor, liefern schnell und beraten dich <strong>vom Fachmann</strong> – per Telefon und Mail. So kommst du ohne Umwege zu einer sauberen, verlässlichen Lösung für dein Zuhause oder dein Projekt.<br/><br/></p>",
+        "button_text": "",
+        "button_link": "shopify://pages/contact"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-recommendations",
+    "recently-viewed-products",
+    "custom_liquid_VWdxmY",
+    "featured_collection_tH9HcN",
+    "custom_liquid_KjY8bY",
+    "image_with_text_Wmp8Qy"
+  ]
+}
